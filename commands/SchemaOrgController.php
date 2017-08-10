@@ -23,7 +23,7 @@ class SchemaOrgController extends Controller {
 	public $defaultAction = 'generate';
 
 	/**
-	 *
+	 * Load schema.org object tree and generate model files
 	 */
 	public function actionGenerate() {
 		$tree = $this->loadTree();
@@ -32,6 +32,12 @@ class SchemaOrgController extends Controller {
 		$this->generateModelsFromTree($tree);
 	}
 
+	/**
+	 * Load tree from schema.org
+	 *
+	 * @return array|boolean
+	 * @throws Exception
+	 */
 	protected function loadTree() {
 		$source = $this->module->source;
 		$this->stdout("Loading Thing tree from '{$source}'...\n");
@@ -46,6 +52,12 @@ class SchemaOrgController extends Controller {
 		return $this->parseTree($html);
 	}
 
+	/**
+	 * Generates models out of tree
+	 *
+	 * @param array $tree
+	 * @param string $parent
+	 */
 	protected function generateModelsFromTree(array $tree, $parent = 'Model') {
 		$matches   = [];
 		$className = null;
@@ -64,6 +76,15 @@ class SchemaOrgController extends Controller {
 		}
 	}
 
+	/**
+	 * Parse schema.org description and write model
+	 *
+	 * @param string $url
+	 * @param string $className
+	 * @param string $parent
+	 *
+	 * @return boolean
+	 */
 	protected function generateModel($url, $className, $parent = 'Model') {
 		$sourceUrl = parse_url($this->module->source);
 		$url       = $sourceUrl['scheme'].'://'.$sourceUrl['host'].$url;
@@ -125,8 +146,14 @@ class SchemaOrgController extends Controller {
 			'properties' => $properties
 		]);
 
-		echo $phpcode;
-		exit;
+		$filePath = realpath(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'models').DIRECTORY_SEPARATOR.$className.'.php';
+		if (file_put_contents($filePath, $phpcode)) {
+			$this->stdout("File '$filePath' written\n");
+		} else {
+			$this->stderr("Could not write file '$filePath'\n");
+		}
+
+		return true;
 	}
 
 	/**

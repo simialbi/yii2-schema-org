@@ -12,6 +12,7 @@ namespace simialbi\yii2\schemaorg\models;
 <?php
 if ($parent === 'Model') {
 ?>
+
 use yii\base\Model;
 <?php
 }
@@ -31,6 +32,7 @@ foreach ($properties as $property) {
 	* @var <?=$property['type'];?> <?=$property['description'];?>
 	*/
 	public $<?=$property['name'];?>;
+
 <?php
 }
 ?>
