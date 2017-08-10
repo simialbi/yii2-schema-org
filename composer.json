@@ -1,0 +1,35 @@
+{
+	"name": "simialbi/yii2-schema-org",
+	"description": "Schema.org yii2 representation and helpers for json-ld generation in Yii framework",
+	"keywords": ["yii2", "schema.org", "json+ld", "jsonld"],
+	"type": "yii2-extension",
+	"license": "MIT",
+	"support": {
+		"issues": "https://github.com/simialbi/yii2-schema-org/issues",
+		"source": "https://github.com/simialbi/yii2-schema-org"
+	},
+	"authors": [
+		{
+			"name": "Simon Karlen",
+			"email": "simi.albi@gmail.com"
+		}
+	],
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"require": {
+		"yiisoft/yii2": ">=2.0.5"
+	},
+	"config": {
+		"process-timeout": 1800,
+		"secure-http": false,
+		"fxp-asset": {
+			"installer-paths": {
+				"npm-asset-library": "vendor/npm",
+				"bower-asset-library": "vendor/bower"
+			}
+		}
+	},
+	"autoload": {
+		"psr-4": { "simialbi\\yii2\\schemaorg\\": "" }
+	}
+}
