@@ -46,7 +46,7 @@ class SchemaOrgController extends Controller {
 		return $this->parseTree($html);
 	}
 
-	protected function generateModelsFromTree(array $tree, $parent = null) {
+	protected function generateModelsFromTree(array $tree, $parent = 'Model') {
 		$matches   = [];
 		$className = null;
 		foreach ($tree as $item) {
@@ -98,7 +98,17 @@ class SchemaOrgController extends Controller {
 					$property['name'] = trim($node->textContent);
 				} elseif (strcasecmp($node->nodeName, 'td') === 0) {
 					if ($tdIndex++ === 0) {
-						$property['type'] = trim(implode('|', explode(' or ', trim($node->textContent))));
+						$property['type'] = str_replace([
+							'Boolean', 'False', 'True',
+							'Date', 'DateTime',
+							'Number', 'Float', 'Integer',
+							'Text', 'URL', 'Time'
+						], [
+							'boolean', 'boolean', 'boolean',
+							'string', 'string',
+							'integer', 'float', 'integer',
+							'string', 'string', 'string'
+						], trim(implode('|', array_map('trim', explode(' or ', trim($node->textContent))))));
 					} else {
 						$property['description'] = trim($node->textContent);
 					}

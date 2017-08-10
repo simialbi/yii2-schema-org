@@ -6,7 +6,7 @@
  * Time: 11:49
  */
 
-echo '<?php\n\n';
+echo "<?php\n\n";
 ?>
 namespace simialbi\yii2\schemaorg\models;
 <?php
