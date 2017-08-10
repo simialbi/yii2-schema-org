@@ -28,7 +28,8 @@ class SchemaOrgController extends Controller {
 	public function actionGenerate() {
 		$tree = $this->loadTree();
 
-		var_dump($tree);
+		$this->stdout("Generating Models...\n");
+		$this->generateModelsFromTree($tree);
 	}
 
 	protected function loadTree() {
@@ -43,6 +44,19 @@ class SchemaOrgController extends Controller {
 		$html   = $dom->saveHTML($xquery->query('//*[@id="thing_tree"]/ul')->item(0));
 
 		return $this->parseTree($html);
+	}
+
+	protected function generateModelsFromTree(array $tree, $parent = null) {
+		$matches = [];
+		foreach ($tree as $item) {
+			if (is_array($item)) {
+				$this->generateModelsFromTree($tree);
+			} elseif (is_string($item)) {
+				if (preg_match('#<a href="([^"]+)">((?:[A-Z][a-z]+)+)</a>#', $item, $matches)) {
+					var_dump($matches);
+				}
+			}
+		}
 	}
 
 	/**
@@ -68,7 +82,7 @@ class SchemaOrgController extends Controller {
 					if (strcasecmp($tag, 'ul') === 0) {
 						$output[] = $this->parseTree($child);
 					} else {
-						$output[] = $child->children()->asXML();
+						$output[] = $child->asXML();
 					}
 				}
 			}
