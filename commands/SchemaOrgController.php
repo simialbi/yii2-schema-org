@@ -66,7 +66,7 @@ class SchemaOrgController extends Controller {
 
 	protected function generateModel($url, $className, $parent = 'Model') {
 		$sourceUrl = parse_url($this->module->source);
-		$url       = $sourceUrl[PHP_URL_SCHEME].'://'.$sourceUrl[PHP_URL_HOST].$url;
+		$url       = $sourceUrl['scheme'].'://'.$sourceUrl['host'].$url;
 
 		$dom = new \DOMDocument();
 		if (!@$dom->loadHTMLFile($url)) {
@@ -79,7 +79,13 @@ class SchemaOrgController extends Controller {
 		$properties = [];
 
 		foreach ($list as $item) {
-			var_dump($item);
+			/* @var $item \DOMElement */
+			if ((string)$item->attributes->getNamedItem('typeof')->nodeValue !== 'rdfs:Property') {
+				continue;
+			}
+
+			var_dump($item->childNodes->item(0)->textContent, $item->childNodes->item(1)->textContent, $item->childNodes->item(2)->textContent);
+
 			exit;
 		}
 
