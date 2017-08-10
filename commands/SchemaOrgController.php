@@ -86,14 +86,13 @@ class SchemaOrgController extends Controller {
 				continue;
 			}
 
-			$children = simplexml_load_string($dom->saveXML($item));
 			$properties[] = [
-				'name'        => trim((string) $children->th),
-				'type'        => implode('|', explode(' or ', trim((string)$children->td[0]))),
-				'description' => trim($children->td[1])
+				'name'        => trim($item->childNodes->item(0)->textContent),
+				'type'        => implode('|', explode(' or ', trim($item->childNodes->item(1)->textContent))),
+				'description' => trim($item->childNodes->item(2)->textContent)
 			];
 
-			var_dump($properties);
+			var_dump($item->childNodes, $properties);
 			exit;
 		}
 
