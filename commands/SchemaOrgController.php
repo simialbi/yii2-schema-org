@@ -77,7 +77,7 @@ class SchemaOrgController extends Controller {
 			return false;
 		}
 		$xquery     = new \DOMXPath($dom);
-		$list       = $xquery->query('//*[@id="mainContent"]/table[1]/tbody[2]/tr');
+		$list       = $xquery->query('//*[@id="mainContent"]/table[1]/tbody[1]/tr');
 		$properties = [];
 
 		foreach ($list as $item) {
