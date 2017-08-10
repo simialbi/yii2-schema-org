@@ -86,13 +86,19 @@ class SchemaOrgController extends Controller {
 				continue;
 			}
 
+			for ($i = 0; $i <= $item->childNodes->length; $i++) {
+				if ($item->childNodes->item(0)->nodeType === XML_TEXT_NODE) {
+					$item->removeChild($item->childNodes->item($i));
+				}
+			}
+
 			$properties[] = [
 				'name'        => trim($item->childNodes->item(0)->textContent),
 				'type'        => implode('|', explode(' or ', trim($item->childNodes->item(1)->textContent))),
 				'description' => trim($item->childNodes->item(2)->textContent)
 			];
 
-			var_dump($item->childNodes, $properties);
+			var_dump($item->childNodes->item(0), $item->childNodes->item(1), $item->childNodes->item(2), $properties);
 			exit;
 		}
 
