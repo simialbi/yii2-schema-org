@@ -57,7 +57,7 @@ class SchemaOrgController extends Controller {
 					$url       = $matches[1];
 					$className = $matches[2];
 
-					$this->stdout("Generate model '{$className}'");
+					$this->stdout("Generate model '{$className}'\n");
 					$this->generateModel($url, $className, $parent);
 				}
 			}
@@ -68,31 +68,39 @@ class SchemaOrgController extends Controller {
 		$sourceUrl = parse_url($this->module->source);
 		$url       = $sourceUrl['scheme'].'://'.$sourceUrl['host'].$url;
 
+		$this->stdout("Load properties from '{$url}'\n");
+
 		$dom = new \DOMDocument();
 		if (!@$dom->loadHTMLFile($url)) {
-			$this->stderr("Failed to load source for '{$className}': $url");
+			$this->stderr("Failed to load source for '{$className}': $url\n");
 
 			return false;
 		}
-		$xquery = new \DOMXPath($dom);
-		$list   = $xquery->query('//*[@id="mainContent"]/table[1]/tbody[2]/tr');
+		$xquery     = new \DOMXPath($dom);
+		$list       = $xquery->query('//*[@id="mainContent"]/table[1]/tbody[2]/tr');
 		$properties = [];
 
 		foreach ($list as $item) {
 			/* @var $item \DOMElement */
-			if ((string)$item->attributes->getNamedItem('typeof')->nodeValue !== 'rdfs:Property') {
+			if ((string) $item->attributes->getNamedItem('typeof')->nodeValue !== 'rdfs:Property') {
 				continue;
 			}
 
-			var_dump($item->childNodes->item(0)->textContent, $item->childNodes->item(1)->textContent, $item->childNodes->item(2)->textContent);
+			$properties[] = [
+				'name'        => trim($item->childNodes->item(0)->textContent),
+				'type'        => implode('|', explode(' or ', trim($item->childNodes->item(1)->textContent))),
+				'description' => trim($item->childNodes->item(2)->textContent)
+			];
 
+			var_dump($properties);
 			exit;
 		}
 
 		$phpcode = $this->renderPartial('model-template', [
-			'parent'    => $parent,
-			'className' => $className,
-			'url'       => $url
+			'parent'     => $parent,
+			'className'  => $className,
+			'url'        => $url,
+			'properties' => $properties
 		]);
 	}
 
