@@ -8,7 +8,6 @@
 
 namespace simialbi\yii2\schemaorg\commands;
 
-
 use yii\base\Exception;
 use yii\console\Controller;
 
@@ -83,7 +82,8 @@ class SchemaOrgController extends Controller {
 	 * @param string $className
 	 * @param string $parent
 	 *
-	 * @return boolean
+	 * @return bool
+	 * @throws Exception
 	 */
 	protected function generateModel($url, $className, $parent = 'Model') {
 		$sourceUrl = parse_url($this->module->source);

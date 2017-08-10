@@ -6,6 +6,11 @@
  * Time: 11:49
  */
 
+/* @var string $parent */
+/* @var string $className */
+/* @var string $url */
+/* @var array $properties */
+
 echo "<?php\n\n";
 ?>
 namespace simialbi\yii2\schemaorg\models;
@@ -19,19 +24,19 @@ use yii\base\Model;
 ?>
 
 /**
- * Model for <?=$className;?>
+ * Model for <?php echo $className;?>
  *
  * @package simialbi\yii2\schemaorg\models
- * @see <?=$url;?>
+ * @see <?php echo $url;?>
  */
-class <?=$className;?> extends <?=$parent;?> {
+class <?php echo $className;?> extends <?php echo $parent;?> {
 <?php
 foreach ($properties as $property) {
 ?>
 	/**
-	* @var <?=$property['type'];?> <?=$property['description'];?>
+	* @var <?php echo $property['type'];?> <?php echo $property['description'];?>
 	*/
-	public $<?=$property['name'];?>;
+	public $<?php echo $property['name'];?>;
 
 <?php
 }
