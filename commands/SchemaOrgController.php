@@ -146,7 +146,12 @@ class SchemaOrgController extends Controller {
 			'properties' => $properties
 		]);
 
-		$filePath = realpath(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'models').DIRECTORY_SEPARATOR.$className.'.php';
+		$modelDir = realpath(__DIR__.DIRECTORY_SEPARATOR.'..').DIRECTORY_SEPARATOR.'models';
+		if ((!file_exists($modelDir) || !is_dir($modelDir)) && !mkdir($modelDir)) {
+			throw new Exception("Could not create directory '{$modelDir}'");
+		}
+
+		$filePath = $modelDir.DIRECTORY_SEPARATOR.$className.'.php';
 		if (file_put_contents($filePath, $phpcode)) {
 			$this->stdout("File '$filePath' written\n");
 		} else {
