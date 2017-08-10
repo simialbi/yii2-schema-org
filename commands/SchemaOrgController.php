@@ -103,7 +103,7 @@ class SchemaOrgController extends Controller {
 
 		foreach ($list as $item) {
 			/* @var $item \DOMElement */
-			if ((string) $item->attributes->getNamedItem('typeof')->nodeValue !== 'rdfs:Property') {
+			if (!$item->hasAttribute('typeof') || (string) $item->attributes->getNamedItem('typeof')->nodeValue !== 'rdfs:Property') {
 				continue;
 			}
 

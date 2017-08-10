@@ -24,17 +24,17 @@ use yii\base\Model;
 ?>
 
 /**
- * Model for <?php echo $className;?>
+ * Model for <?php echo $className."\n";?>
  *
  * @package simialbi\yii2\schemaorg\models
- * @see <?php echo $url;?>
+ * @see <?php echo $url."\n";?>
  */
 class <?php echo $className;?> extends <?php echo $parent;?> {
 <?php
 foreach ($properties as $property) {
 ?>
 	/**
-	* @var <?php echo $property['type'];?> <?php echo $property['description'];?>
+	* @var <?php echo $property['type'];?> <?php echo $property['description']."\n";?>
 	*/
 	public $<?php echo $property['name'];?>;
 
