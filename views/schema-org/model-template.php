@@ -8,7 +8,7 @@
 
 echo '<?php\n\n';
 ?>
-namespace simialbi\yii2\schemaorg\commands;
+namespace simialbi\yii2\schemaorg\models;
 <?php
 if ($parent === 'Model') {
 ?>
@@ -23,3 +23,15 @@ use yii\base\Model;
  * @package simialbi\yii2\schemaorg\models
  * @see <?=$url;?>
  */
+class <?=$className;?> extends <?=$parent;?> {
+<?php
+foreach ($properties as $property) {
+?>
+	/**
+	* @var <?=$property['type'];?> <?=$property['description'];?>
+	*/
+	public $<?=$property['name'];?>;
+<?php
+}
+?>
+}

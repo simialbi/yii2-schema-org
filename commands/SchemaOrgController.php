@@ -86,7 +86,7 @@ class SchemaOrgController extends Controller {
 				continue;
 			}
 
-			$tdIndex = 0;
+			$tdIndex  = 0;
 			$property = [];
 			foreach ($item->childNodes as $node) {
 				/* @var $node \DOMElement */
@@ -98,7 +98,7 @@ class SchemaOrgController extends Controller {
 					$property['name'] = trim($node->textContent);
 				} elseif (strcasecmp($node->nodeName, 'td') === 0) {
 					if ($tdIndex++ === 0) {
-						$property['type'] = implode('|', explode(' or ', trim($node->textContent)));
+						$property['type'] = trim(implode('|', explode(' or ', trim($node->textContent))));
 					} else {
 						$property['description'] = trim($node->textContent);
 					}
@@ -106,9 +106,6 @@ class SchemaOrgController extends Controller {
 			}
 
 			$properties[] = $property;
-
-			var_dump($properties);
-			exit;
 		}
 
 		$phpcode = $this->renderPartial('model-template', [
@@ -117,6 +114,9 @@ class SchemaOrgController extends Controller {
 			'url'        => $url,
 			'properties' => $properties
 		]);
+
+		echo $phpcode;
+		exit;
 	}
 
 	/**
