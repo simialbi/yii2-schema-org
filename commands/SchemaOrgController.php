@@ -130,7 +130,7 @@ class SchemaOrgController extends Controller {
 							'integer', 'float', 'integer',
 							'string', 'string', 'string'
 						], trim(implode('|', array_map(function ($item) {
-							return trim($item, " \t\n\r\0\x0B".chr(160));
+							return trim($item, " \t\n\r\0\x0B".chr(0xC2).chr(0xA0));
 						}, explode(' or ', trim($node->textContent))))));
 					} else {
 						$property['description'] = trim($node->textContent);
