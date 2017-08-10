@@ -47,16 +47,47 @@ class SchemaOrgController extends Controller {
 	}
 
 	protected function generateModelsFromTree(array $tree, $parent = null) {
-		$matches = [];
+		$matches   = [];
+		$className = null;
 		foreach ($tree as $item) {
 			if (is_array($item)) {
-				$this->generateModelsFromTree($tree);
+				$this->generateModelsFromTree($item, $className);
 			} elseif (is_string($item)) {
 				if (preg_match('#<a href="([^"]+)">((?:[A-Z][a-z]+)+)</a>#', $item, $matches)) {
-					var_dump($matches);
+					$url       = $matches[1];
+					$className = $matches[2];
+
+					$this->stdout("Generate model '{$className}'");
+					$this->generateModel($url, $className, $parent);
 				}
 			}
 		}
+	}
+
+	protected function generateModel($url, $className, $parent = 'Model') {
+		$sourceUrl = parse_url($this->module->source);
+		$url       = $sourceUrl[PHP_URL_SCHEME].'://'.$sourceUrl[PHP_URL_HOST].$url;
+
+		$dom = new \DOMDocument();
+		if (!@$dom->loadHTMLFile($url)) {
+			$this->stderr("Failed to load source for '{$className}': $url");
+
+			return false;
+		}
+		$xquery = new \DOMXPath($dom);
+		$list   = $xquery->query('//*[@id="mainContent"]/table[1]/tbody[2]/tr');
+		$properties = [];
+
+		foreach ($list as $item) {
+			var_dump($item);
+			exit;
+		}
+
+		$phpcode = $this->renderPartial('model-template', [
+			'parent'    => $parent,
+			'className' => $className,
+			'url'       => $url
+		]);
 	}
 
 	/**
