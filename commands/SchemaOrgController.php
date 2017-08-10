@@ -36,7 +36,7 @@ class SchemaOrgController extends Controller {
 		$this->stdout("Loading Thing tree from '{$source}'...\n");
 
 		$dom = new \DOMDocument();
-		if (!$dom->loadHTMLFile($source)) {
+		if (!@$dom->loadHTMLFile($source)) {
 			throw new Exception("Failed to load source: $source");
 		}
 		$xquery = new \DOMXPath($dom);
@@ -63,13 +63,13 @@ class SchemaOrgController extends Controller {
 		} elseif (is_object($ul)) {
 			$output = [];
 			foreach ($ul->li as $li) {
-				$content = (isset($li->ul)) ? $this->parseTree($li->ul) : (($li->count()) ? $li->children()->asXML() : (string) $li);
-				if (is_string($content)) {
-					if (trim($content) !== "" && $content !== null) {
-						$output[] = $content;
+				foreach ($li->children() as $tag => $child) {
+					/* @var $child \SimpleXMLElement */
+					if (strcasecmp($tag, 'ul') === 0) {
+						$output[] = $this->parseTree($child);
+					} else {
+						$output[] = $child->children()->asXML();
 					}
-				} else {
-					$output[] = $content;
 				}
 			}
 
