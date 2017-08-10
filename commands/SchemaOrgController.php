@@ -101,44 +101,63 @@ class SchemaOrgController extends Controller {
 		$list       = $xquery->query('//*[@id="mainContent"]/table[1]/tbody[1]/tr');
 		$properties = [];
 
-		foreach ($list as $item) {
-			/* @var $item \DOMElement */
-			if (!$item->hasAttribute('typeof') || (string) $item->attributes->getNamedItem('typeof')->nodeValue !== 'rdfs:Property') {
-				continue;
-			}
-
-			$tdIndex  = 0;
-			$property = [];
-			foreach ($item->childNodes as $node) {
-				/* @var $node \DOMElement */
-				if ($node->nodeType === XML_TEXT_NODE) {
+		if ($parent === 'Model' || (
+				$list->item($list->length - 1)->hasAttribute('class') &&
+				$list->item($list->length - 1)->attributes->getNamedItem('class')->nodeValue === 'supertype')
+		) {
+			foreach ($list as $item) {
+				/* @var $item \DOMElement */
+				if (!$item->hasAttribute('typeof') || (string) $item->attributes->getNamedItem('typeof')->nodeValue !== 'rdfs:Property') {
 					continue;
 				}
 
-				if (strcasecmp($node->nodeName, 'th') === 0) {
-					$property['name'] = trim($node->textContent);
-				} elseif (strcasecmp($node->nodeName, 'td') === 0) {
-					if ($tdIndex++ === 0) {
-						$property['type'] = str_replace([
-							'Boolean', 'False', 'True',
-							'Date', 'DateTime',
-							'Number', 'Float', 'Integer',
-							'Text', 'URL', 'Time'
-						], [
-							'boolean', 'boolean', 'boolean',
-							'string', 'string',
-							'integer', 'float', 'integer',
-							'string', 'string', 'string'
-						], trim(implode('|', array_map(function ($item) {
-							return trim($item, " \t\n\r\0\x0B\xC2\xA0");
-						}, explode(' or ', trim($node->textContent))))));
-					} else {
-						$property['description'] = trim($node->textContent);
+				$tdIndex  = 0;
+				$property = [];
+				foreach ($item->childNodes as $node) {
+					/* @var $node \DOMElement */
+					if ($node->nodeType === XML_TEXT_NODE) {
+						continue;
+					}
+
+					if (strcasecmp($node->nodeName, 'th') === 0) {
+						$property['name'] = trim($node->textContent);
+					} elseif (strcasecmp($node->nodeName, 'td') === 0) {
+						if ($tdIndex++ === 0) {
+							$property['type'] = str_replace([
+								'Boolean',
+								'False',
+								'True',
+								'Date',
+								'DateTime',
+								'Number',
+								'Float',
+								'Integer',
+								'Text',
+								'URL',
+								'Time'
+							], [
+								'boolean',
+								'boolean',
+								'boolean',
+								'string',
+								'string',
+								'integer',
+								'float',
+								'integer',
+								'string',
+								'string',
+								'string'
+							], trim(implode('|', array_map(function($item) {
+								return trim($item, " \t\n\r\0\x0B\xC2\xA0");
+							}, explode(' or ', trim($node->textContent))))));
+						} else {
+							$property['description'] = trim($node->textContent);
+						}
 					}
 				}
-			}
 
-			$properties[] = $property;
+				$properties[] = $property;
+			}
 		}
 
 		$phpcode = $this->renderPartial('model-template', [
