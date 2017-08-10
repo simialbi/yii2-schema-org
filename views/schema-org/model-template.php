@@ -14,14 +14,6 @@
 echo "<?php\n\n";
 ?>
 namespace simialbi\yii2\schemaorg\models;
-<?php
-if ($parent === 'Model') {
-?>
-
-use yii\base\Model;
-<?php
-}
-?>
 
 /**
  * Model for <?php echo $className."\n";?>
