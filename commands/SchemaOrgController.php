@@ -102,6 +102,7 @@ class SchemaOrgController extends Controller {
 		$properties = [];
 
 		if ($parent === 'Model' || (
+				$list->length &&
 				$list->item($list->length - 1)->hasAttribute('class') &&
 				$list->item($list->length - 1)->attributes->getNamedItem('class')->nodeValue === 'supertype')
 		) {
