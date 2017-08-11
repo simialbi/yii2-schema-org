@@ -1,7 +1,7 @@
 {
 	"name": "simialbi/yii2-schema-org",
 	"description": "Schema.org yii2 representation and helpers for json-ld generation in Yii framework",
-	"keywords": ["yii2", "schema.org", "json+ld", "jsonld"],
+	"keywords": ["yii2", "schema-org", "json-ld", "jsonld"],
 	"type": "yii2-extension",
 	"license": "MIT",
 	"support": {
