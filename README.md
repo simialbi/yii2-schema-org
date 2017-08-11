@@ -97,6 +97,25 @@ AppAsset::register($this);
 $ php yii schema/schema-org
 ```
 
+## Example Usage
+To e.g. add a person to json+ld, you can do the following:
+
+```php
+use simialbi\yii2\schemaorg\models\Person;
+use simialbi\yii2\schemaorg\helpers\JsonLDHelper;
+
+$child = new Person();
+$child->name = 'George W. Bush';
+$child->disambiguatingDescription = '43rd President of the United States';
+$person = new Person();
+$person->name = 'George Bush';
+$person->disambiguatingDescription = '41st President of the United States';
+$person->children = [$child];
+
+JsonLDHelper::add($person);
+``` 
+
+
 
 ## License
 
