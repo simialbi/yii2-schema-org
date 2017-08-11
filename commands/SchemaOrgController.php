@@ -1,9 +1,8 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: karlen
- * Date: 10.08.2017
- * Time: 10:15
+ * @link https://github.com/simialbi/yii2-schema-org
+ * @copyright Copyright (c) 2017 Simon Karlen
+ * @license MIT
  */
 
 namespace simialbi\yii2\schemaorg\commands;
@@ -15,6 +14,7 @@ use yii\console\Controller;
  * Class SchemaOrgController
  *
  * @package simialbi\yii2\schemaorg\commands
+ * @author Simon Karlen <simi.albi@gmail.com>
  *
  * @property \simialbi\yii2\schemaorg\Module $module
  */
@@ -123,33 +123,36 @@ class SchemaOrgController extends Controller {
 						$property['name'] = trim($node->textContent);
 					} elseif (strcasecmp($node->nodeName, 'td') === 0) {
 						if ($tdIndex++ === 0) {
-							$property['type'] = str_replace([
+							$property['type'] = preg_replace(
+								'#(string|integer|float|boolean)(?:\|\1)+#',
+								'$1',
+								str_replace([
 								'Boolean',
 								'False',
 								'True',
-								'Date',
 								'DateTime',
+								'Date',
+								'Time',
 								'Number',
 								'Float',
 								'Integer',
 								'Text',
-								'URL',
-								'Time'
+								'URL'
 							], [
 								'boolean',
 								'boolean',
 								'boolean',
 								'string',
 								'string',
+								'string',
 								'integer',
 								'float',
 								'integer',
 								'string',
-								'string',
 								'string'
 							], trim(implode('|', array_map(function($item) {
 								return trim($item, " \t\n\r\0\x0B\xC2\xA0");
-							}, explode(' or ', trim($node->textContent))))));
+							}, explode(' or ', trim($node->textContent)))))));
 						} else {
 							$property['description'] = trim($node->textContent);
 						}
