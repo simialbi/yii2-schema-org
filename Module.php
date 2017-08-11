@@ -46,7 +46,9 @@ class Module extends \yii\base\Module implements BootstrapInterface {
 			$this->controllerNamespace = 'simialbi\yii2\schemaorg\commands';
 		} else {
 			if ($this->autoCreate) {
-				JsonLDHelper::addBreadCrumbList();
+				\Yii::$app->view->on(View::EVENT_END_BODY, function () {
+					JsonLDHelper::addBreadCrumbList();
+				});
 			}
 			if ($this->autoRender) {
 				\Yii::$app->view->on(View::EVENT_END_BODY, function () {

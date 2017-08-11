@@ -77,7 +77,7 @@ class JsonLDHelper {
 		if (!empty(self::$models)) {
 			foreach (self::$models as $model) {
 				try {
-					echo Html::script(Json::encode($model->toJsonLDArray()), ['type' => 'application/ld+json']);
+					echo Html::script(Json::encode($model->toJsonLDArray()), ['type' => 'application/ld+json'])."\n";
 				} catch (InvalidParamException $e) {
 					$logger = Yii::$app->log->logger;
 					$logger->log($e->getMessage(), $logger::LEVEL_ERROR);

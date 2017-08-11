@@ -16,7 +16,7 @@ Text values are best if the elements in the list are plain strings. Existing ent
 
 Note: The order of elements in your mark-up is not sufficient for indicating the order or elements.  Use ListItem with a 'position' property in such cases.
 	*/
-	public $itemListElement;
+	public $itemListElement = [];
 
 	/**
 	* @var ItemListOrderType|string Type of ordering (e.g. Ascending, Descending, Unordered).
