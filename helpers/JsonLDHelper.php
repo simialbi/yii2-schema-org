@@ -12,7 +12,6 @@ namespace simialbi\yii2\schemaorg\helpers;
 use simialbi\yii2\schemaorg\models\BreadcrumbList;
 use simialbi\yii2\schemaorg\models\ListItem;
 use simialbi\yii2\schemaorg\models\Model;
-use simialbi\yii2\schemaorg\models\Thing;
 use yii\base\InvalidParamException;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -51,8 +50,9 @@ class JsonLDHelper {
 						'name' => ArrayHelper::getValue($breadcrumb, 'label', '')
 					];
 				} else {
-					$listItem->item       = new Thing();
-					$listItem->item->name = $breadcrumb;
+					$listItem->item = [
+						'name' => $breadcrumb
+					];
 				}
 				$breadcrumbList->itemListElement[] = $listItem;
 			}
