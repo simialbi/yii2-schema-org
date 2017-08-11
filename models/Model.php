@@ -7,6 +7,8 @@
 
 namespace simialbi\yii2\schemaorg\models;
 
+use yii\helpers\StringHelper;
+
 /**
  * Class Model
  * @package simialbi\yii2\schemaorg\models
@@ -41,7 +43,7 @@ class Model extends \yii\base\Model {
 	 */
 	public function toArray(array $fields = [], array $expand = [], $recursive = true) {
 		return array_filter(parent::toArray($fields, $expand, $recursive), function ($item) {
-			return is_null($item);
+			return !is_null($item);
 		});
 	}
 
@@ -53,7 +55,7 @@ class Model extends \yii\base\Model {
 			parent::fields(),
 			[
 				'@type' => function () {
-					return static::className();
+					return StringHelper::basename(static::className());
 				}
 			]
 		);

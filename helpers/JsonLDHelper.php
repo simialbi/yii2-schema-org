@@ -13,11 +13,12 @@ use simialbi\yii2\schemaorg\models\BreadcrumbList;
 use simialbi\yii2\schemaorg\models\ListItem;
 use simialbi\yii2\schemaorg\models\Model;
 use simialbi\yii2\schemaorg\models\Thing;
-use Yii;
+use yii\base\InvalidParamException;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\helpers\Url;
+use Yii;
 
 /**
  * Helper class for registering structured data markup in JSON-LD format
@@ -75,7 +76,12 @@ class JsonLDHelper {
 	public static function render() {
 		if (!empty(self::$models)) {
 			foreach (self::$models as $model) {
-				echo Html::script(Json::encode($model->toJsonLDArray(), ['type' => 'application/ld+json']));
+				try {
+					echo Html::script(Json::encode($model->toJsonLDArray()), ['type' => 'application/ld+json']);
+				} catch (InvalidParamException $e) {
+					$logger = Yii::$app->log->logger;
+					$logger->log($e->getMessage(), $logger::LEVEL_ERROR);
+				}
 			}
 		}
 	}
