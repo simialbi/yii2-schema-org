@@ -44,7 +44,7 @@ class JsonLDHelper {
 			$position = 1;
 			foreach ($breadcrumbs as $breadcrumb) {
 				$listItem           = new ListItem();
-				$listItem->position = $position;
+				$listItem->position = $position++;
 				if (is_array($breadcrumb)) {
 					$listItem->item = [
 						'@id'  => Url::to(ArrayHelper::getValue($breadcrumb, 'url', ''), true),
