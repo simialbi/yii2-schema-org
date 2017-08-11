@@ -31,10 +31,18 @@ class Model extends \yii\base\Model {
 	 * @return array the array representation of the object
 	 */
 	public function toJsonLDArray($fields = [], $expand = [], $recursive = true) {
-		$this->fields();
 		return array_merge([
 			'@context' => 'http://schema.org'
 		], $this->toArray($fields, $expand, $recursive));
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function toArray(array $fields = [], array $expand = [], $recursive = true) {
+		return array_filter(parent::toArray($fields, $expand, $recursive), function ($item) {
+			return is_null($item);
+		});
 	}
 
 	/**
