@@ -42,7 +42,9 @@ if ($className === 'SearchAction') {
 		return array_merge(
 			parent::fields(),
 			[
-				'query-input' => 'required'
+				'query-input' => function () {
+					return 'required';
+				}
 			]
 		);
 	}
