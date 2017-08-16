@@ -14,4 +14,15 @@ class SearchAction extends Action {
 	*/
 	public $query;
 
+	/**
+	 * @inheritdoc
+	 */
+	public function fields() {
+		return array_merge(
+			parent::fields(),
+			[
+				'query-input' => 'required'
+			]
+		);
+	}
 }
