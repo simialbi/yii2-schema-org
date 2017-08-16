@@ -36,18 +36,9 @@ foreach ($properties as $property) {
 if ($className === 'SearchAction') {
 ?>
 	/**
-	* @inheritdoc
+	* @var string Query input param
 	*/
-	public function fields() {
-		return array_merge(
-			parent::fields(),
-			[
-				'query-input' => function () {
-					return 'required';
-				}
-			]
-		);
-	}
+	public $query_input = 'required';
 <?php
 }
 ?>

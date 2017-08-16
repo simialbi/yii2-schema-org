@@ -42,9 +42,17 @@ class Model extends \yii\base\Model {
 	 * @inheritdoc
 	 */
 	public function toArray(array $fields = [], array $expand = [], $recursive = true) {
-		return array_filter(parent::toArray($fields, $expand, $recursive), function ($item) {
+		$array  = array_filter(parent::toArray($fields, $expand, $recursive), function($item) {
 			return !is_null($item);
 		});
+		$keys   = array_keys($array);
+		$values = array_values($array);
+
+		foreach ($keys as &$key) {
+			$key = str_replace('_', '-', $key);
+		}
+
+		return array_combine($keys, $values);
 	}
 
 	/**
@@ -54,7 +62,7 @@ class Model extends \yii\base\Model {
 		return array_merge(
 			parent::fields(),
 			[
-				'@type' => function () {
+				'@type' => function() {
 					return StringHelper::basename(static::className());
 				}
 			]
