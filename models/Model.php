@@ -16,6 +16,11 @@ use yii\helpers\StringHelper;
  */
 class Model extends \yii\base\Model {
 	/**
+	 * @var string identifier of this model (rendered as @id)
+	 */
+	public $id;
+
+	/**
 	 * Converts the model into an array for usage in ld+json.
 	 *
 	 * This method will first identify which fields to be included in the resulting array by calling [[resolveFields()]].
@@ -59,13 +64,18 @@ class Model extends \yii\base\Model {
 	 * @inheritdoc
 	 */
 	public function fields() {
-		return array_merge(
+		$fields = array_merge(
 			parent::fields(),
 			[
+				'@id'   => 'id',
 				'@type' => function() {
 					return StringHelper::basename(static::className());
 				}
 			]
 		);
+
+		unset($fields['id']);
+
+		return $fields;
 	}
 }
