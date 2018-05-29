@@ -26,7 +26,7 @@ class <?php echo $className;?> extends <?php echo $parent;?> {
 foreach ($properties as $property) {
 ?>
 	/**
-	* @var <?php echo $property['type'];?> <?php echo $property['description']."\n";?>
+	* @var <?php echo $property['type'];?> <?php echo str_replace(["\r", "\n"], ['', "\n\t* "], $property['description'])."\n";?>
 	*/
 	public $<?php echo $property['name'];?>;
 
