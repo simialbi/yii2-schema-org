@@ -9,6 +9,8 @@ namespace simialbi\yii2\schemaorg\commands;
 
 use yii\base\Exception;
 use yii\console\Controller;
+use yii\console\ExitCode;
+use yii\helpers\Console;
 
 /**
  * Class SchemaOrgController
@@ -23,12 +25,30 @@ class SchemaOrgController extends Controller {
 
 	/**
 	 * Load schema.org object tree and generate model files
+	 * @param boolean $clear Clear directory before generating models
+	 * @return integer Exit code
+	 * @throws Exception
 	 */
-	public function actionGenerate() {
+	public function actionGenerate($clear = false) {
 		$tree = $this->loadTree();
+
+		if ($clear) {
+			$modelDir = realpath(__DIR__.DIRECTORY_SEPARATOR.'..').DIRECTORY_SEPARATOR.'models';
+			if (file_exists($modelDir) && is_dir($modelDir)) {
+				$files = glob($modelDir.DIRECTORY_SEPARATOR.'*');
+				if ($files && is_array($files)) {
+					foreach ($files as $file) {
+						$this->stdout("File '$modelDir".DIRECTORY_SEPARATOR."$file' deleted\n", Console::FG_YELLOW);
+						@unlink($modelDir . DIRECTORY_SEPARATOR . $file);
+					}
+				}
+			}
+		}
 
 		$this->stdout("Generating Models...\n");
 		$this->generateModelsFromTree($tree);
+
+		return ExitCode::OK;
 	}
 
 	/**
@@ -56,6 +76,7 @@ class SchemaOrgController extends Controller {
 	 *
 	 * @param array $tree
 	 * @param string $parent
+	 * @throws Exception
 	 */
 	protected function generateModelsFromTree(array $tree, $parent = 'Model') {
 		$matches   = [];
@@ -100,6 +121,18 @@ class SchemaOrgController extends Controller {
 		$xquery     = new \DOMXPath($dom);
 		$list       = $xquery->query('//*[@id="mainContent"]/table[1]/tbody[1]/tr');
 		$properties = [];
+
+		$modelDir = realpath(__DIR__.DIRECTORY_SEPARATOR.'..').DIRECTORY_SEPARATOR.'models';
+		if ((!file_exists($modelDir) || !is_dir($modelDir)) && !mkdir($modelDir)) {
+			throw new Exception("Could not create directory '{$modelDir}'");
+		}
+
+		$filePath = $modelDir.DIRECTORY_SEPARATOR.$className.'.php';
+
+		if (file_exists($filePath)) {
+			$this->stdout("Model '$className' already exists. Continue...\n");
+			return true;
+		}
 
 		if ($parent === 'Model' || (
 				$list->length &&
@@ -171,12 +204,6 @@ class SchemaOrgController extends Controller {
 			'properties' => $properties
 		]);
 
-		$modelDir = realpath(__DIR__.DIRECTORY_SEPARATOR.'..').DIRECTORY_SEPARATOR.'models';
-		if ((!file_exists($modelDir) || !is_dir($modelDir)) && !mkdir($modelDir)) {
-			throw new Exception("Could not create directory '{$modelDir}'");
-		}
-
-		$filePath = $modelDir.DIRECTORY_SEPARATOR.$className.'.php';
 		if (file_put_contents($filePath, $phpcode)) {
 			$this->stdout("File '$filePath' written\n");
 		} else {

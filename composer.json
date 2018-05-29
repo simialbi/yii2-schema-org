@@ -1,7 +1,7 @@
 {
 	"name": "simialbi/yii2-schema-org",
 	"description": "Schema.org yii2 representation and helpers for json-ld generation in Yii framework",
-	"keywords": ["yii2", "schema-org", "json-ld", "jsonld"],
+	"keywords": ["yii2", "schema-org", "json-ld", "jsonld", "microdata", "structured-data"],
 	"type": "yii2-extension",
 	"license": "MIT",
 	"support": {
@@ -14,19 +14,17 @@
 			"email": "simi.albi@gmail.com"
 		}
 	],
-	"minimum-stability": "dev",
+	"minimum-stability": "stable",
 	"prefer-stable": true,
 	"require": {
+		"php": ">=5.6.0",
 		"yiisoft/yii2": ">=2.0.5"
 	},
 	"config": {
 		"process-timeout": 1800,
 		"secure-http": false,
 		"fxp-asset": {
-			"installer-paths": {
-				"npm-asset-library": "vendor/npm",
-				"bower-asset-library": "vendor/bower"
-			}
+			"enable": false
 		}
 	},
 	"autoload": {

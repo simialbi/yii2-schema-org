@@ -12,7 +12,7 @@ namespace simialbi\yii2\schemaorg\helpers;
 use simialbi\yii2\schemaorg\models\BreadcrumbList;
 use simialbi\yii2\schemaorg\models\ListItem;
 use simialbi\yii2\schemaorg\models\Model;
-use yii\base\InvalidParamException;
+use yii\base\InvalidArgumentException;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Json;
@@ -78,7 +78,7 @@ class JsonLDHelper {
 			foreach (self::$models as $model) {
 				try {
 					echo Html::script(Json::encode($model->toJsonLDArray()), ['type' => 'application/ld+json'])."\n";
-				} catch (InvalidParamException $e) {
+				} catch (InvalidArgumentException $e) {
 					$logger = Yii::$app->log->logger;
 					$logger->log($e->getMessage(), $logger::LEVEL_ERROR);
 				}
