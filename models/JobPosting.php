@@ -30,6 +30,11 @@ class JobPosting extends Intangible {
 	public $employmentType;
 
 	/**
+	* @var MonetaryAmount|integer|PriceSpecification A property describing the estimated salary for a job posting based on a variety of variables including, but not limited to industry, job title, and location. The estimated salary is usually computed by outside organizations and therefore the hiring organization is not bound to this estimated salary.
+	*/
+	public $estimatedSalary;
+
+	/**
 	* @var string Description of skills and experience needed for the position.
 	*/
 	public $experienceRequirements;

@@ -15,7 +15,7 @@ class BedDetails extends Intangible {
 	public $numberOfBeds;
 
 	/**
-	* @var string The type of bed to which the BedDetail refers, i.e. the type of bed available in the quantity indicated by quantity.
+	* @var BedType|string The type of bed to which the BedDetail refers, i.e. the type of bed available in the quantity indicated by quantity.
 	*/
 	public $typeOfBed;
 

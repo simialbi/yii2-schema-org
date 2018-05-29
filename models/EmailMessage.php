@@ -10,6 +10,16 @@ namespace simialbi\yii2\schemaorg\models;
  */
 class EmailMessage extends Message {
 	/**
+	* @var ContactPoint|Organization|Person A sub property of recipient. The recipient blind copied on a message.
+	*/
+	public $bccRecipient;
+
+	/**
+	* @var ContactPoint|Organization|Person A sub property of recipient. The recipient copied on a message.
+	*/
+	public $ccRecipient;
+
+	/**
 	* @var string The date/time at which the message has been read by the recipient if a single recipient exists.
 	*/
 	public $dateRead;
@@ -30,7 +40,7 @@ class EmailMessage extends Message {
 	public $messageAttachment;
 
 	/**
-	* @var Audience|Organization|Person A sub property of participant. The participant who is at the receiving end of the action.
+	* @var Audience|ContactPoint|Organization|Person A sub property of participant. The participant who is at the receiving end of the action.
 	*/
 	public $recipient;
 
@@ -38,5 +48,10 @@ class EmailMessage extends Message {
 	* @var Audience|Organization|Person A sub property of participant. The participant who is at the sending end of the action.
 	*/
 	public $sender;
+
+	/**
+	* @var Audience|ContactPoint|Organization|Person A sub property of recipient. The recipient who was directly sent the message.
+	*/
+	public $toRecipient;
 
 }

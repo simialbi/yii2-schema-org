@@ -120,6 +120,11 @@ class Conversation extends CreativeWork {
 	public $contentRating;
 
 	/**
+	* @var string The specific time described by a creative work, for works (e.g. articles, video objects etc.) that emphasise a particular moment within an Event.
+	*/
+	public $contentReferenceTime;
+
+	/**
 	* @var Organization|Person A secondary contributor to the CreativeWork or Event.
 	*/
 	public $contributor;
@@ -185,6 +190,11 @@ class Conversation extends CreativeWork {
 	public $exampleOfWork;
 
 	/**
+	* @var string Date the content expires and is no longer useful or available. For example a VideoObject or NewsArticle whose availability or relevance is time-limited, or a ClaimReview fact check whose publisher wants to indicate that it may no longer be relevant (or helpful to highlight) after some date.
+	*/
+	public $expires;
+
+	/**
 	* @var string Media type, typically MIME format (see IANA site) of the content e.g. application/zip of a SoftwareApplication binary. In cases where a CreativeWork has several media type representations, 'encoding' can be used to indicate each MediaObject alongside particular fileFormat information. Unregistered or niche file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia entry.
 	*/
 	public $fileFormat;
@@ -225,7 +235,7 @@ class Conversation extends CreativeWork {
 	public $interactivityType;
 
 	/**
-	* @var boolean A flag to signal that the publication is accessible for free. Supersedes free.
+	* @var boolean A flag to signal that the item, event, or place is accessible for free. Supersedes free.
 	*/
 	public $isAccessibleForFree;
 
@@ -310,7 +320,14 @@ class Conversation extends CreativeWork {
 	public $publisher;
 
 	/**
-	* @var string Link to page describing the editorial principles of the organization primarily responsible for the creation of the CreativeWork.
+	* @var Organization The publishing division which published the comic.
+	*/
+	public $publisherImprint;
+
+	/**
+	* @var CreativeWork|string The publishingPrinciples property indicates (typically via URL) a document describing the editorial principles of an Organization (or individual e.g. a Person writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a CreativeWork (e.g. NewsArticle) the principles are those of the party primarily responsible for the creation of the CreativeWork.
+
+While such policies are most typically expressed in natural language, sometimes related information (e.g. indicating a funder) can be expressed using schema.org terminology.
 	*/
 	public $publishingPrinciples;
 
@@ -374,6 +391,11 @@ class Conversation extends CreativeWork {
 	public $timeRequired;
 
 	/**
+	* @var CreativeWork The work that this work has been translated from. e.g. 物种起源 is a translationOf “On the Origin of Species” Inverse property: workTranslation.
+	*/
+	public $translationOfWork;
+
+	/**
 	* @var Organization|Person Organization or person who adapts a creative work to different languages, regional differences and technical requirements of a target market, or that translates during some event.
 	*/
 	public $translator;
@@ -397,5 +419,10 @@ class Conversation extends CreativeWork {
 	* @var CreativeWork Example/instance/realization/derivation of the concept of this creative work. eg. The paperback edition, first edition, or eBook. Inverse property: exampleOfWork.
 	*/
 	public $workExample;
+
+	/**
+	* @var CreativeWork A work that is a translation of the content of this work. e.g. 西遊記 has an English workTranslation “Journey to the West”,a German workTranslation “Monkeys Pilgerfahrt” and a Vietnamese  translation Tây du ký bình khảo. Inverse property: translationOfWork.
+	*/
+	public $workTranslation;
 
 }

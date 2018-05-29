@@ -64,6 +64,56 @@ For example, in the URL http://www.starbucks.co.uk/store-locator/etc/detail/3047
 	public $geo;
 
 	/**
+	* @var GeospatialGeometry|Place Represents a relationship between two geometries (or the places they represent), relating a containing geometry to a contained geometry. "a contains b iff no points of b lie in the exterior of a, and at least one point of the interior of b lies in the interior of a". As defined in DE-9IM.
+	*/
+	public $geospatiallyContains;
+
+	/**
+	* @var GeospatialGeometry|Place Represents a relationship between two geometries (or the places they represent), relating a geometry to another that covers it. As defined in DE-9IM.
+	*/
+	public $geospatiallyCoveredBy;
+
+	/**
+	* @var GeospatialGeometry|Place Represents a relationship between two geometries (or the places they represent), relating a covering geometry to a covered geometry. "Every point of b is a point of (the interior or boundary of) a". As defined in DE-9IM.
+	*/
+	public $geospatiallyCovers;
+
+	/**
+	* @var GeospatialGeometry|Place Represents a relationship between two geometries (or the places they represent), relating a geometry to another that crosses it: "a crosses b: they have some but not all interior points in common, and the dimension of the intersection is less than that of at least one of them". As defined in DE-9IM.
+	*/
+	public $geospatiallyCrosses;
+
+	/**
+	* @var GeospatialGeometry|Place Represents spatial relations in which two geometries (or the places they represent) are topologically disjoint: they have no point in common. They form a set of disconnected geometries." (a symmetric relationship, as defined in DE-9IM)
+	*/
+	public $geospatiallyDisjoint;
+
+	/**
+	* @var GeospatialGeometry|Place Represents spatial relations in which two geometries (or the places they represent) are topologically equal, as defined in DE-9IM. "Two geometries are topologically equal if their interiors intersect and no part of the interior or boundary of one geometry intersects the exterior of the other" (a symmetric relationship)
+	*/
+	public $geospatiallyEquals;
+
+	/**
+	* @var GeospatialGeometry|Place Represents spatial relations in which two geometries (or the places they represent) have at least one point in common. As defined in DE-9IM.
+	*/
+	public $geospatiallyIntersects;
+
+	/**
+	* @var GeospatialGeometry|Place Represents a relationship between two geometries (or the places they represent), relating a geometry to another that geospatially overlaps it, i.e. they have some but not all points in common. As defined in DE-9IM.
+	*/
+	public $geospatiallyOverlaps;
+
+	/**
+	* @var GeospatialGeometry|Place Represents spatial relations in which two geometries (or the places they represent) touch: they have at least one boundary point in common, but no interior points." (a symmetric relationship, as defined in DE-9IM )
+	*/
+	public $geospatiallyTouches;
+
+	/**
+	* @var GeospatialGeometry|Place Represents a relationship between two geometries (or the places they represent), relating a geometry to one that contains it, i.e. it is inside (i.e. within) its interior. As defined in DE-9IM.
+	*/
+	public $geospatiallyWithin;
+
+	/**
 	* @var string The Global Location Number (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.
 	*/
 	public $globalLocationNumber;
@@ -72,6 +122,11 @@ For example, in the URL http://www.starbucks.co.uk/store-locator/etc/detail/3047
 	* @var Map|string A URL to a map of the place. Supersedes map, maps.
 	*/
 	public $hasMap;
+
+	/**
+	* @var boolean A flag to signal that the item, event, or place is accessible for free. Supersedes free.
+	*/
+	public $isAccessibleForFree;
 
 	/**
 	* @var string The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.
@@ -97,6 +152,11 @@ For example, in the URL http://www.starbucks.co.uk/store-locator/etc/detail/3047
 	* @var ImageObject|Photograph A photograph of this place. Supersedes photos.
 	*/
 	public $photo;
+
+	/**
+	* @var boolean A flag to signal that the Place is open to public visitors.  If this property is omitted there is no assumed default boolean value
+	*/
+	public $publicAccess;
 
 	/**
 	* @var Review A review of the item. Supersedes reviews.

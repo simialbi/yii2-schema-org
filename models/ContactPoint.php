@@ -15,7 +15,7 @@ class ContactPoint extends StructuredValue {
 	public $areaServed;
 
 	/**
-	* @var Language|string A language someone may use with the item. Please use one of the language codes from the IETF BCP 47 standard. See also inLanguage
+	* @var Language|string A language someone may use with or at the item, service or place. Please use one of the language codes from the IETF BCP 47 standard. See also inLanguage
 	*/
 	public $availableLanguage;
 

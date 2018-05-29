@@ -50,11 +50,6 @@ class MediaObject extends CreativeWork {
 	public $encodingFormat;
 
 	/**
-	* @var string Date the content expires and is no longer useful or available. Useful for videos.
-	*/
-	public $expires;
-
-	/**
 	* @var Distance|QuantitativeValue The height of the item.
 	*/
 	public $height;

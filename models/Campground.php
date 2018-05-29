@@ -8,7 +8,7 @@ namespace simialbi\yii2\schemaorg\models;
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/Campground
  */
-class Campground extends CivicStructure {
+class Campground extends LodgingBusiness {
 	/**
 	* @var LocationFeatureSpecification An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic property does not make a statement about whether the feature is included in an offer for the main accommodation or available at extra costs.
 	*/
@@ -20,7 +20,7 @@ class Campground extends CivicStructure {
 	public $audience;
 
 	/**
-	* @var Language|string A language someone may use with the item. Please use one of the language codes from the IETF BCP 47 standard. See also inLanguage
+	* @var Language|string A language someone may use with or at the item, service or place. Please use one of the language codes from the IETF BCP 47 standard. See also inLanguage
 	*/
 	public $availableLanguage;
 

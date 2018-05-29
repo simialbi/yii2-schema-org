@@ -15,6 +15,11 @@ class TelevisionChannel extends BroadcastChannel {
 	public $broadcastChannelId;
 
 	/**
+	* @var BroadcastFrequencySpecification|string The frequency used for over-the-air broadcasts. Numeric values or simple ranges e.g. 87-99. In addition a shortcut idiom is supported for frequences of AM and FM radio channels, e.g. "87 FM".
+	*/
+	public $broadcastFrequency;
+
+	/**
 	* @var string The type of service required to have access to the channel (e.g. Standard or Premium).
 	*/
 	public $broadcastServiceTier;
@@ -30,7 +35,7 @@ class TelevisionChannel extends BroadcastChannel {
 	public $inBroadcastLineup;
 
 	/**
-	* @var BroadcastService The BroadcastService offered on this channel.
+	* @var BroadcastService The BroadcastService offered on this channel. Inverse property: hasBroadcastChannel.
 	*/
 	public $providesBroadcastService;
 

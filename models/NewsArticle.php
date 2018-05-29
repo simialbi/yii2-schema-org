@@ -10,7 +10,7 @@ namespace simialbi\yii2\schemaorg\models;
  */
 class NewsArticle extends Article {
 	/**
-	* @var string The location where the NewsArticle was produced.
+	* @var string A dateline is a brief piece of text included in news articles that describes where and when the story was written or filed though the date is often omitted. Sometimes only a placename is provided.
 	*/
 	public $dateline;
 

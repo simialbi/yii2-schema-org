@@ -45,7 +45,7 @@ class CableOrSatelliteService extends Service {
 	public $broker;
 
 	/**
-	* @var string|Thing A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+	* @var PhysicalActivityCategory|string|Thing A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
 	*/
 	public $category;
 
@@ -103,5 +103,10 @@ class CableOrSatelliteService extends Service {
 	* @var string The type of service being offered, e.g. veterans' benefits, emergency relief, etc.
 	*/
 	public $serviceType;
+
+	/**
+	* @var string Human-readable terms of service documentation.
+	*/
+	public $termsOfService;
 
 }

@@ -10,6 +10,11 @@ namespace simialbi\yii2\schemaorg\models;
  */
 class Book extends CreativeWork {
 	/**
+	* @var boolean Indicates whether the book is an abridged edition.
+	*/
+	public $abridged;
+
+	/**
 	* @var string The edition of the book.
 	*/
 	public $bookEdition;

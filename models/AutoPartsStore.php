@@ -8,7 +8,7 @@ namespace simialbi\yii2\schemaorg\models;
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/AutoPartsStore
  */
-class AutoPartsStore extends Store {
+class AutoPartsStore extends AutomotiveBusiness {
 	/**
 	* @var string The currency accepted (in ISO 4217 currency format).
 	*/

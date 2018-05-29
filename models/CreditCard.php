@@ -8,20 +8,10 @@ namespace simialbi\yii2\schemaorg\models;
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/CreditCard
  */
-class CreditCard extends LoanOrCredit {
+class CreditCard extends PaymentCard {
 	/**
-	* @var MonetaryAmount|integer The amount of money.
+	* @var MonetaryAmount|integer The minimum payment is the lowest amount of money that one is required to pay on a credit card statement each month.
 	*/
-	public $amount;
-
-	/**
-	* @var QuantitativeValue The duration of the loan or credit agreement.
-	*/
-	public $loanTerm;
-
-	/**
-	* @var string|Thing Assets required to secure loan or credit repayments. It may take form of third party pledge, goods, financial instruments (cash, securities, etc.)
-	*/
-	public $requiredCollateral;
+	public $monthlyMinimumRepaymentAmount;
 
 }

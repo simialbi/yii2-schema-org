@@ -80,7 +80,7 @@ class BusinessEvent extends Event {
 	public $inLanguage;
 
 	/**
-	* @var boolean A flag to signal that the publication is accessible for free. Supersedes free.
+	* @var boolean A flag to signal that the item, event, or place is accessible for free. Supersedes free.
 	*/
 	public $isAccessibleForFree;
 

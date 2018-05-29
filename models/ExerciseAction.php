@@ -10,6 +10,11 @@ namespace simialbi\yii2\schemaorg\models;
  */
 class ExerciseAction extends PlayAction {
 	/**
+	* @var Diet A sub property of instrument. The diet used in this action.
+	*/
+	public $diet;
+
+	/**
 	* @var Distance The distance travelled, e.g. exercising or travelling.
 	*/
 	public $distance;
@@ -18,6 +23,21 @@ class ExerciseAction extends PlayAction {
 	* @var Place A sub property of location. The course where this action was taken. Supersedes course.
 	*/
 	public $exerciseCourse;
+
+	/**
+	* @var ExercisePlan A sub property of instrument. The exercise plan used on this action.
+	*/
+	public $exercisePlan;
+
+	/**
+	* @var Diet A sub property of instrument. The diet used in this action.
+	*/
+	public $exerciseRelatedDiet;
+
+	/**
+	* @var string Type(s) of exercise or activity, such as strength training, flexibility training, aerobics, cardiac rehabilitation, etc.
+	*/
+	public $exerciseType;
 
 	/**
 	* @var Place A sub property of location. The original location of the object or the agent before the action.

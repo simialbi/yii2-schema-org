@@ -25,9 +25,21 @@ class VisualArtwork extends CreativeWork {
 	public $artform;
 
 	/**
+	* @var Person The primary artist for a work
+    in a medium other than pencils or digital line art--for example, if the
+    primary artwork is done in watercolors or digital paints.
+	*/
+	public $artist;
+
+	/**
 	* @var string The supporting materials for the artwork, e.g. Canvas, Paper, Wood, Board, etc. Supersedes surface.
 	*/
 	public $artworkSurface;
+
+	/**
+	* @var Person The individual who adds color to inked drawings.
+	*/
+	public $colorist;
 
 	/**
 	* @var Distance|QuantitativeValue The depth of the item.
@@ -38,6 +50,21 @@ class VisualArtwork extends CreativeWork {
 	* @var Distance|QuantitativeValue The height of the item.
 	*/
 	public $height;
+
+	/**
+	* @var Person The individual who traces over the pencil drawings in ink after pencils are complete.
+	*/
+	public $inker;
+
+	/**
+	* @var Person The individual who adds lettering, including speech balloons and sound effects, to artwork.
+	*/
+	public $letterer;
+
+	/**
+	* @var Person The individual who draws the primary narrative artwork.
+	*/
+	public $penciler;
 
 	/**
 	* @var Distance|QuantitativeValue The width of the item.

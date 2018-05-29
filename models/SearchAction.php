@@ -15,7 +15,7 @@ class SearchAction extends Action {
 	public $query;
 
 	/**
-	 * @var string Query input param
-	 */
+	* @var string Query input param
+	*/
 	public $query_input = 'required';
 }

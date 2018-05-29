@@ -8,20 +8,20 @@ namespace simialbi\yii2\schemaorg\models;
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/PaymentCard
  */
-class PaymentCard extends FinancialProduct {
+class PaymentCard extends PaymentMethod {
 	/**
-	* @var integer|QuantitativeValue The annual rate that is charged for borrowing (or made by investing), expressed as a single percentage number that represents the actual yearly cost of funds over the term of a loan. This includes any fees or additional costs associated with the transaction.
+	* @var boolean|integer A cardholder benefit that pays the cardholder a small percentage of their net expenditures.
 	*/
-	public $annualPercentageRate;
+	public $cashBack;
 
 	/**
-	* @var string Description of fees, commissions, and other terms applied either to a class of financial product, or by a financial service organization.
+	* @var boolean A secure method for consumers to purchase products or services via debit, credit or smartcards by using RFID or NFC technology.
 	*/
-	public $feesAndCommissionsSpecification;
+	public $contactlessPayment;
 
 	/**
-	* @var integer|QuantitativeValue The interest rate, charged or paid, applicable to the financial product. Note: This is different from the calculated annualPercentageRate.
+	* @var MonetaryAmount A floor limit is the amount of money above which credit card transactions must be authorized.
 	*/
-	public $interestRate;
+	public $floorLimit;
 
 }

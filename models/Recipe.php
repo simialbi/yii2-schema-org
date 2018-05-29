@@ -8,7 +8,7 @@ namespace simialbi\yii2\schemaorg\models;
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/Recipe
  */
-class Recipe extends CreativeWork {
+class Recipe extends HowTo {
 	/**
 	* @var Duration The time it takes to actually cook the dish, in ISO 8601 duration format.
 	*/
@@ -23,11 +23,6 @@ class Recipe extends CreativeWork {
 	* @var NutritionInformation Nutrition information about the recipe or menu item.
 	*/
 	public $nutrition;
-
-	/**
-	* @var Duration The length of time it takes to prepare the recipe, in ISO 8601 duration format.
-	*/
-	public $prepTime;
 
 	/**
 	* @var string The category of the recipe—for example, appetizer, entree, etc.
@@ -45,12 +40,12 @@ class Recipe extends CreativeWork {
 	public $recipeIngredient;
 
 	/**
-	* @var ItemList|string A step or instruction involved in making the recipe.
+	* @var CreativeWork|ItemList|string A step in making the recipe, in the form of a single item (document, video, etc.) or an ordered list with HowToStep and/or HowToSection items.
 	*/
 	public $recipeInstructions;
 
 	/**
-	* @var string The quantity produced by the recipe (for example, number of people served, number of servings, etc).
+	* @var QuantitativeValue|string The quantity produced by the recipe (for example, number of people served, number of servings, etc).
 	*/
 	public $recipeYield;
 
@@ -58,10 +53,5 @@ class Recipe extends CreativeWork {
 	* @var RestrictedDiet Indicates a dietary restriction or guideline for which this recipe or menu item is suitable, e.g. diabetic, halal etc.
 	*/
 	public $suitableForDiet;
-
-	/**
-	* @var Duration The total time it takes to prepare and cook the recipe, in ISO 8601 duration format.
-	*/
-	public $totalTime;
 
 }

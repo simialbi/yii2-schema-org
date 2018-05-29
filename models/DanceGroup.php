@@ -10,6 +10,11 @@ namespace simialbi\yii2\schemaorg\models;
  */
 class DanceGroup extends PerformingGroup {
 	/**
+	* @var CreativeWork|string For a NewsMediaOrganization or other news-related Organization, a statement about public engagement activities (for news media, the newsroom’s), including involving the public - digitally or otherwise -- in coverage decisions, reporting and activities after publication.
+	*/
+	public $actionableFeedbackPolicy;
+
+	/**
 	* @var PostalAddress|string Physical address of the item.
 	*/
 	public $address;
@@ -45,6 +50,11 @@ class DanceGroup extends PerformingGroup {
 	public $contactPoint;
 
 	/**
+	* @var CreativeWork|string For an Organization (e.g. NewsMediaOrganization), a statement describing (in news media, the newsroom’s) disclosure and correction policy for errors.
+	*/
+	public $correctionsPolicy;
+
+	/**
 	* @var Organization A relationship between an organization and a department of that organization, also described as an organization (allowing different urls, logos, opening hours). For example: a store with a pharmacy, or a bakery with a cafe.
 	*/
 	public $department;
@@ -53,6 +63,11 @@ class DanceGroup extends PerformingGroup {
 	* @var string The date that this organization was dissolved.
 	*/
 	public $dissolutionDate;
+
+	/**
+	* @var CreativeWork|string Statement on diversity policy by an Organization e.g. a NewsMediaOrganization. For a NewsMediaOrganization, a statement describing the newsroom’s diversity policy on both staffing and sources, typically providing staffing data.
+	*/
+	public $diversityPolicy;
 
 	/**
 	* @var string The Dun & Bradstreet DUNS number for identifying an organization or business person.
@@ -68,6 +83,11 @@ class DanceGroup extends PerformingGroup {
 	* @var Person Someone working for this organization. Supersedes employees.
 	*/
 	public $employee;
+
+	/**
+	* @var CreativeWork|string Statement about ethics policy, e.g. of a NewsMediaOrganization regarding journalistic and publishing practices, or of a Restaurant, a page describing food source policies. In the case of a NewsMediaOrganization, an ethicsPolicy is typically a statement describing the personal, organizational, and corporate standards of behavior expected by the organization.
+	*/
+	public $ethicsPolicy;
 
 	/**
 	* @var Event Upcoming or past event associated with this place, organization, or action. Supersedes events.
@@ -175,6 +195,13 @@ class DanceGroup extends PerformingGroup {
 	public $parentOrganization;
 
 	/**
+	* @var CreativeWork|string The publishingPrinciples property indicates (typically via URL) a document describing the editorial principles of an Organization (or individual e.g. a Person writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a CreativeWork (e.g. NewsArticle) the principles are those of the party primarily responsible for the creation of the CreativeWork.
+
+While such policies are most typically expressed in natural language, sometimes related information (e.g. indicating a funder) can be expressed using schema.org terminology.
+	*/
+	public $publishingPrinciples;
+
+	/**
 	* @var Review A review of the item. Supersedes reviews.
 	*/
 	public $review;
@@ -203,6 +230,11 @@ class DanceGroup extends PerformingGroup {
 	* @var string The telephone number.
 	*/
 	public $telephone;
+
+	/**
+	* @var CreativeWork|string For an Organization (typically a NewsMediaOrganization), a statement about policy on use of unnamed sources and the decision process required.
+	*/
+	public $unnamedSourcesPolicy;
 
 	/**
 	* @var string The Value-added Tax ID of the organization or person.

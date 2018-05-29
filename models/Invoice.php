@@ -25,7 +25,7 @@ class Invoice extends Intangible {
 	public $broker;
 
 	/**
-	* @var string|Thing A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
+	* @var PhysicalActivityCategory|string|Thing A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
 	*/
 	public $category;
 

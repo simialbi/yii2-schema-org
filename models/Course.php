@@ -20,6 +20,11 @@ class Course extends CreativeWork {
 	public $coursePrerequisites;
 
 	/**
+	* @var string A description of the qualification, award, certificate, diploma or other educational credential awarded as a consequence of successful completion of this course.
+	*/
+	public $educationalCredentialAwarded;
+
+	/**
 	* @var CourseInstance An offering of the course at a specific time and place or through specific media or mode of study or to a specific section of students.
 	*/
 	public $hasCourseInstance;
