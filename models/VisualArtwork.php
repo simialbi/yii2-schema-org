@@ -26,8 +26,8 @@ class VisualArtwork extends CreativeWork {
 
 	/**
 	* @var Person The primary artist for a work
-    in a medium other than pencils or digital line art--for example, if the
-    primary artwork is done in watercolors or digital paints.
+	*     in a medium other than pencils or digital line art--for example, if the
+	*     primary artwork is done in watercolors or digital paints.
 	*/
 	public $artist;
 

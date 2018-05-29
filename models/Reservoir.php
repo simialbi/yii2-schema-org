@@ -11,8 +11,8 @@ namespace simialbi\yii2\schemaorg\models;
 class Reservoir extends BodyOfWater {
 	/**
 	* @var PropertyValue A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.
-
-Note: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.
+	* 
+	* Note: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.
 	*/
 	public $additionalProperty;
 
@@ -33,8 +33,8 @@ Note: Publishers should be aware that applications designed to use specific sche
 
 	/**
 	* @var string A short textual code (also called "store code") that uniquely identifies a place of business. The code is typically assigned by the parentOrganization and used in structured URLs.
-
-For example, in the URL http://www.starbucks.co.uk/store-locator/etc/detail/3047 the code "3047" is a branchCode for a particular branch.
+	* 
+	* For example, in the URL http://www.starbucks.co.uk/store-locator/etc/detail/3047 the code "3047" is a branchCode for a particular branch.
 	*/
 	public $branchCode;
 
@@ -170,8 +170,8 @@ For example, in the URL http://www.starbucks.co.uk/store-locator/etc/detail/3047
 
 	/**
 	* @var OpeningHoursSpecification The special opening hours of a certain place.
-
-Use this to explicitly override general opening hours brought in scope by openingHoursSpecification or openingHours.
+	* 
+	* Use this to explicitly override general opening hours brought in scope by openingHoursSpecification or openingHours.
 	*/
 	public $specialOpeningHoursSpecification;
 

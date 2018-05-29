@@ -16,13 +16,13 @@ class Accommodation extends Place {
 
 	/**
 	* @var QuantitativeValue The size of the accommodation, e.g. in square meter or squarefoot.
-Typical unit code(s): MTK for square meter, FTK for square foot, or YDK for square yard
+	* Typical unit code(s): MTK for square meter, FTK for square foot, or YDK for square yard
 	*/
 	public $floorSize;
 
 	/**
 	* @var integer|QuantitativeValue The number of rooms (excluding bathrooms and closets) of the acccommodation or lodging business.
-Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
+	* Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
 	*/
 	public $numberOfRooms;
 

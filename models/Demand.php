@@ -76,8 +76,8 @@ class Demand extends Intangible {
 
 	/**
 	* @var GeoShape|Place|string The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.
-
-See also ineligibleRegion.
+	* 
+	* See also ineligibleRegion.
 	*/
 	public $eligibleRegion;
 
@@ -113,8 +113,8 @@ See also ineligibleRegion.
 
 	/**
 	* @var GeoShape|Place|string The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.
-
-See also eligibleRegion.
+	* 
+	* See also eligibleRegion.
 	*/
 	public $ineligibleRegion;
 
