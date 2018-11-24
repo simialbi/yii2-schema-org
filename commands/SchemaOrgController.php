@@ -7,9 +7,10 @@
 
 namespace simialbi\yii2\schemaorg\commands;
 
-use yii\base\Exception;
+use Yii;
 use yii\console\Controller;
 use yii\console\ExitCode;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Console;
 
 /**
@@ -17,233 +18,203 @@ use yii\helpers\Console;
  *
  * @package simialbi\yii2\schemaorg\commands
  * @author Simon Karlen <simi.albi@gmail.com>
+ * @author Mehdi Achour <machour@gmail.com>
  *
  * @property \simialbi\yii2\schemaorg\Module $module
  */
-class SchemaOrgController extends Controller {
-	public $defaultAction = 'generate';
+class SchemaOrgController extends Controller
+{
+    const DEFINITION_FILE = 'http://schema.org/version/%s/all-layers.jsonld';
 
-	/**
-	 * Load schema.org object tree and generate model files
-	 * @param boolean $clear Clear directory before generating models
-	 * @return integer Exit code
-	 * @throws Exception
-	 */
-	public function actionGenerate($clear = false) {
-		$tree = $this->loadTree();
+    public $schemas = [];
 
-		if ($clear) {
-			$modelDir = realpath(__DIR__.DIRECTORY_SEPARATOR.'..').DIRECTORY_SEPARATOR.'models';
-			if (file_exists($modelDir) && is_dir($modelDir)) {
-				$files = glob($modelDir.DIRECTORY_SEPARATOR.'*');
-				if ($files && is_array($files)) {
-					foreach ($files as $file) {
-						$this->stdout("File '$modelDir".DIRECTORY_SEPARATOR."$file' deleted\n", Console::FG_YELLOW);
-						@unlink($modelDir . DIRECTORY_SEPARATOR . $file);
-					}
-				}
-			}
-		}
+    public $classes = [];
 
-		$this->stdout("Generating Models...\n");
-		$this->generateModelsFromTree($tree);
+    public $namespace;
 
-		return ExitCode::OK;
-	}
+    public $folder;
 
-	/**
-	 * Load tree from schema.org
-	 *
-	 * @return array|boolean
-	 * @throws Exception
-	 */
-	protected function loadTree() {
-		$source = $this->module->source;
-		$this->stdout("Loading Thing tree from '{$source}'...\n");
 
-		$dom = new \DOMDocument();
-		if (!@$dom->loadHTMLFile($source)) {
-			throw new Exception("Failed to load source: $source");
-		}
-		$xquery = new \DOMXPath($dom);
-		$html   = $dom->saveHTML($xquery->query('//*[@id="thing_tree"]/ul')->item(0));
+    private $requiredSchemas = [];
 
-		return $this->parseTree($html);
-	}
+    private $properties = [];
 
-	/**
-	 * Generates models out of tree
-	 *
-	 * @param array $tree
-	 * @param string $parent
-	 * @throws Exception
-	 */
-	protected function generateModelsFromTree(array $tree, $parent = 'Model') {
-		$matches   = [];
-		$className = null;
-		foreach ($tree as $item) {
-			if (is_array($item)) {
-				$this->generateModelsFromTree($item, $className);
-			} elseif (is_string($item)) {
-				if (preg_match('#<a href="([^"]+)">((?:[A-Z][a-z]+)+)</a>#', $item, $matches)) {
-					$url       = $matches[1];
-					$className = $matches[2];
+    /**
+     * Generates the requested schemas
+     *
+     * @param string $version
+     * @return int The exit code
+     */
+    public function actionIndex($version = 'latest')
+    {
+        if (empty($this->schemas)) {
+            Console::error('You must specify one or more Schemas using --schemas');
+            return ExitCode::CONFIG;
+        }
 
-					$this->stdout("Generate model '{$className}'\n");
-					$this->generateModel($url, $className, $parent);
-				}
-			}
-		}
-	}
+        if (empty($this->namespace)) {
+            Console::error('You must specify a namespace for the generated files using --namespace');
+            return ExitCode::CONFIG;
+        }
 
-	/**
-	 * Parse schema.org description and write model
-	 *
-	 * @param string $url
-	 * @param string $className
-	 * @param string $parent
-	 *
-	 * @return bool
-	 * @throws Exception
-	 */
-	protected function generateModel($url, $className, $parent = 'Model') {
-		$sourceUrl = parse_url($this->module->source);
-		$url       = $sourceUrl['scheme'].'://'.$sourceUrl['host'].$url;
+        if (empty($this->folder)) {
+            Console::error('You must specify a folder for the generated files using --folder');
+            return ExitCode::CONFIG;
+        }
 
-		$this->stdout("Load properties from '{$url}'\n");
+        if (!is_dir($this->folder)) {
+            mkdir($this->folder, 0777, true);
+        }
 
-		$dom = new \DOMDocument();
-		if (!@$dom->loadHTMLFile($url)) {
-			$this->stderr("Failed to load source for '{$className}': $url\n");
+        $file = Yii::getAlias("@runtime/schemas-$version.json");
+        if (!file_exists($file)) {
+            $url = sprintf(self::DEFINITION_FILE, $version);
+            copy($url, $file);
+        }
 
-			return false;
-		}
-		$xquery     = new \DOMXPath($dom);
-		$list       = $xquery->query('//*[@id="mainContent"]/table[1]/tbody[1]/tr');
-		$properties = [];
+        $json = json_decode(file_get_contents($file));
 
-		$modelDir = realpath(__DIR__.DIRECTORY_SEPARATOR.'..').DIRECTORY_SEPARATOR.'models';
-		if ((!file_exists($modelDir) || !is_dir($modelDir)) && !mkdir($modelDir)) {
-			throw new Exception("Could not create directory '{$modelDir}'");
-		}
+        $stacked = [];
+        foreach ($json->{'@graph'} as $graph) {
+            $stacked = ArrayHelper::merge($stacked, $graph->{'@graph'});
+        }
 
-		$filePath = $modelDir.DIRECTORY_SEPARATOR.$className.'.php';
 
-		if (file_exists($filePath)) {
-			$this->stdout("Model '$className' already exists. Continue...\n");
-			return true;
-		}
+        $byName = ArrayHelper::index($stacked, function ($entry) {
+            return $this->stripNs($entry->{'@id'});
+        });
 
-		if ($parent === 'Model' || (
-				$list->length &&
-				$list->item($list->length - 1)->hasAttribute('class') &&
-				$list->item($list->length - 1)->attributes->getNamedItem('class')->nodeValue === 'supertype')
-		) {
-			foreach ($list as $item) {
-				/* @var $item \DOMElement */
-				if (!$item->hasAttribute('typeof') || (string) $item->attributes->getNamedItem('typeof')->nodeValue !== 'rdfs:Property') {
-					continue;
-				}
+        if (!empty($this->schemas)) {
+            foreach ($this->schemas as $schema) {
+                $this->gatherRequiredSchemas($byName, $schema);
+            }
+        }
 
-				$tdIndex  = 0;
-				$property = [];
-				foreach ($item->childNodes as $node) {
-					/* @var $node \DOMElement */
-					if ($node->nodeType === XML_TEXT_NODE) {
-						continue;
-					}
+        foreach ($this->requiredSchemas as $schema) {
+            $this->addClass($schema, $byName[$schema]);
+        }
 
-					if (strcasecmp($node->nodeName, 'th') === 0) {
-						$property['name'] = trim($node->textContent);
-					} elseif (strcasecmp($node->nodeName, 'td') === 0) {
-						if ($tdIndex++ === 0) {
-							$property['type'] = preg_replace(
-								'#(string|integer|float|boolean)(?:\|\1)+#',
-								'$1',
-								str_replace([
-								'Boolean',
-								'False',
-								'True',
-								'DateTime',
-								'Date',
-								'Time',
-								'Number',
-								'Float',
-								'Integer',
-								'Text',
-								'URL'
-							], [
-								'boolean',
-								'boolean',
-								'boolean',
-								'string',
-								'string',
-								'string',
-								'integer',
-								'float',
-								'integer',
-								'string',
-								'string'
-							], trim(implode('|', array_map(function($item) {
-								return trim($item, " \t\n\r\0\x0B\xC2\xA0");
-							}, explode(' or ', trim($node->textContent)))))));
-						} else {
-							$property['description'] = trim($node->textContent);
-						}
-					}
-				}
+        foreach ($stacked as $data) {
+            if ($data->{'@type'} === 'rdf:Property') {
+                $classes = $data->{'http://schema.org/domainIncludes'};
+                if (is_array($classes)) {
+                    foreach ($classes as $class) {
+                        $this->registerProperty($this->stripNs($class->{'@id'}), $data);
+                    }
+                } else {
+                    $this->registerProperty($this->stripNs($classes->{'@id'}), $data);
+                }
+            }
+        }
 
-				$properties[] = $property;
-			}
-		}
+        foreach ($this->classes as $class) {
+            file_put_contents(
+                $this->folder . '/' . $class['name'] . 'Trait.php',
+                $this->renderPartial('trait', [
+                    'namespace' => $this->namespace,
+                    'class' => $class,
+                    'traits' => $class['parents'],
+                    'properties' => $this->properties[$class['name']] === null ? [] : $this->properties[$class['name']],
+                ])
+            );
+        }
 
-		$phpcode = $this->renderPartial('model-template', [
-			'parent'     => $parent,
-			'className'  => $className,
-			'url'        => $url,
-			'properties' => $properties
-		]);
 
-		if (file_put_contents($filePath, $phpcode)) {
-			$this->stdout("File '$filePath' written\n");
-		} else {
-			$this->stderr("Could not write file '$filePath'\n");
-		}
+        foreach ($this->schemas as $schema) {
+            $class = $this->classes[$schema];
+            file_put_contents(
+                $this->folder . '/' . $class['name'] . '.php',
+                $this->renderPartial('class', [
+                    'namespace' => $this->namespace,
+                    'class' => $class,
+                ])
+            );
+        }
 
-		return true;
-	}
+        return ExitCode::OK;
+    }
 
-	/**
-	 * Parse unordered list tree structure and returns as array
-	 *
-	 * @param string|\SimpleXMLElement $ul
-	 *
-	 * @return array|bool array tree or false
-	 * @throws Exception
-	 */
-	private function parseTree($ul) {
-		if (is_string($ul)) {
-			if (!$ul = simplexml_load_string($ul)) {
-				throw new Exception("Syntax error in UL/LI structure");
-			}
+    private function getAllTraits($className, &$chain = [])
+    {
+        if (is_array($this->classes[$className]['parents'])) {
+            foreach ($this->classes[$className]['parents'] as $parent) {
+                if ($parent !== '') {
+                    if (!in_array($parent, $chain, true)) {
+                        $chain[] = $parent;
+                    }
+                    $this->getAllTraits($parent, $chain);
+                }
+            }
+        }
 
-			return $this->parseTree($ul);
-		} elseif (is_object($ul)) {
-			$output = [];
-			foreach ($ul->li as $li) {
-				foreach ($li->children() as $tag => $child) {
-					/* @var $child \SimpleXMLElement */
-					if (strcasecmp($tag, 'ul') === 0) {
-						$output[] = $this->parseTree($child);
-					} else {
-						$output[] = $child->asXML();
-					}
-				}
-			}
+        return $chain;
+    }
 
-			return $output;
-		}
+    private function registerProperty($class, $attributeInfo)
+    {
+        if (!in_array($class, $this->requiredSchemas, true)) {
+            return;
+        }
 
-		return false;
-	}
+        if (!isset($this->properties[$class])) {
+            $this->properties[$class] = [];
+        }
+        $this->properties[$class][$attributeInfo->{'rdfs:label'}] = [
+            'name' => $attributeInfo->{'rdfs:label'},
+            'description' => strip_tags($attributeInfo->{'rdfs:comment'}),
+            'see' => $attributeInfo->{'@id'},
+        ];
+    }
+
+    private function gatherRequiredSchemas($array, $name)
+    {
+        if (!$name || in_array($name, $this->requiredSchemas, true)) {
+            return;
+        }
+
+        $this->requiredSchemas[] = $name;
+
+        if (is_array($array[$name]->{'rdfs:subClassOf'})) {
+            foreach ($array[$name]->{'rdfs:subClassOf'} as $parent) {
+                $this->gatherRequiredSchemas($array, $this->stripNs($parent->{'@id'}));
+            }
+        } else {
+            $this->gatherRequiredSchemas($array, $this->stripNs($array[$name]->{'rdfs:subClassOf'}->{'@id'}));
+        }
+    }
+
+    private function addClass($className, $data)
+    {
+        $parents = [];
+        if (is_array($data->{'rdfs:subClassOf'})) {
+            foreach ($data->{'rdfs:subClassOf'} as $parent) {
+                $parents[] = $this->stripNs($parent->{'@id'});
+            }
+        } elseif (isset($data->{'rdfs:subClassOf'})) {
+            $parents[] = $this->stripNs($data->{'rdfs:subClassOf'}->{'@id'});
+        }
+
+        $this->classes[$className] = [
+            'name' => $className,
+            'description' => $data->{'rdfs:comment'},
+            'parents' => $parents,
+            'properties' => [],
+            '_data' => $data,
+        ];
+    }
+
+    private function stripNs($string)
+    {
+        return str_replace('http://schema.org/', '', $string);
+    }
+
+    public function options($actionID)
+    {
+        return ArrayHelper::merge(parent::options($actionID), [
+            'schemas',
+            'namespace',
+            'folder',
+        ]);
+    }
+
 }
