@@ -3,25 +3,33 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for Brand
+ * A brand is a name used by an organization or business person for labeling a
+ * product, product group, or similar.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/Brand
  */
 class Brand extends Intangible {
-	/**
-	* @var AggregateRating The overall rating, based on a collection of reviews or ratings, of the item.
-	*/
-	public $aggregateRating;
+    /**
+     * The overall rating, based on a collection of reviews or ratings, of the item.
+     *
+     * @var AggregateRating
+     */
+    public $aggregateRating;
 
-	/**
-	* @var ImageObject|string An associated logo.
-	*/
-	public $logo;
+    /**
+     * An associated logo.
+     *
+     * @var ImageObject|string
+     */
+    public $logo;
 
-	/**
-	* @var Review A review of the item. Supersedes reviews.
-	*/
-	public $review;
+    /**
+     * A review of the item. Supersedes reviews.
+     *
+     * @var Review
+     */
+    public $review;
+
 
 }

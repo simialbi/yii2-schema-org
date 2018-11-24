@@ -3,25 +3,34 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for MusicGroup
+ * A musical group, such as a band, an orchestra, or a choir. Can also be a solo
+ * musician.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/MusicGroup
  */
 class MusicGroup extends PerformingGroup {
-	/**
-	* @var MusicAlbum A music album. Supersedes albums.
-	*/
-	public $album;
+    /**
+     * A music album. Supersedes albums.
+     *
+     * @var MusicAlbum
+     */
+    public $album;
 
-	/**
-	* @var string Genre of the creative work, broadcast channel or group.
-	*/
-	public $genre;
+    /**
+     * Genre of the creative work, broadcast channel or group.
+     *
+     * @var string
+     */
+    public $genre;
 
-	/**
-	* @var ItemList|MusicRecording A music recording (track)—usually a single song. If an ItemList is given, the list should contain items of type MusicRecording. Supersedes tracks.
-	*/
-	public $track;
+    /**
+     * A music recording (track)—usually a single song. If an ItemList is given, the
+     * list should contain items of type MusicRecording. Supersedes tracks.
+     *
+     * @var ItemList|MusicRecording
+     */
+    public $track;
+
 
 }

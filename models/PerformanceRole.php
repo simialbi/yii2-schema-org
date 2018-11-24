@@ -3,15 +3,20 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for PerformanceRole
+ * A PerformanceRole is a Role that some entity places with regard to a theatrical
+ * performance, e.g. in a Movie, TVSeries etc.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/PerformanceRole
  */
 class PerformanceRole extends Role {
-	/**
-	* @var string The name of a character played in some acting or performing role, i.e. in a PerformanceRole.
-	*/
-	public $characterName;
+    /**
+     * The name of a character played in some acting or performing role, i.e. in a
+     * PerformanceRole.
+     *
+     * @var string
+     */
+    public $characterName;
+
 
 }

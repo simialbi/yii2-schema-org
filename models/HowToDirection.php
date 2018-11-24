@@ -3,50 +3,73 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for HowToDirection
+ * A direction indicating a single action to do in the instructions for how to
+ * achieve a result.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/HowToDirection
  */
 class HowToDirection extends ListItem {
-	/**
-	* @var MediaObject A media object representing the circumstances after performing this direction.
-	*/
-	public $afterMedia;
+    /**
+     * A media object representing the circumstances after performing this direction.
+     *
+     * @var MediaObject|string
+     */
+    public $afterMedia;
 
-	/**
-	* @var MediaObject A media object representing the circumstances before performing this direction.
-	*/
-	public $beforeMedia;
+    /**
+     * A media object representing the circumstances before performing this direction.
+     *
+     * @var MediaObject|string
+     */
+    public $beforeMedia;
 
-	/**
-	* @var MediaObject A media object representing the circumstances while performing this direction.
-	*/
-	public $duringMedia;
+    /**
+     * A media object representing the circumstances while performing this direction.
+     *
+     * @var MediaObject|string
+     */
+    public $duringMedia;
 
-	/**
-	* @var Duration The length of time it takes to perform instructions or a direction (not including time to prepare the supplies), in ISO 8601 duration format.
-	*/
-	public $performTime;
+    /**
+     * The length of time it takes to perform instructions or a direction (not
+     * including time to prepare the supplies), in ISO 8601 duration format.
+     *
+     * @var Duration
+     */
+    public $performTime;
 
-	/**
-	* @var Duration The length of time it takes to prepare the items to be used in instructions or a direction, in ISO 8601 duration format.
-	*/
-	public $prepTime;
+    /**
+     * The length of time it takes to prepare the items to be used in instructions or a
+     * direction, in ISO 8601 duration format.
+     *
+     * @var Duration
+     */
+    public $prepTime;
 
-	/**
-	* @var HowToSupply|string A sub-property of instrument. A supply consumed when performing instructions or a direction.
-	*/
-	public $supply;
+    /**
+     * A sub-property of instrument. A supply consumed when performing instructions or
+     * a direction.
+     *
+     * @var HowToSupply|string
+     */
+    public $supply;
 
-	/**
-	* @var HowToTool|string A sub property of instrument. An object used (but not consumed) when performing instructions or a direction.
-	*/
-	public $tool;
+    /**
+     * A sub property of instrument. An object used (but not consumed) when performing
+     * instructions or a direction.
+     *
+     * @var HowToTool|string
+     */
+    public $tool;
 
-	/**
-	* @var Duration The total time required to perform instructions or a direction (including time to prepare the supplies), in ISO 8601 duration format.
-	*/
-	public $totalTime;
+    /**
+     * The total time required to perform instructions or a direction (including time
+     * to prepare the supplies), in ISO 8601 duration format.
+     *
+     * @var Duration
+     */
+    public $totalTime;
+
 
 }

@@ -3,20 +3,28 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for WarrantyPromise
+ * A structured value representing the duration and scope of services that will be
+ * provided to a customer free of charge in case of a defect or malfunction of a
+ * product.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/WarrantyPromise
  */
 class WarrantyPromise extends StructuredValue {
-	/**
-	* @var QuantitativeValue The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days.
-	*/
-	public $durationOfWarranty;
+    /**
+     * The duration of the warranty promise. Common unitCode values are ANN for year,
+     * MON for months, or DAY for days.
+     *
+     * @var QuantitativeValue
+     */
+    public $durationOfWarranty;
 
-	/**
-	* @var WarrantyScope The scope of the warranty promise.
-	*/
-	public $warrantyScope;
+    /**
+     * The scope of the warranty promise.
+     *
+     * @var WarrantyScope
+     */
+    public $warrantyScope;
+
 
 }

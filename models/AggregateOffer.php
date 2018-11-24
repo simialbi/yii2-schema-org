@@ -3,30 +3,42 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for AggregateOffer
+ * When a single product is associated with multiple offers (for example, the same
+ * pair of shoes is offered by different merchants), then AggregateOffer can be
+ * used.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/AggregateOffer
  */
 class AggregateOffer extends Offer {
-	/**
-	* @var integer|string The highest price of all offers available.
-	*/
-	public $highPrice;
+    /**
+     * The highest price of all offers available.
+     *
+     * @var integer|string
+     */
+    public $highPrice;
 
-	/**
-	* @var integer|string The lowest price of all offers available.
-	*/
-	public $lowPrice;
+    /**
+     * The lowest price of all offers available.
+     *
+     * @var integer|string
+     */
+    public $lowPrice;
 
-	/**
-	* @var integer The number of offers for the product.
-	*/
-	public $offerCount;
+    /**
+     * The number of offers for the product.
+     *
+     * @var integer
+     */
+    public $offerCount;
 
-	/**
-	* @var Offer An offer to provide this item—for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event.
-	*/
-	public $offers;
+    /**
+     * An offer to provide this item—for example, an offer to sell a product, rent
+     * the DVD of a movie, perform a service, or give away tickets to an event.
+     *
+     * @var Offer
+     */
+    public $offers;
+
 
 }

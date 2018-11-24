@@ -3,15 +3,19 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for PlanAction
+ * The act of planning the execution of an event/task/action/reservation/plan to a
+ * future date.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/PlanAction
  */
 class PlanAction extends OrganizeAction {
-	/**
-	* @var string The time the object is scheduled to.
-	*/
-	public $scheduledTime;
+    /**
+     * The time the object is scheduled to.
+     *
+     * @var string
+     */
+    public $scheduledTime;
+
 
 }

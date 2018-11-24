@@ -3,110 +3,165 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for Service
+ * A service provided by an organization, e.g. delivery service, print services,
+ * etc.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/Service
  */
 class Service extends Intangible {
-	/**
-	* @var AggregateRating The overall rating, based on a collection of reviews or ratings, of the item.
-	*/
-	public $aggregateRating;
+    /**
+     * The overall rating, based on a collection of reviews or ratings, of the item.
+     *
+     * @var AggregateRating
+     */
+    public $aggregateRating;
 
-	/**
-	* @var AdministrativeArea|GeoShape|Place|string The geographic area where a service or offered item is provided. Supersedes serviceArea.
-	*/
-	public $areaServed;
+    /**
+     * The geographic area where a service or offered item is provided. Supersedes
+     * serviceArea.
+     *
+     * @var AdministrativeArea|GeoShape|Place|string
+     */
+    public $areaServed;
 
-	/**
-	* @var Audience An intended audience, i.e. a group for whom something was created. Supersedes serviceAudience.
-	*/
-	public $audience;
+    /**
+     * An intended audience, i.e. a group for whom something was created. Supersedes
+     * serviceAudience.
+     *
+     * @var Audience
+     */
+    public $audience;
 
-	/**
-	* @var ServiceChannel A means of accessing the service (e.g. a phone bank, a web site, a location, etc.).
-	*/
-	public $availableChannel;
+    /**
+     * A means of accessing the service (e.g. a phone bank, a web site, a location,
+     * etc.).
+     *
+     * @var ServiceChannel
+     */
+    public $availableChannel;
 
-	/**
-	* @var string An award won by or for this item. Supersedes awards.
-	*/
-	public $award;
+    /**
+     * An award won by or for this item. Supersedes awards.
+     *
+     * @var string
+     */
+    public $award;
 
-	/**
-	* @var Brand|Organization The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
-	*/
-	public $brand;
+    /**
+     * The brand(s) associated with a product or service, or the brand(s) maintained by
+     * an organization or business person.
+     *
+     * @var Brand|Organization
+     */
+    public $brand;
 
-	/**
-	* @var Organization|Person An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred. Supersedes bookingAgent.
-	*/
-	public $broker;
+    /**
+     * An entity that arranges for an exchange between a buyer and a seller.  In most
+     * cases a broker never acquires or releases ownership of a product or service
+     * involved in an exchange.  If it is not clear whether an entity is a broker,
+     * seller, or buyer, the latter two terms are preferred. Supersedes bookingAgent.
+     *
+     * @var Organization|Person
+     */
+    public $broker;
 
-	/**
-	* @var PhysicalActivityCategory|string|Thing A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
-	*/
-	public $category;
+    /**
+     * A category for the item. Greater signs or slashes can be used to informally
+     * indicate a category hierarchy.
+     *
+     * @var PhysicalActivityCategory|string|Thing
+     */
+    public $category;
 
-	/**
-	* @var OfferCatalog Indicates an OfferCatalog listing for this Organization, Person, or Service.
-	*/
-	public $hasOfferCatalog;
+    /**
+     * Indicates an OfferCatalog listing for this Organization, Person, or Service.
+     *
+     * @var OfferCatalog
+     */
+    public $hasOfferCatalog;
 
-	/**
-	* @var OpeningHoursSpecification The hours during which this service or contact is available.
-	*/
-	public $hoursAvailable;
+    /**
+     * The hours during which this service or contact is available.
+     *
+     * @var OpeningHoursSpecification
+     */
+    public $hoursAvailable;
 
-	/**
-	* @var Product|Service A pointer to another, somehow related product (or multiple products).
-	*/
-	public $isRelatedTo;
+    /**
+     * A pointer to another, somehow related product (or multiple products).
+     *
+     * @var Product|Service
+     */
+    public $isRelatedTo;
 
-	/**
-	* @var Product|Service A pointer to another, functionally similar product (or multiple products).
-	*/
-	public $isSimilarTo;
+    /**
+     * A pointer to another, functionally similar product (or multiple products).
+     *
+     * @var Product|Service
+     */
+    public $isSimilarTo;
 
-	/**
-	* @var ImageObject|string An associated logo.
-	*/
-	public $logo;
+    /**
+     * An associated logo.
+     *
+     * @var ImageObject|string
+     */
+    public $logo;
 
-	/**
-	* @var Offer An offer to provide this item—for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event.
-	*/
-	public $offers;
+    /**
+     * An offer to provide this item—for example, an offer to sell a product, rent
+     * the DVD of a movie, perform a service, or give away tickets to an event.
+     *
+     * @var Offer
+     */
+    public $offers;
 
-	/**
-	* @var Organization|Person The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier.
-	*/
-	public $provider;
+    /**
+     * The service provider, service operator, or service performer; the goods
+     * producer. Another party (a seller) may offer those services or goods on behalf
+     * of the provider. A provider may also serve as the seller. Supersedes carrier.
+     *
+     * @var Organization|Person
+     */
+    public $provider;
 
-	/**
-	* @var string Indicates the mobility of a provided service (e.g. 'static', 'dynamic').
-	*/
-	public $providerMobility;
+    /**
+     * Indicates the mobility of a provided service (e.g. 'static', 'dynamic').
+     *
+     * @var string
+     */
+    public $providerMobility;
 
-	/**
-	* @var Review A review of the item. Supersedes reviews.
-	*/
-	public $review;
+    /**
+     * A review of the item. Supersedes reviews.
+     *
+     * @var Review
+     */
+    public $review;
 
-	/**
-	* @var Thing The tangible thing generated by the service, e.g. a passport, permit, etc. Supersedes produces.
-	*/
-	public $serviceOutput;
+    /**
+     * The tangible thing generated by the service, e.g. a passport, permit, etc.
+     * Supersedes produces.
+     *
+     * @var Thing
+     */
+    public $serviceOutput;
 
-	/**
-	* @var string The type of service being offered, e.g. veterans' benefits, emergency relief, etc.
-	*/
-	public $serviceType;
+    /**
+     * The type of service being offered, e.g. veterans' benefits, emergency relief,
+     * etc.
+     *
+     * @var string
+     */
+    public $serviceType;
 
-	/**
-	* @var string Human-readable terms of service documentation.
-	*/
-	public $termsOfService;
+    /**
+     * Human-readable terms of service documentation.
+     *
+     * @var string
+     */
+    public $termsOfService;
+
 
 }

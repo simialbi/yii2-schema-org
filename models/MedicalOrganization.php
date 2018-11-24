@@ -3,25 +3,34 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for MedicalOrganization
+ * A medical organization (physical or not), such as hospital, institution or
+ * clinic.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/MedicalOrganization
  */
 class MedicalOrganization extends Organization {
-	/**
-	* @var string Name or unique ID of network. (Networks are often reused across different insurance plans).
-	*/
-	public $healthPlanNetworkId;
+    /**
+     * Name or unique ID of network. (Networks are often reused across different
+     * insurance plans).
+     *
+     * @var string
+     */
+    public $healthPlanNetworkId;
 
-	/**
-	* @var boolean Whether the provider is accepting new patients.
-	*/
-	public $isAcceptingNewPatients;
+    /**
+     * Whether the provider is accepting new patients.
+     *
+     * @var boolean
+     */
+    public $isAcceptingNewPatients;
 
-	/**
-	* @var MedicalSpecialty A medical specialty of the provider.
-	*/
-	public $medicalSpecialty;
+    /**
+     * A medical specialty of the provider.
+     *
+     * @var MedicalSpecialty
+     */
+    public $medicalSpecialty;
+
 
 }

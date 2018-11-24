@@ -3,15 +3,19 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for HowToTool
+ * A tool used (but not consumed) when performing instructions for how to achieve a
+ * result.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/HowToTool
  */
 class HowToTool extends HowToItem {
-	/**
-	* @var integer|QuantitativeValue|string The required quantity of the item(s).
-	*/
-	public $requiredQuantity;
+    /**
+     * The required quantity of the item(s).
+     *
+     * @var integer|QuantitativeValue|string
+     */
+    public $requiredQuantity;
+
 
 }

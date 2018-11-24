@@ -3,15 +3,18 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for TrackAction
+ * An agent tracks an object for updates.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/TrackAction
  */
 class TrackAction extends FindAction {
-	/**
-	* @var DeliveryMethod A sub property of instrument. The method of delivery.
-	*/
-	public $deliveryMethod;
+    /**
+     * A sub property of instrument. The method of delivery.
+     *
+     * @var DeliveryMethod
+     */
+    public $deliveryMethod;
+
 
 }

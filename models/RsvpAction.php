@@ -3,25 +3,34 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for RsvpAction
+ * The act of notifying an event organizer as to whether you expect to attend the
+ * event.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/RsvpAction
  */
 class RsvpAction extends InformAction {
-	/**
-	* @var integer If responding yes, the number of guests who will attend in addition to the invitee.
-	*/
-	public $additionalNumberOfGuests;
+    /**
+     * If responding yes, the number of guests who will attend in addition to the
+     * invitee.
+     *
+     * @var integer
+     */
+    public $additionalNumberOfGuests;
 
-	/**
-	* @var Comment Comments, typically from users.
-	*/
-	public $comment;
+    /**
+     * Comments, typically from users.
+     *
+     * @var Comment
+     */
+    public $comment;
 
-	/**
-	* @var RsvpResponseType The response (yes, no, maybe) to the RSVP.
-	*/
-	public $rsvpResponse;
+    /**
+     * The response (yes, no, maybe) to the RSVP.
+     *
+     * @var RsvpResponseType
+     */
+    public $rsvpResponse;
+
 
 }

@@ -3,30 +3,39 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for ImageObject
+ * An image file.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/ImageObject
  */
 class ImageObject extends MediaObject {
-	/**
-	* @var string The caption for this object.
-	*/
-	public $caption;
+    /**
+     * The caption for this object.
+     *
+     * @var string
+     */
+    public $caption;
 
-	/**
-	* @var PropertyValue|string exif data for this object.
-	*/
-	public $exifData;
+    /**
+     * exif data for this object.
+     *
+     * @var PropertyValue|string
+     */
+    public $exifData;
 
-	/**
-	* @var boolean Indicates whether this image is representative of the content of the page.
-	*/
-	public $representativeOfPage;
+    /**
+     * Indicates whether this image is representative of the content of the page.
+     *
+     * @var boolean
+     */
+    public $representativeOfPage;
 
-	/**
-	* @var ImageObject Thumbnail image for an image or video.
-	*/
-	public $thumbnail;
+    /**
+     * Thumbnail image for an image or video.
+     *
+     * @var ImageObject
+     */
+    public $thumbnail;
+
 
 }

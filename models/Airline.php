@@ -3,20 +3,26 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for Airline
+ * An organization that provides flights for passengers.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/Airline
  */
 class Airline extends Organization {
-	/**
-	* @var BoardingPolicyType The type of boarding policy used by the airline (e.g. zone-based or group-based).
-	*/
-	public $boardingPolicy;
+    /**
+     * The type of boarding policy used by the airline (e.g. zone-based or
+     * group-based).
+     *
+     * @var BoardingPolicyType
+     */
+    public $boardingPolicy;
 
-	/**
-	* @var string IATA identifier for an airline or airport.
-	*/
-	public $iataCode;
+    /**
+     * IATA identifier for an airline or airport.
+     *
+     * @var string
+     */
+    public $iataCode;
+
 
 }

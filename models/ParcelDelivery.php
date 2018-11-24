@@ -3,65 +3,91 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for ParcelDelivery
+ * The delivery of a parcel either via the postal service or a commercial service.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/ParcelDelivery
  */
 class ParcelDelivery extends Intangible {
-	/**
-	* @var PostalAddress Destination address.
-	*/
-	public $deliveryAddress;
+    /**
+     * Destination address.
+     *
+     * @var PostalAddress
+     */
+    public $deliveryAddress;
 
-	/**
-	* @var DeliveryEvent New entry added as the package passes through each leg of its journey (from shipment to final delivery).
-	*/
-	public $deliveryStatus;
+    /**
+     * New entry added as the package passes through each leg of its journey (from
+     * shipment to final delivery).
+     *
+     * @var DeliveryEvent
+     */
+    public $deliveryStatus;
 
-	/**
-	* @var string The earliest date the package may arrive.
-	*/
-	public $expectedArrivalFrom;
+    /**
+     * The earliest date the package may arrive.
+     *
+     * @var string
+     */
+    public $expectedArrivalFrom;
 
-	/**
-	* @var string The latest date the package may arrive.
-	*/
-	public $expectedArrivalUntil;
+    /**
+     * The latest date the package may arrive.
+     *
+     * @var string
+     */
+    public $expectedArrivalUntil;
 
-	/**
-	* @var DeliveryMethod Method used for delivery or shipping.
-	*/
-	public $hasDeliveryMethod;
+    /**
+     * Method used for delivery or shipping.
+     *
+     * @var DeliveryMethod
+     */
+    public $hasDeliveryMethod;
 
-	/**
-	* @var Product Item(s) being shipped.
-	*/
-	public $itemShipped;
+    /**
+     * Item(s) being shipped.
+     *
+     * @var Product
+     */
+    public $itemShipped;
 
-	/**
-	* @var PostalAddress Shipper's address.
-	*/
-	public $originAddress;
+    /**
+     * Shipper's address.
+     *
+     * @var PostalAddress
+     */
+    public $originAddress;
 
-	/**
-	* @var Order The overall order the items in this delivery were included in.
-	*/
-	public $partOfOrder;
+    /**
+     * The overall order the items in this delivery were included in.
+     *
+     * @var Order
+     */
+    public $partOfOrder;
 
-	/**
-	* @var Organization|Person The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier.
-	*/
-	public $provider;
+    /**
+     * The service provider, service operator, or service performer; the goods
+     * producer. Another party (a seller) may offer those services or goods on behalf
+     * of the provider. A provider may also serve as the seller. Supersedes carrier.
+     *
+     * @var Organization|Person
+     */
+    public $provider;
 
-	/**
-	* @var string Shipper tracking number.
-	*/
-	public $trackingNumber;
+    /**
+     * Shipper tracking number.
+     *
+     * @var string
+     */
+    public $trackingNumber;
 
-	/**
-	* @var string Tracking url for the parcel delivery.
-	*/
-	public $trackingUrl;
+    /**
+     * Tracking url for the parcel delivery.
+     *
+     * @var string
+     */
+    public $trackingUrl;
+
 
 }

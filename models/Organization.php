@@ -3,242 +3,416 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for Organization
+ * An organization such as a school, NGO, corporation, club, etc.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/Organization
  */
 class Organization extends Thing {
-	/**
-	* @var CreativeWork|string For a NewsMediaOrganization or other news-related Organization, a statement about public engagement activities (for news media, the newsroom’s), including involving the public - digitally or otherwise -- in coverage decisions, reporting and activities after publication.
-	*/
-	public $actionableFeedbackPolicy;
+    /**
+     * For a NewsMediaOrganization or other news-related Organization, a statement
+     * about public engagement activities (for news media, the newsroom’s), including
+     * involving the public - digitally or otherwise -- in coverage decisions,
+     * reporting and activities after publication.
+     *
+     * @var CreativeWork|string
+     */
+    public $actionableFeedbackPolicy;
 
-	/**
-	* @var PostalAddress|string Physical address of the item.
-	*/
-	public $address;
+    /**
+     * Physical address of the item.
+     *
+     * @var PostalAddress|string
+     */
+    public $address;
 
-	/**
-	* @var AggregateRating The overall rating, based on a collection of reviews or ratings, of the item.
-	*/
-	public $aggregateRating;
+    /**
+     * The overall rating, based on a collection of reviews or ratings, of the item.
+     *
+     * @var AggregateRating
+     */
+    public $aggregateRating;
 
-	/**
-	* @var Person Alumni of an organization. Inverse property: alumniOf.
-	*/
-	public $alumni;
+    /**
+     * Alumni of an organization. Inverse property: alumniOf.
+     *
+     * @var Person
+     */
+    public $alumni;
 
-	/**
-	* @var AdministrativeArea|GeoShape|Place|string The geographic area where a service or offered item is provided. Supersedes serviceArea.
-	*/
-	public $areaServed;
+    /**
+     * The geographic area where a service or offered item is provided. Supersedes
+     * serviceArea.
+     *
+     * @var AdministrativeArea|GeoShape|Place|string
+     */
+    public $areaServed;
 
-	/**
-	* @var string An award won by or for this item. Supersedes awards.
-	*/
-	public $award;
+    /**
+     * An award won by or for this item. Supersedes awards.
+     *
+     * @var string
+     */
+    public $award;
 
-	/**
-	* @var Brand|Organization The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
-	*/
-	public $brand;
+    /**
+     * The brand(s) associated with a product or service, or the brand(s) maintained by
+     * an organization or business person.
+     *
+     * @var Brand|Organization
+     */
+    public $brand;
 
-	/**
-	* @var ContactPoint A contact point for a person or organization. Supersedes contactPoints.
-	*/
-	public $contactPoint;
+    /**
+     * A contact point for a person or organization. Supersedes contactPoints.
+     *
+     * @var ContactPoint
+     */
+    public $contactPoint;
 
-	/**
-	* @var CreativeWork|string For an Organization (e.g. NewsMediaOrganization), a statement describing (in news media, the newsroom’s) disclosure and correction policy for errors.
-	*/
-	public $correctionsPolicy;
+    /**
+     * For an Organization (e.g. NewsMediaOrganization), a statement describing (in
+     * news media, the newsroom’s) disclosure and correction policy for errors.
+     *
+     * @var CreativeWork|string
+     */
+    public $correctionsPolicy;
 
-	/**
-	* @var Organization A relationship between an organization and a department of that organization, also described as an organization (allowing different urls, logos, opening hours). For example: a store with a pharmacy, or a bakery with a cafe.
-	*/
-	public $department;
+    /**
+     * A relationship between an organization and a department of that organization,
+     * also described as an organization (allowing different urls, logos, opening
+     * hours). For example: a store with a pharmacy, or a bakery with a cafe.
+     *
+     * @var Organization
+     */
+    public $department;
 
-	/**
-	* @var string The date that this organization was dissolved.
-	*/
-	public $dissolutionDate;
+    /**
+     * The date that this organization was dissolved.
+     *
+     * @var string
+     */
+    public $dissolutionDate;
 
-	/**
-	* @var CreativeWork|string Statement on diversity policy by an Organization e.g. a NewsMediaOrganization. For a NewsMediaOrganization, a statement describing the newsroom’s diversity policy on both staffing and sources, typically providing staffing data.
-	*/
-	public $diversityPolicy;
+    /**
+     * Statement on diversity policy by an Organization e.g. a NewsMediaOrganization.
+     * For a NewsMediaOrganization, a statement describing the newsroom’s diversity
+     * policy on both staffing and sources, typically providing staffing data.
+     *
+     * @var CreativeWork|string
+     */
+    public $diversityPolicy;
 
-	/**
-	* @var string The Dun & Bradstreet DUNS number for identifying an organization or business person.
-	*/
-	public $duns;
+    /**
+     * For an Organization (often but not necessarily a NewsMediaOrganization), a
+     * report on staffing diversity issues. In a news context this might be for example
+     * ASNE or RTDNA (US) reports, or self-reported.
+     *
+     * @var Article|string
+     */
+    public $diversityStaffingReport;
 
-	/**
-	* @var string Email address.
-	*/
-	public $email;
+    /**
+     * The Dun & Bradstreet DUNS number for identifying an organization or business
+     * person.
+     *
+     * @var string
+     */
+    public $duns;
 
-	/**
-	* @var Person Someone working for this organization. Supersedes employees.
-	*/
-	public $employee;
+    /**
+     * Email address.
+     *
+     * @var string
+     */
+    public $email;
 
-	/**
-	* @var CreativeWork|string Statement about ethics policy, e.g. of a NewsMediaOrganization regarding journalistic and publishing practices, or of a Restaurant, a page describing food source policies. In the case of a NewsMediaOrganization, an ethicsPolicy is typically a statement describing the personal, organizational, and corporate standards of behavior expected by the organization.
-	*/
-	public $ethicsPolicy;
+    /**
+     * Someone working for this organization. Supersedes employees.
+     *
+     * @var Person
+     */
+    public $employee;
 
-	/**
-	* @var Event Upcoming or past event associated with this place, organization, or action. Supersedes events.
-	*/
-	public $event;
+    /**
+     * Statement about ethics policy, e.g. of a NewsMediaOrganization regarding
+     * journalistic and publishing practices, or of a Restaurant, a page describing
+     * food source policies. In the case of a NewsMediaOrganization, an ethicsPolicy is
+     * typically a statement describing the personal, organizational, and corporate
+     * standards of behavior expected by the organization.
+     *
+     * @var CreativeWork|string
+     */
+    public $ethicsPolicy;
 
-	/**
-	* @var string The fax number.
-	*/
-	public $faxNumber;
+    /**
+     * Upcoming or past event associated with this place, organization, or action.
+     * Supersedes events.
+     *
+     * @var Event
+     */
+    public $event;
 
-	/**
-	* @var Person A person who founded this organization. Supersedes founders.
-	*/
-	public $founder;
+    /**
+     * The fax number.
+     *
+     * @var string
+     */
+    public $faxNumber;
 
-	/**
-	* @var string The date that this organization was founded.
-	*/
-	public $foundingDate;
+    /**
+     * A person who founded this organization. Supersedes founders.
+     *
+     * @var Person
+     */
+    public $founder;
 
-	/**
-	* @var Place The place where the Organization was founded.
-	*/
-	public $foundingLocation;
+    /**
+     * The date that this organization was founded.
+     *
+     * @var string
+     */
+    public $foundingDate;
 
-	/**
-	* @var Organization|Person A person or organization that supports (sponsors) something through some kind of financial contribution.
-	*/
-	public $funder;
+    /**
+     * The place where the Organization was founded.
+     *
+     * @var Place
+     */
+    public $foundingLocation;
 
-	/**
-	* @var string The Global Location Number (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.
-	*/
-	public $globalLocationNumber;
+    /**
+     * A person or organization that supports (sponsors) something through some kind of
+     * financial contribution.
+     *
+     * @var Organization|Person
+     */
+    public $funder;
 
-	/**
-	* @var OfferCatalog Indicates an OfferCatalog listing for this Organization, Person, or Service.
-	*/
-	public $hasOfferCatalog;
+    /**
+     * The Global Location Number (GLN, sometimes also referred to as International
+     * Location Number or ILN) of the respective organization, person, or place. The
+     * GLN is a 13-digit number used to identify parties and physical locations.
+     *
+     * @var string
+     */
+    public $globalLocationNumber;
 
-	/**
-	* @var Place Points-of-Sales operated by the organization or person.
-	*/
-	public $hasPOS;
+    /**
+     * Indicates an OfferCatalog listing for this Organization, Person, or Service.
+     *
+     * @var OfferCatalog
+     */
+    public $hasOfferCatalog;
 
-	/**
-	* @var string The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.
-	*/
-	public $isicV4;
+    /**
+     * Points-of-Sales operated by the organization or person.
+     *
+     * @var Place
+     */
+    public $hasPOS;
 
-	/**
-	* @var string The official name of the organization, e.g. the registered company name.
-	*/
-	public $legalName;
+    /**
+     * The International Standard of Industrial Classification of All Economic
+     * Activities (ISIC), Revision 4 code for a particular organization, business
+     * person, or place.
+     *
+     * @var string
+     */
+    public $isicV4;
 
-	/**
-	* @var string An organization identifier that uniquely identifies a legal entity as defined in ISO 17442.
-	*/
-	public $leiCode;
+    /**
+     * Of a Person, and less typically of an Organization, to indicate a topic that is
+     * known about - suggesting possible expertise but not implying it. We do not
+     * distinguish skill levels here, or yet relate this to educational content,
+     * events, objectives or JobPosting descriptions.
+     *
+     * @var string|Thing|string
+     */
+    public $knowsAbout;
 
-	/**
-	* @var Place|PostalAddress|string The location of for example where the event is happening, an organization is located, or where an action takes place.
-	*/
-	public $location;
+    /**
+     * Of a Person, and less typically of an Organization, to indicate a known
+     * language. We do not distinguish skill levels or reading/writing/speaking/signing
+     * here. Use language codes from the IETF BCP 47 standard.
+     *
+     * @var Language|string
+     */
+    public $knowsLanguage;
 
-	/**
-	* @var ImageObject|string An associated logo.
-	*/
-	public $logo;
+    /**
+     * The official name of the organization, e.g. the registered company name.
+     *
+     * @var string
+     */
+    public $legalName;
 
-	/**
-	* @var Offer A pointer to products or services offered by the organization or person. Inverse property: offeredBy.
-	*/
-	public $makesOffer;
+    /**
+     * An organization identifier that uniquely identifies a legal entity as defined in
+     * ISO 17442.
+     *
+     * @var string
+     */
+    public $leiCode;
 
-	/**
-	* @var Organization|Person A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals. Supersedes members, musicGroupMember. Inverse property: memberOf.
-	*/
-	public $member;
+    /**
+     * The location of for example where the event is happening, an organization is
+     * located, or where an action takes place.
+     *
+     * @var Place|PostalAddress|string
+     */
+    public $location;
 
-	/**
-	* @var Organization|ProgramMembership An Organization (or ProgramMembership) to which this Person or Organization belongs. Inverse property: member.
-	*/
-	public $memberOf;
+    /**
+     * An associated logo.
+     *
+     * @var ImageObject|string
+     */
+    public $logo;
 
-	/**
-	* @var string The North American Industry Classification System (NAICS) code for a particular organization or business person.
-	*/
-	public $naics;
+    /**
+     * A pointer to products or services offered by the organization or person. Inverse
+     * property: offeredBy.
+     *
+     * @var Offer
+     */
+    public $makesOffer;
 
-	/**
-	* @var QuantitativeValue The number of employees in an organization e.g. business.
-	*/
-	public $numberOfEmployees;
+    /**
+     * A member of an Organization or a ProgramMembership. Organizations can be members
+     * of organizations; ProgramMembership is typically for individuals. Supersedes
+     * members, musicGroupMember. Inverse property: memberOf.
+     *
+     * @var Organization|Person
+     */
+    public $member;
 
-	/**
-	* @var OwnershipInfo|Product Products owned by the organization or person.
-	*/
-	public $owns;
+    /**
+     * An Organization (or ProgramMembership) to which this Person or Organization
+     * belongs. Inverse property: member.
+     *
+     * @var Organization|ProgramMembership
+     */
+    public $memberOf;
 
-	/**
-	* @var Organization The larger organization that this organization is a subOrganization of, if any. Supersedes branchOf. Inverse property: subOrganization.
-	*/
-	public $parentOrganization;
+    /**
+     * The North American Industry Classification System (NAICS) code for a particular
+     * organization or business person.
+     *
+     * @var string
+     */
+    public $naics;
 
-	/**
-	* @var CreativeWork|string The publishingPrinciples property indicates (typically via URL) a document describing the editorial principles of an Organization (or individual e.g. a Person writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a CreativeWork (e.g. NewsArticle) the principles are those of the party primarily responsible for the creation of the CreativeWork.
-	* 
-	* While such policies are most typically expressed in natural language, sometimes related information (e.g. indicating a funder) can be expressed using schema.org terminology.
-	*/
-	public $publishingPrinciples;
+    /**
+     * The number of employees in an organization e.g. business.
+     *
+     * @var QuantitativeValue
+     */
+    public $numberOfEmployees;
 
-	/**
-	* @var Review A review of the item. Supersedes reviews.
-	*/
-	public $review;
+    /**
+     * For an Organization (often but not necessarily a NewsMediaOrganization), a
+     * description of organizational ownership structure; funding and grants. In a
+     * news/media setting, this is with particular reference to editorial independence.
+     *   Note that the funder is also available and can be used to make basic funder
+     * information machine-readable.
+     *
+     * @var AboutPage|CreativeWork|string
+     */
+    public $ownershipFundingInfo;
 
-	/**
-	* @var Demand A pointer to products or services sought by the organization or person (demand).
-	*/
-	public $seeks;
+    /**
+     * Products owned by the organization or person.
+     *
+     * @var OwnershipInfo|Product
+     */
+    public $owns;
 
-	/**
-	* @var Organization|Person A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.
-	*/
-	public $sponsor;
+    /**
+     * The larger organization that this organization is a subOrganization of, if any.
+     * Supersedes branchOf. Inverse property: subOrganization.
+     *
+     * @var Organization
+     */
+    public $parentOrganization;
 
-	/**
-	* @var Organization A relationship between two organizations where the first includes the second, e.g., as a subsidiary. See also: the more specific 'department' property. Inverse property: parentOrganization.
-	*/
-	public $subOrganization;
+    /**
+     * The publishingPrinciples property indicates (typically via URL) a document
+     * describing the editorial principles of an Organization (or individual e.g. a
+     * Person writing a blog) that relate to their activities as a publisher, e.g.
+     * ethics or diversity policies. When applied to a CreativeWork (e.g. NewsArticle)
+     * the principles are those of the party primarily responsible for the creation of
+     * the CreativeWork.
+     * 
+     * While such policies are most typically expressed in natural language, sometimes
+     * related information (e.g. indicating a funder) can be expressed using schema.org
+     * terminology.
+     *
+     * @var CreativeWork|string
+     */
+    public $publishingPrinciples;
 
-	/**
-	* @var string The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain.
-	*/
-	public $taxID;
+    /**
+     * A review of the item. Supersedes reviews.
+     *
+     * @var Review
+     */
+    public $review;
 
-	/**
-	* @var string The telephone number.
-	*/
-	public $telephone;
+    /**
+     * A pointer to products or services sought by the organization or person (demand).
+     *
+     * @var Demand
+     */
+    public $seeks;
 
-	/**
-	* @var CreativeWork|string For an Organization (typically a NewsMediaOrganization), a statement about policy on use of unnamed sources and the decision process required.
-	*/
-	public $unnamedSourcesPolicy;
+    /**
+     * A person or organization that supports a thing through a pledge, promise, or
+     * financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor
+     * of an event.
+     *
+     * @var Organization|Person
+     */
+    public $sponsor;
 
-	/**
-	* @var string The Value-added Tax ID of the organization or person.
-	*/
-	public $vatID;
+    /**
+     * A relationship between two organizations where the first includes the second,
+     * e.g., as a subsidiary. See also: the more specific 'department' property.
+     * Inverse property: parentOrganization.
+     *
+     * @var Organization
+     */
+    public $subOrganization;
+
+    /**
+     * The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the
+     * CIF/NIF in Spain.
+     *
+     * @var string
+     */
+    public $taxID;
+
+    /**
+     * The telephone number.
+     *
+     * @var string
+     */
+    public $telephone;
+
+    /**
+     * For an Organization (typically a NewsMediaOrganization), a statement about
+     * policy on use of unnamed sources and the decision process required.
+     *
+     * @var CreativeWork|string
+     */
+    public $unnamedSourcesPolicy;
+
+    /**
+     * The Value-added Tax ID of the organization or person.
+     *
+     * @var string
+     */
+    public $vatID;
+
 
 }

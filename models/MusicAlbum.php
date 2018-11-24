@@ -3,30 +3,40 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for MusicAlbum
+ * A collection of music tracks.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/MusicAlbum
  */
 class MusicAlbum extends MusicPlaylist {
-	/**
-	* @var MusicAlbumProductionType Classification of the album by it's type of content: soundtrack, live album, studio album, etc.
-	*/
-	public $albumProductionType;
+    /**
+     * Classification of the album by it's type of content: soundtrack, live album,
+     * studio album, etc.
+     *
+     * @var MusicAlbumProductionType
+     */
+    public $albumProductionType;
 
-	/**
-	* @var MusicRelease A release of this album. Inverse property: releaseOf.
-	*/
-	public $albumRelease;
+    /**
+     * A release of this album. Inverse property: releaseOf.
+     *
+     * @var MusicRelease
+     */
+    public $albumRelease;
 
-	/**
-	* @var MusicAlbumReleaseType The kind of release which this album is: single, EP or album.
-	*/
-	public $albumReleaseType;
+    /**
+     * The kind of release which this album is: single, EP or album.
+     *
+     * @var MusicAlbumReleaseType
+     */
+    public $albumReleaseType;
 
-	/**
-	* @var MusicGroup The artist that performed this album or recording.
-	*/
-	public $byArtist;
+    /**
+     * The artist that performed this album or recording.
+     *
+     * @var MusicGroup
+     */
+    public $byArtist;
+
 
 }

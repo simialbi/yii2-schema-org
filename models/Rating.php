@@ -3,30 +3,50 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for Rating
+ * A rating is an evaluation on a numeric scale, such as 1 to 5 stars.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/Rating
  */
 class Rating extends Intangible {
-	/**
-	* @var Organization|Person The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.
-	*/
-	public $author;
+    /**
+     * The author of this content or rating. Please note that author is special in that
+     * HTML 5 provides a special mechanism for indicating authorship via the rel tag.
+     * That is equivalent to this and may be used interchangeably.
+     *
+     * @var Organization|Person
+     */
+    public $author;
 
-	/**
-	* @var integer|string The highest value allowed in this rating system. If bestRating is omitted, 5 is assumed.
-	*/
-	public $bestRating;
+    /**
+     * The highest value allowed in this rating system. If bestRating is omitted, 5 is
+     * assumed.
+     *
+     * @var integer|string
+     */
+    public $bestRating;
 
-	/**
-	* @var integer|string The rating for the content.
-	*/
-	public $ratingValue;
+    /**
+     * The rating for the content.
+     *
+     * @var integer|string
+     */
+    public $ratingValue;
 
-	/**
-	* @var integer|string The lowest value allowed in this rating system. If worstRating is omitted, 1 is assumed.
-	*/
-	public $worstRating;
+    /**
+     * This Review or Rating is relevant to this part or facet of the itemReviewed.
+     *
+     * @var string
+     */
+    public $reviewAspect;
+
+    /**
+     * The lowest value allowed in this rating system. If worstRating is omitted, 1 is
+     * assumed.
+     *
+     * @var integer|string
+     */
+    public $worstRating;
+
 
 }

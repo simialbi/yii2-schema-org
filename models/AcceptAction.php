@@ -3,15 +3,18 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for AcceptAction
+ * The act of committing to/adopting an object.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/AcceptAction
  */
 class AcceptAction extends AllocateAction {
-	/**
-	* @var MedicalDevicePurpose|Thing A goal towards an action is taken. Can be concrete or abstract.
-	*/
-	public $purpose;
+    /**
+     * A goal towards an action is taken. Can be concrete or abstract.
+     *
+     * @var MedicalDevicePurpose|Thing
+     */
+    public $purpose;
+
 
 }

@@ -3,20 +3,26 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for MusicPlaylist
+ * A collection of music tracks in playlist form.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/MusicPlaylist
  */
 class MusicPlaylist extends CreativeWork {
-	/**
-	* @var integer The number of tracks in this album or playlist.
-	*/
-	public $numTracks;
+    /**
+     * The number of tracks in this album or playlist.
+     *
+     * @var integer
+     */
+    public $numTracks;
 
-	/**
-	* @var ItemList|MusicRecording A music recording (track)—usually a single song. If an ItemList is given, the list should contain items of type MusicRecording. Supersedes tracks.
-	*/
-	public $track;
+    /**
+     * A music recording (track)—usually a single song. If an ItemList is given, the
+     * list should contain items of type MusicRecording. Supersedes tracks.
+     *
+     * @var ItemList|MusicRecording
+     */
+    public $track;
+
 
 }

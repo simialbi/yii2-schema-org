@@ -3,60 +3,87 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for CreativeWorkSeason
+ * A media season e.g. tv, radio, video game etc.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/CreativeWorkSeason
  */
 class CreativeWorkSeason extends CreativeWork {
-	/**
-	* @var Person An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip. Supersedes actors.
-	*/
-	public $actor;
+    /**
+     * An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can
+     * be associated with individual items or with a series, episode, clip. Supersedes
+     * actors.
+     *
+     * @var Person
+     */
+    public $actor;
 
-	/**
-	* @var Person A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip. Supersedes directors.
-	*/
-	public $director;
+    /**
+     * A director of e.g. tv, radio, movie, video gaming etc. content, or of an event.
+     * Directors can be associated with individual items or with a series, episode,
+     * clip. Supersedes directors.
+     *
+     * @var Person
+     */
+    public $director;
 
-	/**
-	* @var string The end date and time of the item (in ISO 8601 date format).
-	*/
-	public $endDate;
+    /**
+     * The end date and time of the item (in ISO 8601 date format).
+     *
+     * @var string
+     */
+    public $endDate;
 
-	/**
-	* @var Episode An episode of a tv, radio or game media within a series or season. Supersedes episodes.
-	*/
-	public $episode;
+    /**
+     * An episode of a tv, radio or game media within a series or season. Supersedes
+     * episodes.
+     *
+     * @var Episode
+     */
+    public $episode;
 
-	/**
-	* @var integer The number of episodes in this season or series.
-	*/
-	public $numberOfEpisodes;
+    /**
+     * The number of episodes in this season or series.
+     *
+     * @var integer
+     */
+    public $numberOfEpisodes;
 
-	/**
-	* @var CreativeWorkSeries The series to which this episode or season belongs. Supersedes partOfTVSeries.
-	*/
-	public $partOfSeries;
+    /**
+     * The series to which this episode or season belongs. Supersedes partOfTVSeries.
+     *
+     * @var CreativeWorkSeries
+     */
+    public $partOfSeries;
 
-	/**
-	* @var Organization The production company or studio responsible for the item e.g. series, video game, episode etc.
-	*/
-	public $productionCompany;
+    /**
+     * The production company or studio responsible for the item e.g. series, video
+     * game, episode etc.
+     *
+     * @var Organization
+     */
+    public $productionCompany;
 
-	/**
-	* @var integer|string Position of the season within an ordered group of seasons.
-	*/
-	public $seasonNumber;
+    /**
+     * Position of the season within an ordered group of seasons.
+     *
+     * @var integer|string
+     */
+    public $seasonNumber;
 
-	/**
-	* @var string The start date and time of the item (in ISO 8601 date format).
-	*/
-	public $startDate;
+    /**
+     * The start date and time of the item (in ISO 8601 date format).
+     *
+     * @var string
+     */
+    public $startDate;
 
-	/**
-	* @var VideoObject The trailer of a movie or tv/radio series, season, episode, etc.
-	*/
-	public $trailer;
+    /**
+     * The trailer of a movie or tv/radio series, season, episode, etc.
+     *
+     * @var VideoObject
+     */
+    public $trailer;
+
 
 }

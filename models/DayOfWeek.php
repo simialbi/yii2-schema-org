@@ -3,15 +3,20 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for DayOfWeek
+ * The day of the week, e.g. used to specify to which day the opening hours of an
+ * OpeningHoursSpecification refer.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/DayOfWeek
  */
 class DayOfWeek extends Enumeration {
-	/**
-	* @var Class|Enumeration|Property Relates a term (i.e. a property, class or enumeration) to one that supersedes it.
-	*/
-	public $supersededBy;
+    /**
+     * Relates a term (i.e. a property, class or enumeration) to one that supersedes
+     * it.
+     *
+     * @var Class|Enumeration|Property
+     */
+    public $supersededBy;
+
 
 }

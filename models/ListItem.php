@@ -3,30 +3,40 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for ListItem
+ * An list item, e.g. a step in a checklist or how-to description.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/ListItem
  */
 class ListItem extends Intangible {
-	/**
-	* @var Thing An entity represented by an entry in a list or data feed (e.g. an 'artist' in a list of 'artists')’.
-	*/
-	public $item;
+    /**
+     * An entity represented by an entry in a list or data feed (e.g. an 'artist' in a
+     * list of 'artists')’.
+     *
+     * @var Thing
+     */
+    public $item;
 
-	/**
-	* @var ListItem A link to the ListItem that follows the current one.
-	*/
-	public $nextItem;
+    /**
+     * A link to the ListItem that follows the current one.
+     *
+     * @var ListItem
+     */
+    public $nextItem;
 
-	/**
-	* @var integer|string The position of an item in a series or sequence of items.
-	*/
-	public $position;
+    /**
+     * The position of an item in a series or sequence of items.
+     *
+     * @var integer|string
+     */
+    public $position;
 
-	/**
-	* @var ListItem A link to the ListItem that preceeds the current one.
-	*/
-	public $previousItem;
+    /**
+     * A link to the ListItem that preceeds the current one.
+     *
+     * @var ListItem
+     */
+    public $previousItem;
+
 
 }

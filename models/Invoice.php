@@ -3,85 +3,124 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for Invoice
+ * A statement of the money due for goods or services; a bill.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/Invoice
  */
 class Invoice extends Intangible {
-	/**
-	* @var string The identifier for the account the payment will be applied to.
-	*/
-	public $accountId;
+    /**
+     * The identifier for the account the payment will be applied to.
+     *
+     * @var string
+     */
+    public $accountId;
 
-	/**
-	* @var Duration The time interval used to compute the invoice.
-	*/
-	public $billingPeriod;
+    /**
+     * The time interval used to compute the invoice.
+     *
+     * @var Duration
+     */
+    public $billingPeriod;
 
-	/**
-	* @var Organization|Person An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred. Supersedes bookingAgent.
-	*/
-	public $broker;
+    /**
+     * An entity that arranges for an exchange between a buyer and a seller.  In most
+     * cases a broker never acquires or releases ownership of a product or service
+     * involved in an exchange.  If it is not clear whether an entity is a broker,
+     * seller, or buyer, the latter two terms are preferred. Supersedes bookingAgent.
+     *
+     * @var Organization|Person
+     */
+    public $broker;
 
-	/**
-	* @var PhysicalActivityCategory|string|Thing A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
-	*/
-	public $category;
+    /**
+     * A category for the item. Greater signs or slashes can be used to informally
+     * indicate a category hierarchy.
+     *
+     * @var PhysicalActivityCategory|string|Thing
+     */
+    public $category;
 
-	/**
-	* @var string A number that confirms the given order or payment has been received.
-	*/
-	public $confirmationNumber;
+    /**
+     * A number that confirms the given order or payment has been received.
+     *
+     * @var string
+     */
+    public $confirmationNumber;
 
-	/**
-	* @var Organization|Person Party placing the order or paying the invoice.
-	*/
-	public $customer;
+    /**
+     * Party placing the order or paying the invoice.
+     *
+     * @var Organization|Person
+     */
+    public $customer;
 
-	/**
-	* @var MonetaryAmount|PriceSpecification The minimum payment required at this time.
-	*/
-	public $minimumPaymentDue;
+    /**
+     * The minimum payment required at this time.
+     *
+     * @var MonetaryAmount|PriceSpecification
+     */
+    public $minimumPaymentDue;
 
-	/**
-	* @var string The date that payment is due. Supersedes paymentDue.
-	*/
-	public $paymentDueDate;
+    /**
+     * The date that payment is due. Supersedes paymentDue.
+     *
+     * @var string
+     */
+    public $paymentDueDate;
 
-	/**
-	* @var PaymentMethod The name of the credit card or other method of payment for the order.
-	*/
-	public $paymentMethod;
+    /**
+     * The name of the credit card or other method of payment for the order.
+     *
+     * @var PaymentMethod
+     */
+    public $paymentMethod;
 
-	/**
-	* @var string An identifier for the method of payment used (e.g. the last 4 digits of the credit card).
-	*/
-	public $paymentMethodId;
+    /**
+     * An identifier for the method of payment used (e.g. the last 4 digits of the
+     * credit card).
+     *
+     * @var string
+     */
+    public $paymentMethodId;
 
-	/**
-	* @var PaymentStatusType|string The status of payment; whether the invoice has been paid or not.
-	*/
-	public $paymentStatus;
+    /**
+     * The status of payment; whether the invoice has been paid or not.
+     *
+     * @var PaymentStatusType|string
+     */
+    public $paymentStatus;
 
-	/**
-	* @var Organization|Person The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier.
-	*/
-	public $provider;
+    /**
+     * The service provider, service operator, or service performer; the goods
+     * producer. Another party (a seller) may offer those services or goods on behalf
+     * of the provider. A provider may also serve as the seller. Supersedes carrier.
+     *
+     * @var Organization|Person
+     */
+    public $provider;
 
-	/**
-	* @var Order The Order(s) related to this Invoice. One or more Orders may be combined into a single Invoice.
-	*/
-	public $referencesOrder;
+    /**
+     * The Order(s) related to this Invoice. One or more Orders may be combined into a
+     * single Invoice.
+     *
+     * @var Order
+     */
+    public $referencesOrder;
 
-	/**
-	* @var string The date the invoice is scheduled to be paid.
-	*/
-	public $scheduledPaymentDate;
+    /**
+     * The date the invoice is scheduled to be paid.
+     *
+     * @var string
+     */
+    public $scheduledPaymentDate;
 
-	/**
-	* @var MonetaryAmount|PriceSpecification The total amount due.
-	*/
-	public $totalPaymentDue;
+    /**
+     * The total amount due.
+     *
+     * @var MonetaryAmount|PriceSpecification
+     */
+    public $totalPaymentDue;
+
 
 }

@@ -3,37 +3,56 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for MeetingRoom
+ * A meeting room, conference room, or conference hall is a room provided for
+ * singular events such as business conferences and meetings (Source: Wikipedia,
+ * the free encyclopedia, see http://en.wikipedia.org/wiki/Conference_hall).
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/MeetingRoom
  */
 class MeetingRoom extends Room {
-	/**
-	* @var LocationFeatureSpecification An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic property does not make a statement about whether the feature is included in an offer for the main accommodation or available at extra costs.
-	*/
-	public $amenityFeature;
+    /**
+     * An amenity feature (e.g. a characteristic or service) of the Accommodation. This
+     * generic property does not make a statement about whether the feature is included
+     * in an offer for the main accommodation or available at extra costs.
+     *
+     * @var LocationFeatureSpecification
+     */
+    public $amenityFeature;
 
-	/**
-	* @var QuantitativeValue The size of the accommodation, e.g. in square meter or squarefoot.
-	* Typical unit code(s): MTK for square meter, FTK for square foot, or YDK for square yard
-	*/
-	public $floorSize;
+    /**
+     * The size of the accommodation, e.g. in square meter or squarefoot.
+     * Typical unit code(s): MTK for square meter, FTK for square foot, or YDK for
+     * square yard
+     *
+     * @var QuantitativeValue
+     */
+    public $floorSize;
 
-	/**
-	* @var integer|QuantitativeValue The number of rooms (excluding bathrooms and closets) of the acccommodation or lodging business.
-	* Typical unit code(s): ROM for room or C62 for no unit. The type of room can be put in the unitText property of the QuantitativeValue.
-	*/
-	public $numberOfRooms;
+    /**
+     * The number of rooms (excluding bathrooms and closets) of the accommodation or
+     * lodging business.
+     * Typical unit code(s): ROM for room or C62 for no unit. The type of room can be
+     * put in the unitText property of the QuantitativeValue.
+     *
+     * @var integer|QuantitativeValue
+     */
+    public $numberOfRooms;
 
-	/**
-	* @var string Indications regarding the permitted usage of the accommodation.
-	*/
-	public $permittedUsage;
+    /**
+     * Indications regarding the permitted usage of the accommodation.
+     *
+     * @var string
+     */
+    public $permittedUsage;
 
-	/**
-	* @var boolean|string Indicates whether pets are allowed to enter the accommodation or lodging business. More detailed information can be put in a text value.
-	*/
-	public $petsAllowed;
+    /**
+     * Indicates whether pets are allowed to enter the accommodation or lodging
+     * business. More detailed information can be put in a text value.
+     *
+     * @var boolean|string
+     */
+    public $petsAllowed;
+
 
 }

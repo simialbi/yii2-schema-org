@@ -3,35 +3,48 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for OrderItem
+ * An order item is a line of an order. It includes the quantity and shipping
+ * details of a bought offer.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/OrderItem
  */
 class OrderItem extends Intangible {
-	/**
-	* @var ParcelDelivery The delivery of the parcel related to this order or order item.
-	*/
-	public $orderDelivery;
+    /**
+     * The delivery of the parcel related to this order or order item.
+     *
+     * @var ParcelDelivery
+     */
+    public $orderDelivery;
 
-	/**
-	* @var string The identifier of the order item.
-	*/
-	public $orderItemNumber;
+    /**
+     * The identifier of the order item.
+     *
+     * @var string
+     */
+    public $orderItemNumber;
 
-	/**
-	* @var OrderStatus The current status of the order item.
-	*/
-	public $orderItemStatus;
+    /**
+     * The current status of the order item.
+     *
+     * @var OrderStatus
+     */
+    public $orderItemStatus;
 
-	/**
-	* @var integer The number of the item ordered. If the property is not set, assume the quantity is one.
-	*/
-	public $orderQuantity;
+    /**
+     * The number of the item ordered. If the property is not set, assume the quantity
+     * is one.
+     *
+     * @var integer
+     */
+    public $orderQuantity;
 
-	/**
-	* @var OrderItem|Product The item ordered.
-	*/
-	public $orderedItem;
+    /**
+     * The item ordered.
+     *
+     * @var OrderItem|Product
+     */
+    public $orderedItem;
+
 
 }

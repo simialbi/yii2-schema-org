@@ -3,25 +3,35 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for PublicationEvent
+ * A PublicationEvent corresponds indifferently to the event of publication for a
+ * CreativeWork of any type e.g. a broadcast event, an on-demand event, a
+ * book/journal publication via a variety of delivery media.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/PublicationEvent
  */
 class PublicationEvent extends Event {
-	/**
-	* @var boolean A flag to signal that the item, event, or place is accessible for free. Supersedes free.
-	*/
-	public $isAccessibleForFree;
+    /**
+     * A flag to signal that the item, event, or place is accessible for free.
+     * Supersedes free.
+     *
+     * @var boolean
+     */
+    public $isAccessibleForFree;
 
-	/**
-	* @var Organization|Person An agent associated with the publication event.
-	*/
-	public $publishedBy;
+    /**
+     * An agent associated with the publication event.
+     *
+     * @var Organization|Person
+     */
+    public $publishedBy;
 
-	/**
-	* @var BroadcastService A broadcast service associated with the publication event.
-	*/
-	public $publishedOn;
+    /**
+     * A broadcast service associated with the publication event.
+     *
+     * @var BroadcastService
+     */
+    public $publishedOn;
+
 
 }

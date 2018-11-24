@@ -3,40 +3,54 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for GeoCoordinates
+ * The geographic coordinates of a place or event.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/GeoCoordinates
  */
 class GeoCoordinates extends StructuredValue {
-	/**
-	* @var PostalAddress|string Physical address of the item.
-	*/
-	public $address;
+    /**
+     * Physical address of the item.
+     *
+     * @var PostalAddress|string
+     */
+    public $address;
 
-	/**
-	* @var Country|string The country. For example, USA. You can also provide the two-letter ISO 3166-1 alpha-2 country code.
-	*/
-	public $addressCountry;
+    /**
+     * The country. For example, USA. You can also provide the two-letter ISO 3166-1
+     * alpha-2 country code.
+     *
+     * @var Country|string
+     */
+    public $addressCountry;
 
-	/**
-	* @var integer|string The elevation of a location (WGS 84).
-	*/
-	public $elevation;
+    /**
+     * The elevation of a location (WGS 84).
+     *
+     * @var integer|string
+     */
+    public $elevation;
 
-	/**
-	* @var integer|string The latitude of a location. For example 37.42242 (WGS 84).
-	*/
-	public $latitude;
+    /**
+     * The latitude of a location. For example 37.42242 (WGS 84).
+     *
+     * @var integer|string
+     */
+    public $latitude;
 
-	/**
-	* @var integer|string The longitude of a location. For example -122.08585 (WGS 84).
-	*/
-	public $longitude;
+    /**
+     * The longitude of a location. For example -122.08585 (WGS 84).
+     *
+     * @var integer|string
+     */
+    public $longitude;
 
-	/**
-	* @var string The postal code. For example, 94043.
-	*/
-	public $postalCode;
+    /**
+     * The postal code. For example, 94043.
+     *
+     * @var string
+     */
+    public $postalCode;
+
 
 }

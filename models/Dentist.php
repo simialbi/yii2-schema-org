@@ -3,25 +3,33 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for Dentist
+ * A dentist.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/Dentist
  */
-class Dentist extends LocalBusiness {
-	/**
-	* @var string Name or unique ID of network. (Networks are often reused across different insurance plans).
-	*/
-	public $healthPlanNetworkId;
+class Dentist extends MedicalOrganization {
+    /**
+     * Name or unique ID of network. (Networks are often reused across different
+     * insurance plans).
+     *
+     * @var string
+     */
+    public $healthPlanNetworkId;
 
-	/**
-	* @var boolean Whether the provider is accepting new patients.
-	*/
-	public $isAcceptingNewPatients;
+    /**
+     * Whether the provider is accepting new patients.
+     *
+     * @var boolean
+     */
+    public $isAcceptingNewPatients;
 
-	/**
-	* @var MedicalSpecialty A medical specialty of the provider.
-	*/
-	public $medicalSpecialty;
+    /**
+     * A medical specialty of the provider.
+     *
+     * @var MedicalSpecialty
+     */
+    public $medicalSpecialty;
+
 
 }

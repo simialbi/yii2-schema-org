@@ -3,20 +3,26 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for DigitalDocumentPermission
+ * A permission for a particular person or group to access a particular file.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/DigitalDocumentPermission
  */
 class DigitalDocumentPermission extends Intangible {
-	/**
-	* @var Audience|ContactPoint|Organization|Person The person, organization, contact point, or audience that has been granted this permission.
-	*/
-	public $grantee;
+    /**
+     * The person, organization, contact point, or audience that has been granted this
+     * permission.
+     *
+     * @var Audience|ContactPoint|Organization|Person
+     */
+    public $grantee;
 
-	/**
-	* @var DigitalDocumentPermissionType The type of permission granted the person, organization, or audience.
-	*/
-	public $permissionType;
+    /**
+     * The type of permission granted the person, organization, or audience.
+     *
+     * @var DigitalDocumentPermissionType
+     */
+    public $permissionType;
+
 
 }

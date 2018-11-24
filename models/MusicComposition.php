@@ -3,60 +3,82 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for MusicComposition
+ * A musical composition.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/MusicComposition
  */
 class MusicComposition extends CreativeWork {
-	/**
-	* @var Organization|Person The person or organization who wrote a composition, or who is the composer of a work performed at some event.
-	*/
-	public $composer;
+    /**
+     * The person or organization who wrote a composition, or who is the composer of a
+     * work performed at some event.
+     *
+     * @var Organization|Person
+     */
+    public $composer;
 
-	/**
-	* @var Event The date and place the work was first performed.
-	*/
-	public $firstPerformance;
+    /**
+     * The date and place the work was first performed.
+     *
+     * @var Event
+     */
+    public $firstPerformance;
 
-	/**
-	* @var MusicComposition Smaller compositions included in this work (e.g. a movement in a symphony).
-	*/
-	public $includedComposition;
+    /**
+     * Smaller compositions included in this work (e.g. a movement in a symphony).
+     *
+     * @var MusicComposition
+     */
+    public $includedComposition;
 
-	/**
-	* @var string The International Standard Musical Work Code for the composition.
-	*/
-	public $iswcCode;
+    /**
+     * The International Standard Musical Work Code for the composition.
+     *
+     * @var string
+     */
+    public $iswcCode;
 
-	/**
-	* @var Person The person who wrote the words.
-	*/
-	public $lyricist;
+    /**
+     * The person who wrote the words.
+     *
+     * @var Person
+     */
+    public $lyricist;
 
-	/**
-	* @var CreativeWork The words in the song.
-	*/
-	public $lyrics;
+    /**
+     * The words in the song.
+     *
+     * @var CreativeWork
+     */
+    public $lyrics;
 
-	/**
-	* @var MusicComposition An arrangement derived from the composition.
-	*/
-	public $musicArrangement;
+    /**
+     * An arrangement derived from the composition.
+     *
+     * @var MusicComposition
+     */
+    public $musicArrangement;
 
-	/**
-	* @var string The type of composition (e.g. overture, sonata, symphony, etc.).
-	*/
-	public $musicCompositionForm;
+    /**
+     * The type of composition (e.g. overture, sonata, symphony, etc.).
+     *
+     * @var string
+     */
+    public $musicCompositionForm;
 
-	/**
-	* @var string The key, mode, or scale this composition uses.
-	*/
-	public $musicalKey;
+    /**
+     * The key, mode, or scale this composition uses.
+     *
+     * @var string
+     */
+    public $musicalKey;
 
-	/**
-	* @var MusicRecording An audio recording of the work. Inverse property: recordingOf.
-	*/
-	public $recordedAs;
+    /**
+     * An audio recording of the work. Inverse property: recordingOf.
+     *
+     * @var MusicRecording
+     */
+    public $recordedAs;
+
 
 }

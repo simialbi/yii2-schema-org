@@ -3,40 +3,53 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for Book
+ * A book.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/Book
  */
 class Book extends CreativeWork {
-	/**
-	* @var boolean Indicates whether the book is an abridged edition.
-	*/
-	public $abridged;
+    /**
+     * Indicates whether the book is an abridged edition.
+     *
+     * @var boolean
+     */
+    public $abridged;
 
-	/**
-	* @var string The edition of the book.
-	*/
-	public $bookEdition;
+    /**
+     * The edition of the book.
+     *
+     * @var string
+     */
+    public $bookEdition;
 
-	/**
-	* @var BookFormatType The format of the book.
-	*/
-	public $bookFormat;
+    /**
+     * The format of the book.
+     *
+     * @var BookFormatType
+     */
+    public $bookFormat;
 
-	/**
-	* @var Person The illustrator of the book.
-	*/
-	public $illustrator;
+    /**
+     * The illustrator of the book.
+     *
+     * @var Person
+     */
+    public $illustrator;
 
-	/**
-	* @var string The ISBN of the book.
-	*/
-	public $isbn;
+    /**
+     * The ISBN of the book.
+     *
+     * @var string
+     */
+    public $isbn;
 
-	/**
-	* @var integer The number of pages in the book.
-	*/
-	public $numberOfPages;
+    /**
+     * The number of pages in the book.
+     *
+     * @var integer
+     */
+    public $numberOfPages;
+
 
 }

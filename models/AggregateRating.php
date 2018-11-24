@@ -3,25 +3,32 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for AggregateRating
+ * The average rating based on multiple ratings or reviews.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/AggregateRating
  */
 class AggregateRating extends Rating {
-	/**
-	* @var Thing The item that is being reviewed/rated.
-	*/
-	public $itemReviewed;
+    /**
+     * The item that is being reviewed/rated.
+     *
+     * @var Thing
+     */
+    public $itemReviewed;
 
-	/**
-	* @var integer The count of total number of ratings.
-	*/
-	public $ratingCount;
+    /**
+     * The count of total number of ratings.
+     *
+     * @var integer
+     */
+    public $ratingCount;
 
-	/**
-	* @var integer The count of total number of reviews.
-	*/
-	public $reviewCount;
+    /**
+     * The count of total number of reviews.
+     *
+     * @var integer
+     */
+    public $reviewCount;
+
 
 }

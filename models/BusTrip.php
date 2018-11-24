@@ -3,45 +3,39 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for BusTrip
+ * A trip on a commercial bus line.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/BusTrip
  */
-class BusTrip extends Intangible {
-	/**
-	* @var BusStation|BusStop The stop or station from which the bus arrives.
-	*/
-	public $arrivalBusStop;
+class BusTrip extends Trip {
+    /**
+     * The stop or station from which the bus arrives.
+     *
+     * @var BusStation|BusStop
+     */
+    public $arrivalBusStop;
 
-	/**
-	* @var string The expected arrival time.
-	*/
-	public $arrivalTime;
+    /**
+     * The name of the bus (e.g. Bolt Express).
+     *
+     * @var string
+     */
+    public $busName;
 
-	/**
-	* @var string The name of the bus (e.g. Bolt Express).
-	*/
-	public $busName;
+    /**
+     * The unique identifier for the bus.
+     *
+     * @var string
+     */
+    public $busNumber;
 
-	/**
-	* @var string The unique identifier for the bus.
-	*/
-	public $busNumber;
+    /**
+     * The stop or station from which the bus departs.
+     *
+     * @var BusStation|BusStop
+     */
+    public $departureBusStop;
 
-	/**
-	* @var BusStation|BusStop The stop or station from which the bus departs.
-	*/
-	public $departureBusStop;
-
-	/**
-	* @var string The expected departure time.
-	*/
-	public $departureTime;
-
-	/**
-	* @var Organization|Person The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier.
-	*/
-	public $provider;
 
 }

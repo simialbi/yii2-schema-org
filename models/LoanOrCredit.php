@@ -3,55 +3,86 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for LoanOrCredit
+ * A financial product for the loaning of an amount of money under agreed terms and
+ * charges.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/LoanOrCredit
  */
 class LoanOrCredit extends FinancialProduct {
-	/**
-	* @var MonetaryAmount|integer The amount of money.
-	*/
-	public $amount;
+    /**
+     * The amount of money.
+     *
+     * @var MonetaryAmount|integer
+     */
+    public $amount;
 
-	/**
-	* @var string The currency in which the monetary amount is expressed (in 3-letter ISO 4217 format).
-	*/
-	public $currency;
+    /**
+     * The currency in which the monetary amount is expressed.
+     * 
+     * Use standard formats: ISO 4217 currency format e.g. "USD"; Ticker symbol for
+     * cryptocurrencies e.g. "BTC"; well known names for Local Exchange Tradings
+     * Systems (LETS) and other currency types e.g. "Ithaca HOUR".
+     *
+     * @var string
+     */
+    public $currency;
 
-	/**
-	* @var Duration The period of time after any due date that the borrower has to fulfil its obligations before a default (failure to pay) is deemed to have occurred.
-	*/
-	public $gracePeriod;
+    /**
+     * The period of time after any due date that the borrower has to fulfil its
+     * obligations before a default (failure to pay) is deemed to have occurred.
+     *
+     * @var Duration
+     */
+    public $gracePeriod;
 
-	/**
-	* @var RepaymentSpecification A form of paying back money previously borrowed from a lender. Repayment usually takes the form of periodic payments that normally include part principal plus interest in each payment.
-	*/
-	public $loanRepaymentForm;
+    /**
+     * A form of paying back money previously borrowed from a lender. Repayment usually
+     * takes the form of periodic payments that normally include part principal plus
+     * interest in each payment.
+     *
+     * @var RepaymentSpecification
+     */
+    public $loanRepaymentForm;
 
-	/**
-	* @var QuantitativeValue The duration of the loan or credit agreement.
-	*/
-	public $loanTerm;
+    /**
+     * The duration of the loan or credit agreement.
+     *
+     * @var QuantitativeValue
+     */
+    public $loanTerm;
 
-	/**
-	* @var string The type of a loan or credit.
-	*/
-	public $loanType;
+    /**
+     * The type of a loan or credit.
+     *
+     * @var string
+     */
+    public $loanType;
 
-	/**
-	* @var boolean The only way you get the money back in the event of default is the security. Recourse is where you still have the opportunity to go back to the borrower for the rest of the money.
-	*/
-	public $recourseLoan;
+    /**
+     * The only way you get the money back in the event of default is the security.
+     * Recourse is where you still have the opportunity to go back to the borrower for
+     * the rest of the money.
+     *
+     * @var boolean
+     */
+    public $recourseLoan;
 
-	/**
-	* @var boolean Whether the terms for payment of interest can be renegotiated during the life of the loan.
-	*/
-	public $renegotiableLoan;
+    /**
+     * Whether the terms for payment of interest can be renegotiated during the life of
+     * the loan.
+     *
+     * @var boolean
+     */
+    public $renegotiableLoan;
 
-	/**
-	* @var string|Thing Assets required to secure loan or credit repayments. It may take form of third party pledge, goods, financial instruments (cash, securities, etc.)
-	*/
-	public $requiredCollateral;
+    /**
+     * Assets required to secure loan or credit repayments. It may take form of third
+     * party pledge, goods, financial instruments (cash, securities, etc.)
+     *
+     * @var string|Thing
+     */
+    public $requiredCollateral;
+
 
 }

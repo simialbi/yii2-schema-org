@@ -3,55 +3,80 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for RadioSeries
+ * CreativeWorkSeries dedicated to radio broadcast and associated online delivery.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/RadioSeries
  */
 class RadioSeries extends CreativeWorkSeries {
-	/**
-	* @var Person An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip. Supersedes actors.
-	*/
-	public $actor;
+    /**
+     * An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can
+     * be associated with individual items or with a series, episode, clip. Supersedes
+     * actors.
+     *
+     * @var Person
+     */
+    public $actor;
 
-	/**
-	* @var CreativeWorkSeason A season that is part of the media series. Supersedes season.
-	*/
-	public $containsSeason;
+    /**
+     * A season that is part of the media series. Supersedes season.
+     *
+     * @var CreativeWorkSeason
+     */
+    public $containsSeason;
 
-	/**
-	* @var Person A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip. Supersedes directors.
-	*/
-	public $director;
+    /**
+     * A director of e.g. tv, radio, movie, video gaming etc. content, or of an event.
+     * Directors can be associated with individual items or with a series, episode,
+     * clip. Supersedes directors.
+     *
+     * @var Person
+     */
+    public $director;
 
-	/**
-	* @var Episode An episode of a tv, radio or game media within a series or season. Supersedes episodes.
-	*/
-	public $episode;
+    /**
+     * An episode of a tv, radio or game media within a series or season. Supersedes
+     * episodes.
+     *
+     * @var Episode
+     */
+    public $episode;
 
-	/**
-	* @var MusicGroup|Person The composer of the soundtrack.
-	*/
-	public $musicBy;
+    /**
+     * The composer of the soundtrack.
+     *
+     * @var MusicGroup|Person
+     */
+    public $musicBy;
 
-	/**
-	* @var integer The number of episodes in this season or series.
-	*/
-	public $numberOfEpisodes;
+    /**
+     * The number of episodes in this season or series.
+     *
+     * @var integer
+     */
+    public $numberOfEpisodes;
 
-	/**
-	* @var integer The number of seasons in this series.
-	*/
-	public $numberOfSeasons;
+    /**
+     * The number of seasons in this series.
+     *
+     * @var integer
+     */
+    public $numberOfSeasons;
 
-	/**
-	* @var Organization The production company or studio responsible for the item e.g. series, video game, episode etc.
-	*/
-	public $productionCompany;
+    /**
+     * The production company or studio responsible for the item e.g. series, video
+     * game, episode etc.
+     *
+     * @var Organization
+     */
+    public $productionCompany;
 
-	/**
-	* @var VideoObject The trailer of a movie or tv/radio series, season, episode, etc.
-	*/
-	public $trailer;
+    /**
+     * The trailer of a movie or tv/radio series, season, episode, etc.
+     *
+     * @var VideoObject
+     */
+    public $trailer;
+
 
 }

@@ -3,25 +3,36 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for InteractionCounter
+ * A summary of how users have interacted with this CreativeWork. In most cases,
+ * authors will use a subtype to specify the specific type of interaction.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/InteractionCounter
  */
 class InteractionCounter extends StructuredValue {
-	/**
-	* @var SoftwareApplication|WebSite The WebSite or SoftwareApplication where the interactions took place.
-	*/
-	public $interactionService;
+    /**
+     * The WebSite or SoftwareApplication where the interactions took place.
+     *
+     * @var SoftwareApplication|WebSite
+     */
+    public $interactionService;
 
-	/**
-	* @var Action The Action representing the type of interaction. For up votes, +1s, etc. use LikeAction. For down votes use DislikeAction. Otherwise, use the most specific Action.
-	*/
-	public $interactionType;
+    /**
+     * The Action representing the type of interaction. For up votes, +1s, etc. use
+     * LikeAction. For down votes use DislikeAction. Otherwise, use the most specific
+     * Action.
+     *
+     * @var Action
+     */
+    public $interactionType;
 
-	/**
-	* @var integer The number of interactions for the CreativeWork using the WebSite or SoftwareApplication.
-	*/
-	public $userInteractionCount;
+    /**
+     * The number of interactions for the CreativeWork using the WebSite or
+     * SoftwareApplication.
+     *
+     * @var integer
+     */
+    public $userInteractionCount;
+
 
 }

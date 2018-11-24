@@ -3,45 +3,64 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for MovieClip
+ * A short segment/part of a movie.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/MovieClip
  */
 class MovieClip extends Clip {
-	/**
-	* @var Person An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip. Supersedes actors.
-	*/
-	public $actor;
+    /**
+     * An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can
+     * be associated with individual items or with a series, episode, clip. Supersedes
+     * actors.
+     *
+     * @var Person
+     */
+    public $actor;
 
-	/**
-	* @var integer|string Position of the clip within an ordered group of clips.
-	*/
-	public $clipNumber;
+    /**
+     * Position of the clip within an ordered group of clips.
+     *
+     * @var integer|string
+     */
+    public $clipNumber;
 
-	/**
-	* @var Person A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip. Supersedes directors.
-	*/
-	public $director;
+    /**
+     * A director of e.g. tv, radio, movie, video gaming etc. content, or of an event.
+     * Directors can be associated with individual items or with a series, episode,
+     * clip. Supersedes directors.
+     *
+     * @var Person
+     */
+    public $director;
 
-	/**
-	* @var MusicGroup|Person The composer of the soundtrack.
-	*/
-	public $musicBy;
+    /**
+     * The composer of the soundtrack.
+     *
+     * @var MusicGroup|Person
+     */
+    public $musicBy;
 
-	/**
-	* @var Episode The episode to which this clip belongs.
-	*/
-	public $partOfEpisode;
+    /**
+     * The episode to which this clip belongs.
+     *
+     * @var Episode
+     */
+    public $partOfEpisode;
 
-	/**
-	* @var CreativeWorkSeason The season to which this episode belongs.
-	*/
-	public $partOfSeason;
+    /**
+     * The season to which this episode belongs.
+     *
+     * @var CreativeWorkSeason
+     */
+    public $partOfSeason;
 
-	/**
-	* @var CreativeWorkSeries The series to which this episode or season belongs. Supersedes partOfTVSeries.
-	*/
-	public $partOfSeries;
+    /**
+     * The series to which this episode or season belongs. Supersedes partOfTVSeries.
+     *
+     * @var CreativeWorkSeries
+     */
+    public $partOfSeries;
+
 
 }

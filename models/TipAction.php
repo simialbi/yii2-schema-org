@@ -3,15 +3,20 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for TipAction
+ * The act of giving money voluntarily to a beneficiary in recognition of services
+ * rendered.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/TipAction
  */
 class TipAction extends TradeAction {
-	/**
-	* @var Audience|ContactPoint|Organization|Person A sub property of participant. The participant who is at the receiving end of the action.
-	*/
-	public $recipient;
+    /**
+     * A sub property of participant. The participant who is at the receiving end of
+     * the action.
+     *
+     * @var Audience|ContactPoint|Organization|Person
+     */
+    public $recipient;
+
 
 }

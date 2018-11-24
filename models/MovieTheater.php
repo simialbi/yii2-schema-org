@@ -3,15 +3,18 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for MovieTheater
+ * A movie theater.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/MovieTheater
  */
-class MovieTheater extends EntertainmentBusiness {
-	/**
-	* @var integer The number of screens in the movie theater.
-	*/
-	public $screenCount;
+class MovieTheater extends CivicStructure {
+    /**
+     * The number of screens in the movie theater.
+     *
+     * @var integer
+     */
+    public $screenCount;
+
 
 }

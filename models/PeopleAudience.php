@@ -3,45 +3,62 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for PeopleAudience
+ * A set of characteristics belonging to people, e.g. who compose an item's target
+ * audience.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/PeopleAudience
  */
 class PeopleAudience extends Audience {
-	/**
-	* @var MedicalCondition Specifying the health condition(s) of a patient, medical study, or other target audience.
-	*/
-	public $healthCondition;
+    /**
+     * Specifying the health condition(s) of a patient, medical study, or other target
+     * audience.
+     *
+     * @var MedicalCondition
+     */
+    public $healthCondition;
 
-	/**
-	* @var string Audiences defined by a person's gender.
-	*/
-	public $requiredGender;
+    /**
+     * Audiences defined by a person's gender.
+     *
+     * @var string
+     */
+    public $requiredGender;
 
-	/**
-	* @var integer Audiences defined by a person's maximum age.
-	*/
-	public $requiredMaxAge;
+    /**
+     * Audiences defined by a person's maximum age.
+     *
+     * @var integer
+     */
+    public $requiredMaxAge;
 
-	/**
-	* @var integer Audiences defined by a person's minimum age.
-	*/
-	public $requiredMinAge;
+    /**
+     * Audiences defined by a person's minimum age.
+     *
+     * @var integer
+     */
+    public $requiredMinAge;
 
-	/**
-	* @var string The gender of the person or audience.
-	*/
-	public $suggestedGender;
+    /**
+     * The gender of the person or audience.
+     *
+     * @var string
+     */
+    public $suggestedGender;
 
-	/**
-	* @var integer Maximal age recommended for viewing content.
-	*/
-	public $suggestedMaxAge;
+    /**
+     * Maximal age recommended for viewing content.
+     *
+     * @var integer
+     */
+    public $suggestedMaxAge;
 
-	/**
-	* @var integer Minimal age recommended for viewing content.
-	*/
-	public $suggestedMinAge;
+    /**
+     * Minimal age recommended for viewing content.
+     *
+     * @var integer
+     */
+    public $suggestedMinAge;
+
 
 }

@@ -3,25 +3,41 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for Review
+ * A review of an item - for example, of a restaurant, movie, or store.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/Review
  */
 class Review extends CreativeWork {
-	/**
-	* @var Thing The item that is being reviewed/rated.
-	*/
-	public $itemReviewed;
+    /**
+     * The item that is being reviewed/rated.
+     *
+     * @var Thing
+     */
+    public $itemReviewed;
 
-	/**
-	* @var string The actual body of the review.
-	*/
-	public $reviewBody;
+    /**
+     * This Review or Rating is relevant to this part or facet of the itemReviewed.
+     *
+     * @var string
+     */
+    public $reviewAspect;
 
-	/**
-	* @var Rating The rating given in this review. Note that reviews can themselves be rated. The reviewRating applies to rating given by the review. The aggregateRating property applies to the review itself, as a creative work.
-	*/
-	public $reviewRating;
+    /**
+     * The actual body of the review.
+     *
+     * @var string
+     */
+    public $reviewBody;
+
+    /**
+     * The rating given in this review. Note that reviews can themselves be rated. The
+     * reviewRating applies to rating given by the review. The aggregateRating property
+     * applies to the review itself, as a creative work.
+     *
+     * @var Rating
+     */
+    public $reviewRating;
+
 
 }

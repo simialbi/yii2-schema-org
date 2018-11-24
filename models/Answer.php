@@ -3,25 +3,34 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for Answer
+ * An answer offered to a question; perhaps correct, perhaps opinionated or wrong.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/Answer
  */
 class Answer extends Comment {
-	/**
-	* @var integer The number of downvotes this question, answer or comment has received from the community.
-	*/
-	public $downvoteCount;
+    /**
+     * The number of downvotes this question, answer or comment has received from the
+     * community.
+     *
+     * @var integer
+     */
+    public $downvoteCount;
 
-	/**
-	* @var Question The parent of a question, answer or item in general.
-	*/
-	public $parentItem;
+    /**
+     * The parent of a question, answer or item in general.
+     *
+     * @var Question
+     */
+    public $parentItem;
 
-	/**
-	* @var integer The number of upvotes this question, answer or comment has received from the community.
-	*/
-	public $upvoteCount;
+    /**
+     * The number of upvotes this question, answer or comment has received from the
+     * community.
+     *
+     * @var integer
+     */
+    public $upvoteCount;
+
 
 }

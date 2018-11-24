@@ -3,120 +3,175 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for SoftwareApplication
+ * A software application.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/SoftwareApplication
  */
 class SoftwareApplication extends CreativeWork {
-	/**
-	* @var string Type of software application, e.g. 'Game, Multimedia'.
-	*/
-	public $applicationCategory;
+    /**
+     * Type of software application, e.g. 'Game, Multimedia'.
+     *
+     * @var string
+     */
+    public $applicationCategory;
 
-	/**
-	* @var string Subcategory of the application, e.g. 'Arcade Game'.
-	*/
-	public $applicationSubCategory;
+    /**
+     * Subcategory of the application, e.g. 'Arcade Game'.
+     *
+     * @var string
+     */
+    public $applicationSubCategory;
 
-	/**
-	* @var string The name of the application suite to which the application belongs (e.g. Excel belongs to Office).
-	*/
-	public $applicationSuite;
+    /**
+     * The name of the application suite to which the application belongs (e.g. Excel
+     * belongs to Office).
+     *
+     * @var string
+     */
+    public $applicationSuite;
 
-	/**
-	* @var string Device required to run the application. Used in cases where a specific make/model is required to run the application. Supersedes device.
-	*/
-	public $availableOnDevice;
+    /**
+     * Device required to run the application. Used in cases where a specific
+     * make/model is required to run the application. Supersedes device.
+     *
+     * @var string
+     */
+    public $availableOnDevice;
 
-	/**
-	* @var string Countries for which the application is not supported. You can also provide the two-letter ISO 3166-1 alpha-2 country code.
-	*/
-	public $countriesNotSupported;
+    /**
+     * Countries for which the application is not supported. You can also provide the
+     * two-letter ISO 3166-1 alpha-2 country code.
+     *
+     * @var string
+     */
+    public $countriesNotSupported;
 
-	/**
-	* @var string Countries for which the application is supported. You can also provide the two-letter ISO 3166-1 alpha-2 country code.
-	*/
-	public $countriesSupported;
+    /**
+     * Countries for which the application is supported. You can also provide the
+     * two-letter ISO 3166-1 alpha-2 country code.
+     *
+     * @var string
+     */
+    public $countriesSupported;
 
-	/**
-	* @var string If the file can be downloaded, URL to download the binary.
-	*/
-	public $downloadUrl;
+    /**
+     * If the file can be downloaded, URL to download the binary.
+     *
+     * @var string
+     */
+    public $downloadUrl;
 
-	/**
-	* @var string Features or modules provided by this application (and possibly required by other applications).
-	*/
-	public $featureList;
+    /**
+     * Features or modules provided by this application (and possibly required by other
+     * applications).
+     *
+     * @var string
+     */
+    public $featureList;
 
-	/**
-	* @var string Size of the application / package (e.g. 18MB). In the absence of a unit (MB, KB etc.), KB will be assumed.
-	*/
-	public $fileSize;
+    /**
+     * Size of the application / package (e.g. 18MB). In the absence of a unit (MB, KB
+     * etc.), KB will be assumed.
+     *
+     * @var string
+     */
+    public $fileSize;
 
-	/**
-	* @var string URL at which the app may be installed, if different from the URL of the item.
-	*/
-	public $installUrl;
+    /**
+     * URL at which the app may be installed, if different from the URL of the item.
+     *
+     * @var string
+     */
+    public $installUrl;
 
-	/**
-	* @var string Minimum memory requirements.
-	*/
-	public $memoryRequirements;
+    /**
+     * Minimum memory requirements.
+     *
+     * @var string
+     */
+    public $memoryRequirements;
 
-	/**
-	* @var string Operating systems supported (Windows 7, OSX 10.6, Android 1.6).
-	*/
-	public $operatingSystem;
+    /**
+     * Operating systems supported (Windows 7, OSX 10.6, Android 1.6).
+     *
+     * @var string
+     */
+    public $operatingSystem;
 
-	/**
-	* @var string Permission(s) required to run the app (for example, a mobile app may require full internet access or may run only on wifi).
-	*/
-	public $permissions;
+    /**
+     * Permission(s) required to run the app (for example, a mobile app may require
+     * full internet access or may run only on wifi).
+     *
+     * @var string
+     */
+    public $permissions;
 
-	/**
-	* @var string Processor architecture required to run the application (e.g. IA64).
-	*/
-	public $processorRequirements;
+    /**
+     * Processor architecture required to run the application (e.g. IA64).
+     *
+     * @var string
+     */
+    public $processorRequirements;
 
-	/**
-	* @var string Description of what changed in this version.
-	*/
-	public $releaseNotes;
+    /**
+     * Description of what changed in this version.
+     *
+     * @var string
+     */
+    public $releaseNotes;
 
-	/**
-	* @var ImageObject|string A link to a screenshot image of the app.
-	*/
-	public $screenshot;
+    /**
+     * A link to a screenshot image of the app.
+     *
+     * @var ImageObject|string
+     */
+    public $screenshot;
 
-	/**
-	* @var SoftwareApplication Additional content for a software application.
-	*/
-	public $softwareAddOn;
+    /**
+     * Additional content for a software application.
+     *
+     * @var SoftwareApplication
+     */
+    public $softwareAddOn;
 
-	/**
-	* @var CreativeWork Software application help.
-	*/
-	public $softwareHelp;
+    /**
+     * Software application help.
+     *
+     * @var CreativeWork
+     */
+    public $softwareHelp;
 
-	/**
-	* @var string Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (Examples: DirectX, Java or .NET runtime). Supersedes requirements.
-	*/
-	public $softwareRequirements;
+    /**
+     * Component dependency requirements for application. This includes runtime
+     * environments and shared libraries that are not included in the application
+     * distribution package, but required to run the application (Examples: DirectX,
+     * Java or .NET runtime). Supersedes requirements.
+     *
+     * @var string
+     */
+    public $softwareRequirements;
 
-	/**
-	* @var string Version of the software instance.
-	*/
-	public $softwareVersion;
+    /**
+     * Version of the software instance.
+     *
+     * @var string
+     */
+    public $softwareVersion;
 
-	/**
-	* @var string Storage requirements (free space required).
-	*/
-	public $storageRequirements;
+    /**
+     * Storage requirements (free space required).
+     *
+     * @var string
+     */
+    public $storageRequirements;
 
-	/**
-	* @var DataFeed Supporting data for a SoftwareApplication.
-	*/
-	public $supportingData;
+    /**
+     * Supporting data for a SoftwareApplication.
+     *
+     * @var DataFeed
+     */
+    public $supportingData;
+
 
 }

@@ -3,70 +3,108 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for Reservation
+ * Describes a reservation for travel, dining or an event. Some reservations
+ * require tickets. 
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/Reservation
  */
 class Reservation extends Intangible {
-	/**
-	* @var string The date and time the reservation was booked.
-	*/
-	public $bookingTime;
+    /**
+     * The date and time the reservation was booked.
+     *
+     * @var string
+     */
+    public $bookingTime;
 
-	/**
-	* @var Organization|Person An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred. Supersedes bookingAgent.
-	*/
-	public $broker;
+    /**
+     * An entity that arranges for an exchange between a buyer and a seller.  In most
+     * cases a broker never acquires or releases ownership of a product or service
+     * involved in an exchange.  If it is not clear whether an entity is a broker,
+     * seller, or buyer, the latter two terms are preferred. Supersedes bookingAgent.
+     *
+     * @var Organization|Person
+     */
+    public $broker;
 
-	/**
-	* @var string The date and time the reservation was modified.
-	*/
-	public $modifiedTime;
+    /**
+     * The date and time the reservation was modified.
+     *
+     * @var string
+     */
+    public $modifiedTime;
 
-	/**
-	* @var string The currency (in 3-letter ISO 4217 format) of the price or a price component, when attached to PriceSpecification and its subtypes.
-	*/
-	public $priceCurrency;
+    /**
+     * The currency of the price, or a price component when attached to
+     * PriceSpecification and its subtypes.
+     * 
+     * Use standard formats: ISO 4217 currency format e.g. "USD"; Ticker symbol for
+     * cryptocurrencies e.g. "BTC"; well known names for Local Exchange Tradings
+     * Systems (LETS) and other currency types e.g. "Ithaca HOUR".
+     *
+     * @var string
+     */
+    public $priceCurrency;
 
-	/**
-	* @var ProgramMembership Any membership in a frequent flyer, hotel loyalty program, etc. being applied to the reservation.
-	*/
-	public $programMembershipUsed;
+    /**
+     * Any membership in a frequent flyer, hotel loyalty program, etc. being applied to
+     * the reservation.
+     *
+     * @var ProgramMembership
+     */
+    public $programMembershipUsed;
 
-	/**
-	* @var Organization|Person The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier.
-	*/
-	public $provider;
+    /**
+     * The service provider, service operator, or service performer; the goods
+     * producer. Another party (a seller) may offer those services or goods on behalf
+     * of the provider. A provider may also serve as the seller. Supersedes carrier.
+     *
+     * @var Organization|Person
+     */
+    public $provider;
 
-	/**
-	* @var Thing The thing -- flight, event, restaurant,etc. being reserved.
-	*/
-	public $reservationFor;
+    /**
+     * The thing -- flight, event, restaurant,etc. being reserved.
+     *
+     * @var Thing
+     */
+    public $reservationFor;
 
-	/**
-	* @var string A unique identifier for the reservation.
-	*/
-	public $reservationId;
+    /**
+     * A unique identifier for the reservation.
+     *
+     * @var string
+     */
+    public $reservationId;
 
-	/**
-	* @var ReservationStatusType The current status of the reservation.
-	*/
-	public $reservationStatus;
+    /**
+     * The current status of the reservation.
+     *
+     * @var ReservationStatusType
+     */
+    public $reservationStatus;
 
-	/**
-	* @var Ticket A ticket associated with the reservation.
-	*/
-	public $reservedTicket;
+    /**
+     * A ticket associated with the reservation.
+     *
+     * @var Ticket
+     */
+    public $reservedTicket;
 
-	/**
-	* @var integer|PriceSpecification|string The total price for the reservation or ticket, including applicable taxes, shipping, etc.
-	*/
-	public $totalPrice;
+    /**
+     * The total price for the reservation or ticket, including applicable taxes,
+     * shipping, etc.
+     *
+     * @var integer|PriceSpecification|string
+     */
+    public $totalPrice;
 
-	/**
-	* @var Organization|Person The person or organization the reservation or ticket is for.
-	*/
-	public $underName;
+    /**
+     * The person or organization the reservation or ticket is for.
+     *
+     * @var Organization|Person
+     */
+    public $underName;
+
 
 }

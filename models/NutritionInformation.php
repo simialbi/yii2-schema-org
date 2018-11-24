@@ -3,70 +3,95 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for NutritionInformation
+ * Nutritional information about the recipe.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/NutritionInformation
  */
 class NutritionInformation extends StructuredValue {
-	/**
-	* @var Energy The number of calories.
-	*/
-	public $calories;
+    /**
+     * The number of calories.
+     *
+     * @var Energy
+     */
+    public $calories;
 
-	/**
-	* @var Mass The number of grams of carbohydrates.
-	*/
-	public $carbohydrateContent;
+    /**
+     * The number of grams of carbohydrates.
+     *
+     * @var Mass
+     */
+    public $carbohydrateContent;
 
-	/**
-	* @var Mass The number of milligrams of cholesterol.
-	*/
-	public $cholesterolContent;
+    /**
+     * The number of milligrams of cholesterol.
+     *
+     * @var Mass
+     */
+    public $cholesterolContent;
 
-	/**
-	* @var Mass The number of grams of fat.
-	*/
-	public $fatContent;
+    /**
+     * The number of grams of fat.
+     *
+     * @var Mass
+     */
+    public $fatContent;
 
-	/**
-	* @var Mass The number of grams of fiber.
-	*/
-	public $fiberContent;
+    /**
+     * The number of grams of fiber.
+     *
+     * @var Mass
+     */
+    public $fiberContent;
 
-	/**
-	* @var Mass The number of grams of protein.
-	*/
-	public $proteinContent;
+    /**
+     * The number of grams of protein.
+     *
+     * @var Mass
+     */
+    public $proteinContent;
 
-	/**
-	* @var Mass The number of grams of saturated fat.
-	*/
-	public $saturatedFatContent;
+    /**
+     * The number of grams of saturated fat.
+     *
+     * @var Mass
+     */
+    public $saturatedFatContent;
 
-	/**
-	* @var string The serving size, in terms of the number of volume or mass.
-	*/
-	public $servingSize;
+    /**
+     * The serving size, in terms of the number of volume or mass.
+     *
+     * @var string
+     */
+    public $servingSize;
 
-	/**
-	* @var Mass The number of milligrams of sodium.
-	*/
-	public $sodiumContent;
+    /**
+     * The number of milligrams of sodium.
+     *
+     * @var Mass
+     */
+    public $sodiumContent;
 
-	/**
-	* @var Mass The number of grams of sugar.
-	*/
-	public $sugarContent;
+    /**
+     * The number of grams of sugar.
+     *
+     * @var Mass
+     */
+    public $sugarContent;
 
-	/**
-	* @var Mass The number of grams of trans fat.
-	*/
-	public $transFatContent;
+    /**
+     * The number of grams of trans fat.
+     *
+     * @var Mass
+     */
+    public $transFatContent;
 
-	/**
-	* @var Mass The number of grams of unsaturated fat.
-	*/
-	public $unsaturatedFatContent;
+    /**
+     * The number of grams of unsaturated fat.
+     *
+     * @var Mass
+     */
+    public $unsaturatedFatContent;
+
 
 }

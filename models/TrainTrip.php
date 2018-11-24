@@ -3,55 +3,53 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for TrainTrip
+ * A trip on a commercial train line.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/TrainTrip
  */
-class TrainTrip extends Intangible {
-	/**
-	* @var string The platform where the train arrives.
-	*/
-	public $arrivalPlatform;
+class TrainTrip extends Trip {
+    /**
+     * The platform where the train arrives.
+     *
+     * @var string
+     */
+    public $arrivalPlatform;
 
-	/**
-	* @var TrainStation The station where the train trip ends.
-	*/
-	public $arrivalStation;
+    /**
+     * The station where the train trip ends.
+     *
+     * @var TrainStation
+     */
+    public $arrivalStation;
 
-	/**
-	* @var string The expected arrival time.
-	*/
-	public $arrivalTime;
+    /**
+     * The platform from which the train departs.
+     *
+     * @var string
+     */
+    public $departurePlatform;
 
-	/**
-	* @var string The platform from which the train departs.
-	*/
-	public $departurePlatform;
+    /**
+     * The station from which the train departs.
+     *
+     * @var TrainStation
+     */
+    public $departureStation;
 
-	/**
-	* @var TrainStation The station from which the train departs.
-	*/
-	public $departureStation;
+    /**
+     * The name of the train (e.g. The Orient Express).
+     *
+     * @var string
+     */
+    public $trainName;
 
-	/**
-	* @var string The expected departure time.
-	*/
-	public $departureTime;
+    /**
+     * The unique identifier for the train.
+     *
+     * @var string
+     */
+    public $trainNumber;
 
-	/**
-	* @var Organization|Person The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier.
-	*/
-	public $provider;
-
-	/**
-	* @var string The name of the train (e.g. The Orient Express).
-	*/
-	public $trainName;
-
-	/**
-	* @var string The unique identifier for the train.
-	*/
-	public $trainNumber;
 
 }

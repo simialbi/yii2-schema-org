@@ -3,35 +3,48 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for OpeningHoursSpecification
+ * A structured value providing information about the opening hours of a place or a
+ * certain service inside a place.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/OpeningHoursSpecification
  */
 class OpeningHoursSpecification extends StructuredValue {
-	/**
-	* @var string The closing hour of the place or service on the given day(s) of the week.
-	*/
-	public $closes;
+    /**
+     * The closing hour of the place or service on the given day(s) of the week.
+     *
+     * @var string
+     */
+    public $closes;
 
-	/**
-	* @var DayOfWeek The day of the week for which these opening hours are valid.
-	*/
-	public $dayOfWeek;
+    /**
+     * The day of the week for which these opening hours are valid.
+     *
+     * @var DayOfWeek
+     */
+    public $dayOfWeek;
 
-	/**
-	* @var string The opening hour of the place or service on the given day(s) of the week.
-	*/
-	public $opens;
+    /**
+     * The opening hour of the place or service on the given day(s) of the week.
+     *
+     * @var string
+     */
+    public $opens;
 
-	/**
-	* @var string The date when the item becomes valid.
-	*/
-	public $validFrom;
+    /**
+     * The date when the item becomes valid.
+     *
+     * @var string
+     */
+    public $validFrom;
 
-	/**
-	* @var string The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
-	*/
-	public $validThrough;
+    /**
+     * The date after when the item is not valid. For example the end of an offer,
+     * salary period, or a period of opening hours.
+     *
+     * @var string
+     */
+    public $validThrough;
+
 
 }

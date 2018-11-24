@@ -3,35 +3,51 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for Game
+ * The Game type represents things which are games. These are typically
+ * rule-governed recreational activities, e.g. role-playing games in which players
+ * assume the role of characters in a fictional setting.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/Game
  */
 class Game extends CreativeWork {
-	/**
-	* @var Thing A piece of data that represents a particular aspect of a fictional character (skill, power, character points, advantage, disadvantage).
-	*/
-	public $characterAttribute;
+    /**
+     * A piece of data that represents a particular aspect of a fictional character
+     * (skill, power, character points, advantage, disadvantage).
+     *
+     * @var Thing
+     */
+    public $characterAttribute;
 
-	/**
-	* @var Thing An item is an object within the game world that can be collected by a player or, occasionally, a non-player character.
-	*/
-	public $gameItem;
+    /**
+     * An item is an object within the game world that can be collected by a player or,
+     * occasionally, a non-player character.
+     *
+     * @var Thing
+     */
+    public $gameItem;
 
-	/**
-	* @var Place|PostalAddress|string Real or fictional location of the game (or part of game).
-	*/
-	public $gameLocation;
+    /**
+     * Real or fictional location of the game (or part of game).
+     *
+     * @var Place|PostalAddress|string
+     */
+    public $gameLocation;
 
-	/**
-	* @var QuantitativeValue Indicate how many people can play this game (minimum, maximum, or range).
-	*/
-	public $numberOfPlayers;
+    /**
+     * Indicate how many people can play this game (minimum, maximum, or range).
+     *
+     * @var QuantitativeValue
+     */
+    public $numberOfPlayers;
 
-	/**
-	* @var Thing The task that a player-controlled character, or group of characters may complete in order to gain a reward.
-	*/
-	public $quest;
+    /**
+     * The task that a player-controlled character, or group of characters may complete
+     * in order to gain a reward.
+     *
+     * @var Thing
+     */
+    public $quest;
+
 
 }

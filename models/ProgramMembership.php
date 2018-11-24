@@ -3,30 +3,42 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for ProgramMembership
+ * Used to describe membership in a loyalty programs (e.g. "StarAliance"), traveler
+ * clubs (e.g. "AAA"), purchase clubs ("Safeway Club"), etc.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/ProgramMembership
  */
 class ProgramMembership extends Intangible {
-	/**
-	* @var Organization The organization (airline, travelers' club, etc.) the membership is made with.
-	*/
-	public $hostingOrganization;
+    /**
+     * The organization (airline, travelers' club, etc.) the membership is made with.
+     *
+     * @var Organization
+     */
+    public $hostingOrganization;
 
-	/**
-	* @var Organization|Person A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals. Supersedes members, musicGroupMember. Inverse property: memberOf.
-	*/
-	public $member;
+    /**
+     * A member of an Organization or a ProgramMembership. Organizations can be members
+     * of organizations; ProgramMembership is typically for individuals. Supersedes
+     * members, musicGroupMember. Inverse property: memberOf.
+     *
+     * @var Organization|Person
+     */
+    public $member;
 
-	/**
-	* @var string A unique identifier for the membership.
-	*/
-	public $membershipNumber;
+    /**
+     * A unique identifier for the membership.
+     *
+     * @var string
+     */
+    public $membershipNumber;
 
-	/**
-	* @var string The program providing the membership.
-	*/
-	public $programName;
+    /**
+     * The program providing the membership.
+     *
+     * @var string
+     */
+    public $programName;
+
 
 }

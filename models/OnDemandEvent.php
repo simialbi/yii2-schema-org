@@ -3,25 +3,34 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for OnDemandEvent
+ * A publication event e.g. catch-up TV or radio podcast, during which a program is
+ * available on-demand.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/OnDemandEvent
  */
 class OnDemandEvent extends PublicationEvent {
-	/**
-	* @var boolean A flag to signal that the item, event, or place is accessible for free. Supersedes free.
-	*/
-	public $isAccessibleForFree;
+    /**
+     * A flag to signal that the item, event, or place is accessible for free.
+     * Supersedes free.
+     *
+     * @var boolean
+     */
+    public $isAccessibleForFree;
 
-	/**
-	* @var Organization|Person An agent associated with the publication event.
-	*/
-	public $publishedBy;
+    /**
+     * An agent associated with the publication event.
+     *
+     * @var Organization|Person
+     */
+    public $publishedBy;
 
-	/**
-	* @var BroadcastService A broadcast service associated with the publication event.
-	*/
-	public $publishedOn;
+    /**
+     * A broadcast service associated with the publication event.
+     *
+     * @var BroadcastService
+     */
+    public $publishedOn;
+
 
 }

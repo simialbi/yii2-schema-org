@@ -3,267 +3,422 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for Person
+ * A person (alive, dead, undead, or fictional).
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/Person
  */
 class Person extends Thing {
-	/**
-	* @var string An additional name for a Person, can be used for a middle name.
-	*/
-	public $additionalName;
+    /**
+     * An additional name for a Person, can be used for a middle name.
+     *
+     * @var string
+     */
+    public $additionalName;
 
-	/**
-	* @var PostalAddress|string Physical address of the item.
-	*/
-	public $address;
+    /**
+     * Physical address of the item.
+     *
+     * @var PostalAddress|string
+     */
+    public $address;
 
-	/**
-	* @var Organization An organization that this person is affiliated with. For example, a school/university, a club, or a team.
-	*/
-	public $affiliation;
+    /**
+     * An organization that this person is affiliated with. For example, a
+     * school/university, a club, or a team.
+     *
+     * @var Organization
+     */
+    public $affiliation;
 
-	/**
-	* @var EducationalOrganization|Organization An organization that the person is an alumni of. Inverse property: alumni.
-	*/
-	public $alumniOf;
+    /**
+     * An organization that the person is an alumni of. Inverse property: alumni.
+     *
+     * @var EducationalOrganization|Organization
+     */
+    public $alumniOf;
 
-	/**
-	* @var string An award won by or for this item. Supersedes awards.
-	*/
-	public $award;
+    /**
+     * An award won by or for this item. Supersedes awards.
+     *
+     * @var string
+     */
+    public $award;
 
-	/**
-	* @var string Date of birth.
-	*/
-	public $birthDate;
+    /**
+     * Date of birth.
+     *
+     * @var string
+     */
+    public $birthDate;
 
-	/**
-	* @var Place The place where the person was born.
-	*/
-	public $birthPlace;
+    /**
+     * The place where the person was born.
+     *
+     * @var Place
+     */
+    public $birthPlace;
 
-	/**
-	* @var Brand|Organization The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
-	*/
-	public $brand;
+    /**
+     * The brand(s) associated with a product or service, or the brand(s) maintained by
+     * an organization or business person.
+     *
+     * @var Brand|Organization
+     */
+    public $brand;
 
-	/**
-	* @var Person A child of the person.
-	*/
-	public $children;
+    /**
+     * A child of the person.
+     *
+     * @var Person
+     */
+    public $children;
 
-	/**
-	* @var Person|string A colleague of the person. Supersedes colleagues.
-	*/
-	public $colleague;
+    /**
+     * A colleague of the person. Supersedes colleagues.
+     *
+     * @var Person|string
+     */
+    public $colleague;
 
-	/**
-	* @var ContactPoint A contact point for a person or organization. Supersedes contactPoints.
-	*/
-	public $contactPoint;
+    /**
+     * A contact point for a person or organization. Supersedes contactPoints.
+     *
+     * @var ContactPoint
+     */
+    public $contactPoint;
 
-	/**
-	* @var string Date of death.
-	*/
-	public $deathDate;
+    /**
+     * Date of death.
+     *
+     * @var string
+     */
+    public $deathDate;
 
-	/**
-	* @var Place The place where the person died.
-	*/
-	public $deathPlace;
+    /**
+     * The place where the person died.
+     *
+     * @var Place
+     */
+    public $deathPlace;
 
-	/**
-	* @var string The Dun & Bradstreet DUNS number for identifying an organization or business person.
-	*/
-	public $duns;
+    /**
+     * The Dun & Bradstreet DUNS number for identifying an organization or business
+     * person.
+     *
+     * @var string
+     */
+    public $duns;
 
-	/**
-	* @var string Email address.
-	*/
-	public $email;
+    /**
+     * Email address.
+     *
+     * @var string
+     */
+    public $email;
 
-	/**
-	* @var string Family name. In the U.S., the last name of an Person. This can be used along with givenName instead of the name property.
-	*/
-	public $familyName;
+    /**
+     * Family name. In the U.S., the last name of an Person. This can be used along
+     * with givenName instead of the name property.
+     *
+     * @var string
+     */
+    public $familyName;
 
-	/**
-	* @var string The fax number.
-	*/
-	public $faxNumber;
+    /**
+     * The fax number.
+     *
+     * @var string
+     */
+    public $faxNumber;
 
-	/**
-	* @var Person The most generic uni-directional social relation.
-	*/
-	public $follows;
+    /**
+     * The most generic uni-directional social relation.
+     *
+     * @var Person
+     */
+    public $follows;
 
-	/**
-	* @var Organization|Person A person or organization that supports (sponsors) something through some kind of financial contribution.
-	*/
-	public $funder;
+    /**
+     * A person or organization that supports (sponsors) something through some kind of
+     * financial contribution.
+     *
+     * @var Organization|Person
+     */
+    public $funder;
 
-	/**
-	* @var GenderType|string Gender of the person. While http://schema.org/Male and http://schema.org/Female may be used, text strings are also acceptable for people who do not identify as a binary gender.
-	*/
-	public $gender;
+    /**
+     * Gender of the person. While http://schema.org/Male and http://schema.org/Female
+     * may be used, text strings are also acceptable for people who do not identify as
+     * a binary gender.
+     *
+     * @var GenderType|string
+     */
+    public $gender;
 
-	/**
-	* @var string Given name. In the U.S., the first name of a Person. This can be used along with familyName instead of the name property.
-	*/
-	public $givenName;
+    /**
+     * Given name. In the U.S., the first name of a Person. This can be used along with
+     * familyName instead of the name property.
+     *
+     * @var string
+     */
+    public $givenName;
 
-	/**
-	* @var string The Global Location Number (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.
-	*/
-	public $globalLocationNumber;
+    /**
+     * The Global Location Number (GLN, sometimes also referred to as International
+     * Location Number or ILN) of the respective organization, person, or place. The
+     * GLN is a 13-digit number used to identify parties and physical locations.
+     *
+     * @var string
+     */
+    public $globalLocationNumber;
 
-	/**
-	* @var OfferCatalog Indicates an OfferCatalog listing for this Organization, Person, or Service.
-	*/
-	public $hasOfferCatalog;
+    /**
+     * The Person's occupation. For past professions, use Role for expressing dates.
+     *
+     * @var Occupation
+     */
+    public $hasOccupation;
 
-	/**
-	* @var Place Points-of-Sales operated by the organization or person.
-	*/
-	public $hasPOS;
+    /**
+     * Indicates an OfferCatalog listing for this Organization, Person, or Service.
+     *
+     * @var OfferCatalog
+     */
+    public $hasOfferCatalog;
 
-	/**
-	* @var Distance|QuantitativeValue The height of the item.
-	*/
-	public $height;
+    /**
+     * Points-of-Sales operated by the organization or person.
+     *
+     * @var Place
+     */
+    public $hasPOS;
 
-	/**
-	* @var ContactPoint|Place A contact location for a person's residence.
-	*/
-	public $homeLocation;
+    /**
+     * The height of the item.
+     *
+     * @var Distance|QuantitativeValue
+     */
+    public $height;
 
-	/**
-	* @var string An honorific prefix preceding a Person's name such as Dr/Mrs/Mr.
-	*/
-	public $honorificPrefix;
+    /**
+     * A contact location for a person's residence.
+     *
+     * @var ContactPoint|Place
+     */
+    public $homeLocation;
 
-	/**
-	* @var string An honorific suffix preceding a Person's name such as M.D. /PhD/MSCSW.
-	*/
-	public $honorificSuffix;
+    /**
+     * An honorific prefix preceding a Person's name such as Dr/Mrs/Mr.
+     *
+     * @var string
+     */
+    public $honorificPrefix;
 
-	/**
-	* @var string The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.
-	*/
-	public $isicV4;
+    /**
+     * An honorific suffix preceding a Person's name such as M.D. /PhD/MSCSW.
+     *
+     * @var string
+     */
+    public $honorificSuffix;
 
-	/**
-	* @var string The job title of the person (for example, Financial Manager).
-	*/
-	public $jobTitle;
+    /**
+     * The International Standard of Industrial Classification of All Economic
+     * Activities (ISIC), Revision 4 code for a particular organization, business
+     * person, or place.
+     *
+     * @var string
+     */
+    public $isicV4;
 
-	/**
-	* @var Person The most generic bi-directional social/work relation.
-	*/
-	public $knows;
+    /**
+     * The job title of the person (for example, Financial Manager).
+     *
+     * @var string
+     */
+    public $jobTitle;
 
-	/**
-	* @var Offer A pointer to products or services offered by the organization or person. Inverse property: offeredBy.
-	*/
-	public $makesOffer;
+    /**
+     * The most generic bi-directional social/work relation.
+     *
+     * @var Person
+     */
+    public $knows;
 
-	/**
-	* @var Organization|ProgramMembership An Organization (or ProgramMembership) to which this Person or Organization belongs. Inverse property: member.
-	*/
-	public $memberOf;
+    /**
+     * Of a Person, and less typically of an Organization, to indicate a topic that is
+     * known about - suggesting possible expertise but not implying it. We do not
+     * distinguish skill levels here, or yet relate this to educational content,
+     * events, objectives or JobPosting descriptions.
+     *
+     * @var string|Thing|string
+     */
+    public $knowsAbout;
 
-	/**
-	* @var string The North American Industry Classification System (NAICS) code for a particular organization or business person.
-	*/
-	public $naics;
+    /**
+     * Of a Person, and less typically of an Organization, to indicate a known
+     * language. We do not distinguish skill levels or reading/writing/speaking/signing
+     * here. Use language codes from the IETF BCP 47 standard.
+     *
+     * @var Language|string
+     */
+    public $knowsLanguage;
 
-	/**
-	* @var Country Nationality of the person.
-	*/
-	public $nationality;
+    /**
+     * A pointer to products or services offered by the organization or person. Inverse
+     * property: offeredBy.
+     *
+     * @var Offer
+     */
+    public $makesOffer;
 
-	/**
-	* @var MonetaryAmount|PriceSpecification The total financial value of the person as calculated by subtracting assets from liabilities.
-	*/
-	public $netWorth;
+    /**
+     * An Organization (or ProgramMembership) to which this Person or Organization
+     * belongs. Inverse property: member.
+     *
+     * @var Organization|ProgramMembership
+     */
+    public $memberOf;
 
-	/**
-	* @var OwnershipInfo|Product Products owned by the organization or person.
-	*/
-	public $owns;
+    /**
+     * The North American Industry Classification System (NAICS) code for a particular
+     * organization or business person.
+     *
+     * @var string
+     */
+    public $naics;
 
-	/**
-	* @var Person A parent of this person. Supersedes parents.
-	*/
-	public $parent;
+    /**
+     * Nationality of the person.
+     *
+     * @var Country
+     */
+    public $nationality;
 
-	/**
-	* @var Event Event that this person is a performer or participant in.
-	*/
-	public $performerIn;
+    /**
+     * The total financial value of the person as calculated by subtracting assets from
+     * liabilities.
+     *
+     * @var MonetaryAmount|PriceSpecification
+     */
+    public $netWorth;
 
-	/**
-	* @var CreativeWork|string The publishingPrinciples property indicates (typically via URL) a document describing the editorial principles of an Organization (or individual e.g. a Person writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a CreativeWork (e.g. NewsArticle) the principles are those of the party primarily responsible for the creation of the CreativeWork.
-	* 
-	* While such policies are most typically expressed in natural language, sometimes related information (e.g. indicating a funder) can be expressed using schema.org terminology.
-	*/
-	public $publishingPrinciples;
+    /**
+     * Products owned by the organization or person.
+     *
+     * @var OwnershipInfo|Product
+     */
+    public $owns;
 
-	/**
-	* @var Person The most generic familial relation.
-	*/
-	public $relatedTo;
+    /**
+     * A parent of this person. Supersedes parents.
+     *
+     * @var Person
+     */
+    public $parent;
 
-	/**
-	* @var Demand A pointer to products or services sought by the organization or person (demand).
-	*/
-	public $seeks;
+    /**
+     * Event that this person is a performer or participant in.
+     *
+     * @var Event
+     */
+    public $performerIn;
 
-	/**
-	* @var Person A sibling of the person. Supersedes siblings.
-	*/
-	public $sibling;
+    /**
+     * The publishingPrinciples property indicates (typically via URL) a document
+     * describing the editorial principles of an Organization (or individual e.g. a
+     * Person writing a blog) that relate to their activities as a publisher, e.g.
+     * ethics or diversity policies. When applied to a CreativeWork (e.g. NewsArticle)
+     * the principles are those of the party primarily responsible for the creation of
+     * the CreativeWork.
+     * 
+     * While such policies are most typically expressed in natural language, sometimes
+     * related information (e.g. indicating a funder) can be expressed using schema.org
+     * terminology.
+     *
+     * @var CreativeWork|string
+     */
+    public $publishingPrinciples;
 
-	/**
-	* @var Organization|Person A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.
-	*/
-	public $sponsor;
+    /**
+     * The most generic familial relation.
+     *
+     * @var Person
+     */
+    public $relatedTo;
 
-	/**
-	* @var Person The person's spouse.
-	*/
-	public $spouse;
+    /**
+     * A pointer to products or services sought by the organization or person (demand).
+     *
+     * @var Demand
+     */
+    public $seeks;
 
-	/**
-	* @var string The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain.
-	*/
-	public $taxID;
+    /**
+     * A sibling of the person. Supersedes siblings.
+     *
+     * @var Person
+     */
+    public $sibling;
 
-	/**
-	* @var string The telephone number.
-	*/
-	public $telephone;
+    /**
+     * A person or organization that supports a thing through a pledge, promise, or
+     * financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor
+     * of an event.
+     *
+     * @var Organization|Person
+     */
+    public $sponsor;
 
-	/**
-	* @var string The Value-added Tax ID of the organization or person.
-	*/
-	public $vatID;
+    /**
+     * The person's spouse.
+     *
+     * @var Person
+     */
+    public $spouse;
 
-	/**
-	* @var QuantitativeValue The weight of the product or person.
-	*/
-	public $weight;
+    /**
+     * The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the
+     * CIF/NIF in Spain.
+     *
+     * @var string
+     */
+    public $taxID;
 
-	/**
-	* @var ContactPoint|Place A contact location for a person's place of work.
-	*/
-	public $workLocation;
+    /**
+     * The telephone number.
+     *
+     * @var string
+     */
+    public $telephone;
 
-	/**
-	* @var Organization Organizations that the person works for.
-	*/
-	public $worksFor;
+    /**
+     * The Value-added Tax ID of the organization or person.
+     *
+     * @var string
+     */
+    public $vatID;
+
+    /**
+     * The weight of the product or person.
+     *
+     * @var QuantitativeValue
+     */
+    public $weight;
+
+    /**
+     * A contact location for a person's place of work.
+     *
+     * @var ContactPoint|Place
+     */
+    public $workLocation;
+
+    /**
+     * Organizations that the person works for.
+     *
+     * @var Organization
+     */
+    public $worksFor;
+
 
 }

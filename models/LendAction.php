@@ -3,15 +3,19 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for LendAction
+ * The act of providing an object under an agreement that it will be returned at a
+ * later date. Reciprocal of BorrowAction.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/LendAction
  */
 class LendAction extends TransferAction {
-	/**
-	* @var Person A sub property of participant. The person that borrows the object being lent.
-	*/
-	public $borrower;
+    /**
+     * A sub property of participant. The person that borrows the object being lent.
+     *
+     * @var Person
+     */
+    public $borrower;
+
 
 }

@@ -3,25 +3,36 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for BankAccount
+ * A product or service offered by a bank whereby one may deposit, withdraw or
+ * transfer money and in some cases be paid interest.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/BankAccount
  */
 class BankAccount extends FinancialProduct {
-	/**
-	* @var MonetaryAmount A minimum amount that has to be paid in every month.
-	*/
-	public $accountMinimumInflow;
+    /**
+     * A minimum amount that has to be paid in every month.
+     *
+     * @var MonetaryAmount
+     */
+    public $accountMinimumInflow;
 
-	/**
-	* @var MonetaryAmount An overdraft is an extension of credit from a lending institution when an account reaches zero. An overdraft allows the individual to continue withdrawing money even if the account has no funds in it. Basically the bank allows people to borrow a set amount of money.
-	*/
-	public $accountOverdraftLimit;
+    /**
+     * An overdraft is an extension of credit from a lending institution when an
+     * account reaches zero. An overdraft allows the individual to continue withdrawing
+     * money even if the account has no funds in it. Basically the bank allows people
+     * to borrow a set amount of money.
+     *
+     * @var MonetaryAmount
+     */
+    public $accountOverdraftLimit;
 
-	/**
-	* @var string The type of a bank account.
-	*/
-	public $bankAccountType;
+    /**
+     * The type of a bank account.
+     *
+     * @var string
+     */
+    public $bankAccountType;
+
 
 }

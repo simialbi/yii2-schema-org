@@ -3,20 +3,26 @@
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for ParentAudience
+ * A set of characteristics describing parents, who can be interested in viewing
+ * some content.
  *
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/ParentAudience
  */
 class ParentAudience extends PeopleAudience {
-	/**
-	* @var integer Maximal age of the child.
-	*/
-	public $childMaxAge;
+    /**
+     * Maximal age of the child.
+     *
+     * @var integer
+     */
+    public $childMaxAge;
 
-	/**
-	* @var integer Minimal age of the child.
-	*/
-	public $childMinAge;
+    /**
+     * Minimal age of the child.
+     *
+     * @var integer
+     */
+    public $childMinAge;
+
 
 }
