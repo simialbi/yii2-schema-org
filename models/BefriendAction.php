@@ -107,5 +107,4 @@ class BefriendAction extends InteractAction {
      */
     public $target;
 
-
 }

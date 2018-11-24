@@ -99,5 +99,4 @@ class ImageGallery extends CollectionPage {
      */
     public $specialty;
 
-
 }

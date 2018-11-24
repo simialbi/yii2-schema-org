@@ -53,5 +53,4 @@ class HomeGoodsStore extends Store {
      */
     public $priceRange;
 
-
 }

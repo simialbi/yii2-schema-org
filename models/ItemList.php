@@ -44,5 +44,4 @@ class ItemList extends Intangible {
      */
     public $numberOfItems;
 
-
 }

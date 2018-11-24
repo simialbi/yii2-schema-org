@@ -53,5 +53,4 @@ class ShoeStore extends Store {
      */
     public $priceRange;
 
-
 }

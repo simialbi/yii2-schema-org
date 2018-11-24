@@ -43,5 +43,4 @@ class Brewery extends FoodEstablishment {
      */
     public $starRating;
 
-
 }

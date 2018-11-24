@@ -8,7 +8,7 @@ namespace simialbi\yii2\schemaorg\models;
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/Hospital
  */
-class Hospital extends CivicStructure {
+class Hospital extends EmergencyService {
     /**
      * A medical service available from this provider.
      *
@@ -22,6 +22,5 @@ class Hospital extends CivicStructure {
      * @var MedicalSpecialty
      */
     public $medicalSpecialty;
-
 
 }

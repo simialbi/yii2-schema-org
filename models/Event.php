@@ -265,5 +265,4 @@ class Event extends Thing {
      */
     public $workPerformed;
 
-
 }

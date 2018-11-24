@@ -25,5 +25,4 @@ class RentAction extends TradeAction {
      */
     public $realEstateAgent;
 
-
 }

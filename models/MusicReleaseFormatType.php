@@ -18,5 +18,4 @@ class MusicReleaseFormatType extends Enumeration {
      */
     public $supersededBy;
 
-
 }

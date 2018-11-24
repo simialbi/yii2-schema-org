@@ -9,7 +9,7 @@ namespace simialbi\yii2\schemaorg\models;
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/PaymentCard
  */
-class PaymentCard extends FinancialProduct {
+class PaymentCard extends PaymentMethod {
     /**
      * A cardholder benefit that pays the cardholder a small percentage of their net
      * expenditures.
@@ -33,6 +33,5 @@ class PaymentCard extends FinancialProduct {
      * @var MonetaryAmount
      */
     public $floorLimit;
-
 
 }

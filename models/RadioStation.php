@@ -53,5 +53,4 @@ class RadioStation extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

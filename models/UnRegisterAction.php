@@ -106,5 +106,4 @@ class UnRegisterAction extends InteractAction {
      */
     public $target;
 
-
 }

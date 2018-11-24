@@ -54,5 +54,4 @@ class Room extends Accommodation {
      */
     public $petsAllowed;
 
-
 }

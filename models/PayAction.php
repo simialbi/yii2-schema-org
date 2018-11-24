@@ -24,5 +24,4 @@ class PayAction extends TradeAction {
      */
     public $recipient;
 
-
 }

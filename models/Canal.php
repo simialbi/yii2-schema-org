@@ -290,5 +290,4 @@ class Canal extends BodyOfWater {
      */
     public $telephone;
 
-
 }

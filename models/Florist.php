@@ -53,5 +53,4 @@ class Florist extends Store {
      */
     public $priceRange;
 
-
 }

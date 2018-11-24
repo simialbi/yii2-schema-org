@@ -53,5 +53,4 @@ class Attorney extends LegalService {
      */
     public $priceRange;
 
-
 }

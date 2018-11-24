@@ -18,5 +18,4 @@ class RestrictedDiet extends Enumeration {
      */
     public $supersededBy;
 
-
 }

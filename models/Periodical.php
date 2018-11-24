@@ -34,5 +34,4 @@ class Periodical extends CreativeWorkSeries {
      */
     public $startDate;
 
-
 }

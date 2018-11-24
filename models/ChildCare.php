@@ -53,5 +53,4 @@ class ChildCare extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

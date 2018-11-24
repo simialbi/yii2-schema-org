@@ -293,5 +293,4 @@ class Landform extends Place {
      */
     public $telephone;
 
-
 }

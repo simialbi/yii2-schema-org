@@ -105,5 +105,4 @@ class BusReservation extends Reservation {
      */
     public $underName;
 
-
 }

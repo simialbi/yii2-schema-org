@@ -28,5 +28,4 @@ class Playground extends CivicStructure {
      */
     public $openingHours;
 
-
 }

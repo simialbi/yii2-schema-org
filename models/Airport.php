@@ -23,5 +23,4 @@ class Airport extends CivicStructure {
      */
     public $icaoCode;
 
-
 }

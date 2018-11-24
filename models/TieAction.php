@@ -106,5 +106,4 @@ class TieAction extends AchieveAction {
      */
     public $target;
 
-
 }

@@ -26,5 +26,4 @@ class ViewAction extends ConsumeAction {
      */
     public $expectsAcceptanceOf;
 
-
 }

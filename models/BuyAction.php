@@ -19,5 +19,4 @@ class BuyAction extends TradeAction {
      */
     public $seller;
 
-
 }

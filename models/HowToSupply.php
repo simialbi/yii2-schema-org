@@ -17,5 +17,4 @@ class HowToSupply extends HowToItem {
      */
     public $estimatedCost;
 
-
 }

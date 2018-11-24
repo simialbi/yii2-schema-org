@@ -53,5 +53,4 @@ class LiquorStore extends Store {
      */
     public $priceRange;
 
-
 }

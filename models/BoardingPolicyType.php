@@ -17,5 +17,4 @@ class BoardingPolicyType extends Enumeration {
      */
     public $supersededBy;
 
-
 }

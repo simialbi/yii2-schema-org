@@ -75,5 +75,4 @@ class EmailMessage extends Message {
      */
     public $toRecipient;
 
-
 }

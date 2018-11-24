@@ -107,5 +107,4 @@ class AgreeAction extends ReactAction {
      */
     public $target;
 
-
 }

@@ -43,5 +43,4 @@ class FoodEstablishment extends LocalBusiness {
      */
     public $starRating;
 
-
 }

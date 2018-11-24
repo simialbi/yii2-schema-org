@@ -24,5 +24,4 @@ class PaymentChargeSpecification extends PriceSpecification {
      */
     public $appliesToPaymentMethod;
 
-
 }

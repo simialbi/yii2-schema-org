@@ -53,5 +53,4 @@ class OutletStore extends Store {
      */
     public $priceRange;
 
-
 }

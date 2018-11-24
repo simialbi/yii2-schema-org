@@ -18,5 +18,4 @@ class ItemListOrderType extends Enumeration {
      */
     public $supersededBy;
 
-
 }

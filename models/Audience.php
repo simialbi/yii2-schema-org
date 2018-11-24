@@ -24,5 +24,4 @@ class Audience extends Intangible {
      */
     public $geographicArea;
 
-
 }

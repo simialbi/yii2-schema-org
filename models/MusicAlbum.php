@@ -38,5 +38,4 @@ class MusicAlbum extends MusicPlaylist {
      */
     public $byArtist;
 
-
 }

@@ -17,5 +17,4 @@ class BookFormatType extends Enumeration {
      */
     public $supersededBy;
 
-
 }

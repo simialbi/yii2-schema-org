@@ -17,5 +17,4 @@ class ContactPointOption extends Enumeration {
      */
     public $supersededBy;
 
-
 }

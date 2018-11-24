@@ -17,5 +17,4 @@ class JoinAction extends InteractAction {
      */
     public $event;
 
-
 }

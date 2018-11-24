@@ -58,5 +58,4 @@ class Permit extends Intangible {
      */
     public $validUntil;
 
-
 }

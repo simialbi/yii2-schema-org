@@ -53,5 +53,4 @@ class TelevisionStation extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

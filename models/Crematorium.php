@@ -28,5 +28,4 @@ class Crematorium extends CivicStructure {
      */
     public $openingHours;
 
-
 }

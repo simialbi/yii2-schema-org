@@ -16,5 +16,4 @@ class TrackAction extends FindAction {
      */
     public $deliveryMethod;
 
-
 }

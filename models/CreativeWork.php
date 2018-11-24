@@ -728,5 +728,4 @@ class CreativeWork extends Thing {
      */
     public $workTranslation;
 
-
 }

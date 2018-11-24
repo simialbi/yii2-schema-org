@@ -17,5 +17,4 @@ class Enumeration extends Intangible {
      */
     public $supersededBy;
 
-
 }

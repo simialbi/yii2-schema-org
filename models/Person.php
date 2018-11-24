@@ -420,5 +420,4 @@ class Person extends Thing {
      */
     public $worksFor;
 
-
 }

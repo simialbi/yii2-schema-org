@@ -62,5 +62,4 @@ class MovieClip extends Clip {
      */
     public $partOfSeries;
 
-
 }

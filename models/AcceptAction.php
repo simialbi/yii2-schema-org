@@ -16,5 +16,4 @@ class AcceptAction extends AllocateAction {
      */
     public $purpose;
 
-
 }

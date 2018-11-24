@@ -31,5 +31,4 @@ class ScreeningEvent extends Event {
      */
     public $workPresented;
 
-
 }

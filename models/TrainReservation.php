@@ -105,5 +105,4 @@ class TrainReservation extends Reservation {
      */
     public $underName;
 
-
 }

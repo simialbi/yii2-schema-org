@@ -76,5 +76,4 @@ class GeoShape extends StructuredValue {
      */
     public $postalCode;
 
-
 }

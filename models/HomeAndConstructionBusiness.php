@@ -53,5 +53,4 @@ class HomeAndConstructionBusiness extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

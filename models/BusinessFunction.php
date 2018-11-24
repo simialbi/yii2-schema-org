@@ -21,5 +21,4 @@ class BusinessFunction extends Enumeration {
      */
     public $supersededBy;
 
-
 }

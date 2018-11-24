@@ -290,5 +290,4 @@ class RiverBodyOfWater extends BodyOfWater {
      */
     public $telephone;
 
-
 }

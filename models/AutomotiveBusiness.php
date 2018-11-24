@@ -53,5 +53,4 @@ class AutomotiveBusiness extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

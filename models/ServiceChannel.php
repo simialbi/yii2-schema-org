@@ -68,5 +68,4 @@ class ServiceChannel extends Intangible {
      */
     public $serviceUrl;
 
-
 }

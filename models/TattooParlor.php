@@ -53,5 +53,4 @@ class TattooParlor extends HealthAndBeautyBusiness {
      */
     public $priceRange;
 
-
 }

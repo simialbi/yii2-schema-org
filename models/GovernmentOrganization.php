@@ -414,5 +414,4 @@ class GovernmentOrganization extends Organization {
      */
     public $vatID;
 
-
 }

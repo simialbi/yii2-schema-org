@@ -107,5 +107,4 @@ class DeactivateAction extends ControlAction {
      */
     public $target;
 
-
 }

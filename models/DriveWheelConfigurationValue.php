@@ -79,5 +79,4 @@ class DriveWheelConfigurationValue extends QualitativeValue {
      */
     public $valueReference;
 
-
 }

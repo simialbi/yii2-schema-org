@@ -53,5 +53,4 @@ class Notary extends LegalService {
      */
     public $priceRange;
 
-
 }

@@ -48,5 +48,4 @@ class Rating extends Intangible {
      */
     public $worstRating;
 
-
 }

@@ -33,5 +33,4 @@ class LocationFeatureSpecification extends PropertyValue {
      */
     public $validThrough;
 
-
 }

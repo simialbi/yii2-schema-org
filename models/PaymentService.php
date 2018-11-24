@@ -36,5 +36,4 @@ class PaymentService extends FinancialProduct {
      */
     public $interestRate;
 
-
 }

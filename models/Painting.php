@@ -727,5 +727,4 @@ class Painting extends CreativeWork {
      */
     public $workTranslation;
 
-
 }

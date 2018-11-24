@@ -106,5 +106,4 @@ class PhotographAction extends CreateAction {
      */
     public $target;
 
-
 }

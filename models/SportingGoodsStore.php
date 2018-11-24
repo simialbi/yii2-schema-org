@@ -53,5 +53,4 @@ class SportingGoodsStore extends Store {
      */
     public $priceRange;
 
-
 }

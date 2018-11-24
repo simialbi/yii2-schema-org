@@ -16,5 +16,4 @@ class SomeProducts extends Product {
      */
     public $inventoryLevel;
 
-
 }

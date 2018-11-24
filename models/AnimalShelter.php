@@ -53,5 +53,4 @@ class AnimalShelter extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

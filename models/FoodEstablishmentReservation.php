@@ -44,5 +44,4 @@ class FoodEstablishmentReservation extends Reservation {
      */
     public $startTime;
 
-
 }

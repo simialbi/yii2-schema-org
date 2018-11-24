@@ -28,5 +28,4 @@ class CityHall extends GovernmentBuilding {
      */
     public $openingHours;
 
-
 }

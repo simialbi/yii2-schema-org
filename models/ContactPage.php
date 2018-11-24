@@ -99,5 +99,4 @@ class ContactPage extends WebPage {
      */
     public $specialty;
 
-
 }

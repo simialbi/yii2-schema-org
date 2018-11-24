@@ -415,5 +415,4 @@ class TheaterGroup extends PerformingGroup {
      */
     public $vatID;
 
-
 }

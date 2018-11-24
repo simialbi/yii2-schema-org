@@ -111,5 +111,4 @@ class Flight extends Trip {
      */
     public $webCheckinTime;
 
-
 }

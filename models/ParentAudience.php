@@ -24,5 +24,4 @@ class ParentAudience extends PeopleAudience {
      */
     public $childMinAge;
 
-
 }

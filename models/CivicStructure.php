@@ -28,5 +28,4 @@ class CivicStructure extends Place {
      */
     public $openingHours;
 
-
 }

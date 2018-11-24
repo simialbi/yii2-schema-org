@@ -107,5 +107,4 @@ class DisagreeAction extends ReactAction {
      */
     public $target;
 
-
 }

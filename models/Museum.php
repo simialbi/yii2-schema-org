@@ -28,5 +28,4 @@ class Museum extends CivicStructure {
      */
     public $openingHours;
 
-
 }

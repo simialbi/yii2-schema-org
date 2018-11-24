@@ -47,5 +47,4 @@ class DeliveryChargeSpecification extends PriceSpecification {
      */
     public $ineligibleRegion;
 
-
 }

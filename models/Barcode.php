@@ -37,5 +37,4 @@ class Barcode extends ImageObject {
      */
     public $thumbnail;
 
-
 }

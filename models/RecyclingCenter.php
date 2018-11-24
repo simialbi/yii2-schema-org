@@ -53,5 +53,4 @@ class RecyclingCenter extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

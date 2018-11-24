@@ -107,5 +107,4 @@ class CheckAction extends FindAction {
      */
     public $target;
 
-
 }

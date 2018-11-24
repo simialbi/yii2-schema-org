@@ -17,5 +17,4 @@ class DataFeed extends Dataset {
      */
     public $dataFeedElement;
 
-
 }

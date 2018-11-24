@@ -53,5 +53,4 @@ class CampingPitch extends Accommodation {
      */
     public $petsAllowed;
 
-
 }

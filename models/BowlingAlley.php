@@ -53,5 +53,4 @@ class BowlingAlley extends SportsActivityLocation {
      */
     public $priceRange;
 
-
 }

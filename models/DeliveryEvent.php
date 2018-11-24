@@ -37,5 +37,4 @@ class DeliveryEvent extends Event {
      */
     public $hasDeliveryMethod;
 
-
 }

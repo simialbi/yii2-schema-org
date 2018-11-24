@@ -16,30 +16,26 @@ echo "<?php\n\n";
 namespace simialbi\yii2\schemaorg\models;
 
 /**
- * Model for <?php echo $className."\n";?>
+ * <?= wordwrap($description, 80, "\n * ") . "\n" ?>
  *
  * @package simialbi\yii2\schemaorg\models
- * @see <?php echo $url."\n";?>
+ * @see <?= $url . "\n" ?>
  */
-class <?php echo $className;?> extends <?php echo $parent;?> {
-<?php
-foreach ($properties as $property) {
-?>
-	/**
-	* @var <?php echo $property['type'];?> <?php echo str_replace(["\r", "\n"], ['', "\n\t* "], $property['description'])."\n";?>
-	*/
-	public $<?php echo $property['name'];?>;
+class <?= $className ?> extends <?= $parent ?> {
+<?php foreach ($properties as $property) : ?>
+    /**
+     * <?= wordwrap(str_replace(["\r", "\n"], ['', "\n     * "], $property['description']), 80, "\n     * ") . "\n" ?>
+     *
+     * @var <?= $property['type'] . "\n" ?>
+     */
+    public $<?= $property['name']; ?>;
 
-<?php
-}
+<?php endforeach ?>
+<?php if ($className === 'SearchAction') : ?>
 
-if ($className === 'SearchAction') {
-?>
-	/**
-	* @var string Query input param
-	*/
-	public $query_input = 'required';
-<?php
-}
-?>
+    /**
+     * @var string Query input param
+     */
+    public $query_input = 'required';
+<?php endif ?>
 }

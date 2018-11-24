@@ -28,5 +28,4 @@ class Bridge extends CivicStructure {
      */
     public $openingHours;
 
-
 }

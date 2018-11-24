@@ -38,5 +38,4 @@ class FlightReservation extends Reservation {
      */
     public $securityScreening;
 
-
 }

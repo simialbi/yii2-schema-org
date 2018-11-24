@@ -103,5 +103,4 @@ class WebPage extends CreativeWork {
      */
     public $specialty;
 
-
 }

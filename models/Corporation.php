@@ -20,5 +20,4 @@ class Corporation extends Organization {
      */
     public $tickerSymbol;
 
-
 }

@@ -17,5 +17,4 @@ class InvestmentOrDeposit extends FinancialProduct {
      */
     public $amount;
 
-
 }

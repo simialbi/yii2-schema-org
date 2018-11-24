@@ -37,5 +37,4 @@ class Seat extends Intangible {
      */
     public $seatingType;
 
-
 }

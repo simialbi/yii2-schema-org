@@ -28,5 +28,4 @@ class BuddhistTemple extends PlaceOfWorship {
      */
     public $openingHours;
 
-
 }

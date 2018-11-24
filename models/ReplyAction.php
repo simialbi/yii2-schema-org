@@ -18,5 +18,4 @@ class ReplyAction extends CommunicateAction {
      */
     public $resultComment;
 
-
 }

@@ -41,5 +41,4 @@ class MenuItem extends Intangible {
      */
     public $suitableForDiet;
 
-
 }

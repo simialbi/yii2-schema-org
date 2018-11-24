@@ -26,5 +26,4 @@ class TransferAction extends Action {
      */
     public $toLocation;
 
-
 }

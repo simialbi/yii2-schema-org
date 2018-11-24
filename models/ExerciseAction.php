@@ -99,5 +99,4 @@ class ExerciseAction extends PlayAction {
      */
     public $toLocation;
 
-
 }

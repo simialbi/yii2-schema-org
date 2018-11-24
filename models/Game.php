@@ -49,5 +49,4 @@ class Game extends CreativeWork {
      */
     public $quest;
 
-
 }

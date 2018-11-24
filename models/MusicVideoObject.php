@@ -130,5 +130,4 @@ class MusicVideoObject extends MediaObject {
      */
     public $width;
 
-
 }

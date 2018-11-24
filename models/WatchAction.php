@@ -26,5 +26,4 @@ class WatchAction extends ConsumeAction {
      */
     public $expectsAcceptanceOf;
 
-
 }

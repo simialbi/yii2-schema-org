@@ -41,5 +41,4 @@ class QuoteAction extends TradeAction {
      */
     public $priceSpecification;
 
-
 }

@@ -12,5 +12,4 @@ namespace simialbi\yii2\schemaorg\models;
  * @see http://schema.org/Language
  */
 class Language extends Intangible {
-
 }

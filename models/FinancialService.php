@@ -17,5 +17,4 @@ class FinancialService extends LocalBusiness {
      */
     public $feesAndCommissionsSpecification;
 
-
 }

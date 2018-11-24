@@ -18,5 +18,4 @@ class InformAction extends CommunicateAction {
      */
     public $event;
 
-
 }

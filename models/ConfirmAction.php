@@ -18,5 +18,4 @@ class ConfirmAction extends InformAction {
      */
     public $event;
 
-
 }

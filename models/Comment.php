@@ -34,5 +34,4 @@ class Comment extends CreativeWork {
      */
     public $upvoteCount;
 
-
 }

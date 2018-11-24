@@ -290,5 +290,4 @@ class LandmarksOrHistoricalBuildings extends Place {
      */
     public $telephone;
 
-
 }

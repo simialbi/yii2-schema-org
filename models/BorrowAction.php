@@ -17,5 +17,4 @@ class BorrowAction extends TransferAction {
      */
     public $lender;
 
-
 }

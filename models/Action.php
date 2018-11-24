@@ -109,5 +109,4 @@ class Action extends Thing {
      */
     public $target;
 
-
 }

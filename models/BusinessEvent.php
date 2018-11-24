@@ -263,5 +263,4 @@ class BusinessEvent extends Event {
      */
     public $workPerformed;
 
-
 }

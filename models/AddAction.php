@@ -17,5 +17,4 @@ class AddAction extends UpdateAction {
      */
     public $targetCollection;
 
-
 }

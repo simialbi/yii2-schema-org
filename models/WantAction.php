@@ -106,5 +106,4 @@ class WantAction extends ReactAction {
      */
     public $target;
 
-
 }

@@ -163,5 +163,4 @@ class Service extends Intangible {
      */
     public $termsOfService;
 
-
 }

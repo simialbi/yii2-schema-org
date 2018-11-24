@@ -78,5 +78,4 @@ class Recipe extends HowTo {
      */
     public $suitableForDiet;
 
-
 }

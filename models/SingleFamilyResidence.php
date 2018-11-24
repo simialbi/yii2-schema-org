@@ -30,5 +30,4 @@ class SingleFamilyResidence extends House {
      */
     public $occupancy;
 
-
 }

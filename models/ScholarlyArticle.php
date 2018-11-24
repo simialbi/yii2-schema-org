@@ -93,5 +93,4 @@ class ScholarlyArticle extends Article {
      */
     public $wordCount;
 
-
 }

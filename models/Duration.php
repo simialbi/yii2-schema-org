@@ -9,5 +9,4 @@ namespace simialbi\yii2\schemaorg\models;
  * @see http://schema.org/Duration
  */
 class Duration extends Quantity {
-
 }

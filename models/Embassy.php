@@ -28,5 +28,4 @@ class Embassy extends GovernmentBuilding {
      */
     public $openingHours;
 
-
 }

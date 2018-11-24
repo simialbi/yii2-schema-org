@@ -52,5 +52,4 @@ class PostalAddress extends ContactPoint {
      */
     public $streetAddress;
 
-
 }

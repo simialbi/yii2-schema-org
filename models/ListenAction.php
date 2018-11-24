@@ -26,5 +26,4 @@ class ListenAction extends ConsumeAction {
      */
     public $expectsAcceptanceOf;
 
-
 }

@@ -24,5 +24,4 @@ class Airline extends Organization {
      */
     public $iataCode;
 
-
 }

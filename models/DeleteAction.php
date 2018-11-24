@@ -17,5 +17,4 @@ class DeleteAction extends UpdateAction {
      */
     public $targetCollection;
 
-
 }

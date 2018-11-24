@@ -51,5 +51,4 @@ class Book extends CreativeWork {
      */
     public $numberOfPages;
 
-
 }

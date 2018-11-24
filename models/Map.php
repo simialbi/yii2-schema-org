@@ -16,5 +16,4 @@ class Map extends CreativeWork {
      */
     public $mapType;
 
-
 }

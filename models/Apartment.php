@@ -33,5 +33,4 @@ class Apartment extends Accommodation {
      */
     public $occupancy;
 
-
 }

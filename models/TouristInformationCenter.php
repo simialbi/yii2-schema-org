@@ -53,5 +53,4 @@ class TouristInformationCenter extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

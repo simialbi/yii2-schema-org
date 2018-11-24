@@ -53,5 +53,4 @@ class PublicSwimmingPool extends SportsActivityLocation {
      */
     public $priceRange;
 
-
 }

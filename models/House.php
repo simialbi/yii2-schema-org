@@ -21,5 +21,4 @@ class House extends Accommodation {
      */
     public $numberOfRooms;
 
-
 }

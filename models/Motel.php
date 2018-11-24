@@ -66,5 +66,4 @@ class Motel extends LodgingBusiness {
      */
     public $starRating;
 
-
 }

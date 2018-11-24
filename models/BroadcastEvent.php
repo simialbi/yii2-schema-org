@@ -30,5 +30,4 @@ class BroadcastEvent extends PublicationEvent {
      */
     public $videoFormat;
 
-
 }

@@ -71,5 +71,4 @@ class BroadcastService extends Service {
      */
     public $videoFormat;
 
-
 }

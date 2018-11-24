@@ -25,5 +25,4 @@ class Blog extends CreativeWork {
      */
     public $issn;
 
-
 }

@@ -28,5 +28,4 @@ class MusicVenue extends CivicStructure {
      */
     public $openingHours;
 
-
 }

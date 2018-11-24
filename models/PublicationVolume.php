@@ -40,5 +40,4 @@ class PublicationVolume extends CreativeWork {
      */
     public $volumeNumber;
 
-
 }

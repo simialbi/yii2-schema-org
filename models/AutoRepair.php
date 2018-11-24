@@ -53,5 +53,4 @@ class AutoRepair extends AutomotiveBusiness {
      */
     public $priceRange;
 
-
 }

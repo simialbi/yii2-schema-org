@@ -163,5 +163,4 @@ class TaxiService extends Service {
      */
     public $termsOfService;
 
-
 }

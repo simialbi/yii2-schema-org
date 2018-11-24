@@ -34,5 +34,4 @@ class LiveBlogPosting extends BlogPosting {
      */
     public $liveBlogUpdate;
 
-
 }

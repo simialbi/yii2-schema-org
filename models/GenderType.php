@@ -17,5 +17,4 @@ class GenderType extends Enumeration {
      */
     public $supersededBy;
 
-
 }

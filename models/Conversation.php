@@ -729,5 +729,4 @@ class Conversation extends CreativeWork {
      */
     public $workTranslation;
 
-
 }

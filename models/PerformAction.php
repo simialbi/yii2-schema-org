@@ -17,5 +17,4 @@ class PerformAction extends PlayAction {
      */
     public $entertainmentBusiness;
 
-
 }

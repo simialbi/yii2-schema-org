@@ -28,5 +28,4 @@ class BedDetails extends Intangible {
      */
     public $typeOfBed;
 
-
 }

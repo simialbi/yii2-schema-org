@@ -17,5 +17,4 @@ class GamePlayMode extends Enumeration {
      */
     public $supersededBy;
 
-
 }

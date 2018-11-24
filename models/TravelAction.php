@@ -17,5 +17,4 @@ class TravelAction extends MoveAction {
      */
     public $distance;
 
-
 }

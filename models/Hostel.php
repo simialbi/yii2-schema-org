@@ -66,5 +66,4 @@ class Hostel extends LodgingBusiness {
      */
     public $starRating;
 
-
 }

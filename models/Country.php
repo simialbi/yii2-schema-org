@@ -290,5 +290,4 @@ class Country extends AdministrativeArea {
      */
     public $telephone;
 
-
 }

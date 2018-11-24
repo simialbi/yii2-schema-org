@@ -53,5 +53,4 @@ class Plumber extends HomeAndConstructionBusiness {
      */
     public $priceRange;
 
-
 }

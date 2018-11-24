@@ -53,5 +53,4 @@ class ArtGallery extends EntertainmentBusiness {
      */
     public $priceRange;
 
-
 }

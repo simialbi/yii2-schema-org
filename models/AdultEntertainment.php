@@ -53,5 +53,4 @@ class AdultEntertainment extends EntertainmentBusiness {
      */
     public $priceRange;
 
-
 }

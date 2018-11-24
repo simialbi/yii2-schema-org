@@ -16,5 +16,4 @@ class Preschool extends EducationalOrganization {
      */
     public $alumni;
 
-
 }

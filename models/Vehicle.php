@@ -406,5 +406,4 @@ class Vehicle extends Product {
      */
     public $wheelbase;
 
-
 }

@@ -21,5 +21,4 @@ class DeliveryMethod extends Enumeration {
      */
     public $supersededBy;
 
-
 }

@@ -43,5 +43,4 @@ class Suite extends Accommodation {
      */
     public $occupancy;
 
-
 }

@@ -17,5 +17,4 @@ class FollowAction extends InteractAction {
      */
     public $followee;
 
-
 }

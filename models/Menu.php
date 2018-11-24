@@ -24,5 +24,4 @@ class Menu extends CreativeWork {
      */
     public $hasMenuSection;
 
-
 }

@@ -28,5 +28,4 @@ class PlaceOfWorship extends CivicStructure {
      */
     public $openingHours;
 
-
 }

@@ -28,5 +28,4 @@ class Church extends PlaceOfWorship {
      */
     public $openingHours;
 
-
 }

@@ -18,5 +18,4 @@ class TipAction extends TradeAction {
      */
     public $recipient;
 
-
 }

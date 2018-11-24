@@ -107,5 +107,4 @@ class DislikeAction extends ReactAction {
      */
     public $target;
 
-
 }

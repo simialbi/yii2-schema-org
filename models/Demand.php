@@ -276,5 +276,4 @@ class Demand extends Intangible {
      */
     public $warranty;
 
-
 }

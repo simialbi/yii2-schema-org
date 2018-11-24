@@ -32,5 +32,4 @@ class Answer extends Comment {
      */
     public $upvoteCount;
 
-
 }

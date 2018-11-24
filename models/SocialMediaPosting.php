@@ -18,5 +18,4 @@ class SocialMediaPosting extends Article {
      */
     public $sharedContent;
 
-
 }

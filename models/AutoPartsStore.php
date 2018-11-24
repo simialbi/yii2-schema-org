@@ -8,7 +8,7 @@ namespace simialbi\yii2\schemaorg\models;
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/AutoPartsStore
  */
-class AutoPartsStore extends Store {
+class AutoPartsStore extends AutomotiveBusiness {
     /**
      * The currency accepted.
      * 
@@ -52,6 +52,5 @@ class AutoPartsStore extends Store {
      * @var string
      */
     public $priceRange;
-
 
 }

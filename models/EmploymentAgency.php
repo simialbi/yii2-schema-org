@@ -53,5 +53,4 @@ class EmploymentAgency extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

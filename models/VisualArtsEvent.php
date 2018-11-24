@@ -263,5 +263,4 @@ class VisualArtsEvent extends Event {
      */
     public $workPerformed;
 
-
 }

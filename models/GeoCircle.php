@@ -25,5 +25,4 @@ class GeoCircle extends GeoShape {
      */
     public $geoRadius;
 
-
 }

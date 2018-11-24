@@ -16,5 +16,4 @@ class LoseAction extends AchieveAction {
      */
     public $winner;
 
-
 }

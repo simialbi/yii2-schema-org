@@ -17,5 +17,4 @@ class PaymentStatusType extends Enumeration {
      */
     public $supersededBy;
 
-
 }

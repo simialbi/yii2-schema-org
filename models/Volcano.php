@@ -290,5 +290,4 @@ class Volcano extends Landform {
      */
     public $telephone;
 
-
 }

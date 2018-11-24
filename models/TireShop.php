@@ -53,5 +53,4 @@ class TireShop extends Store {
      */
     public $priceRange;
 
-
 }

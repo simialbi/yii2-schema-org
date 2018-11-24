@@ -18,5 +18,4 @@ class DonateAction extends TradeAction {
      */
     public $recipient;
 
-
 }

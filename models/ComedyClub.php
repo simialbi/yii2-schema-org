@@ -53,5 +53,4 @@ class ComedyClub extends EntertainmentBusiness {
      */
     public $priceRange;
 
-
 }

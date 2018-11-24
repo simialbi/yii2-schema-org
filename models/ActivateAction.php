@@ -107,5 +107,4 @@ class ActivateAction extends ControlAction {
      */
     public $target;
 
-
 }

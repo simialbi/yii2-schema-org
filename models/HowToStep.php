@@ -9,7 +9,7 @@ namespace simialbi\yii2\schemaorg\models;
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/HowToStep
  */
-class HowToStep extends ListItem {
+class HowToStep extends CreativeWork {
     /**
      * The subject matter of the content. Inverse property: subjectOf.
      *
@@ -727,6 +727,5 @@ class HowToStep extends ListItem {
      * @var CreativeWork
      */
     public $workTranslation;
-
 
 }

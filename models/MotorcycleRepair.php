@@ -53,5 +53,4 @@ class MotorcycleRepair extends AutomotiveBusiness {
      */
     public $priceRange;
 
-
 }

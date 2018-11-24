@@ -32,5 +32,4 @@ class MedicalOrganization extends Organization {
      */
     public $medicalSpecialty;
 
-
 }

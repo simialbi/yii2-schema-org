@@ -8,7 +8,7 @@ namespace simialbi\yii2\schemaorg\models;
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/HealthClub
  */
-class HealthClub extends SportsActivityLocation {
+class HealthClub extends HealthAndBeautyBusiness {
     /**
      * The currency accepted.
      * 
@@ -52,6 +52,5 @@ class HealthClub extends SportsActivityLocation {
      * @var string
      */
     public $priceRange;
-
 
 }

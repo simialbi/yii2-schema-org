@@ -53,5 +53,4 @@ class HobbyShop extends Store {
      */
     public $priceRange;
 
-
 }

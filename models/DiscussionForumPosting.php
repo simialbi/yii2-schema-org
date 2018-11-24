@@ -17,5 +17,4 @@ class DiscussionForumPosting extends SocialMediaPosting {
      */
     public $sharedContent;
 
-
 }

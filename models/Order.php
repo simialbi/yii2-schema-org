@@ -161,5 +161,4 @@ class Order extends Intangible {
      */
     public $seller;
 
-
 }

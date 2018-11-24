@@ -16,5 +16,4 @@ class RejectAction extends AllocateAction {
      */
     public $purpose;
 
-
 }

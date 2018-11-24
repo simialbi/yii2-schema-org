@@ -290,5 +290,4 @@ class Residence extends Place {
      */
     public $telephone;
 
-
 }

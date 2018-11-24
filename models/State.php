@@ -290,5 +290,4 @@ class State extends AdministrativeArea {
      */
     public $telephone;
 
-
 }

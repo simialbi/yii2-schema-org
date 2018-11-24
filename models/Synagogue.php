@@ -28,5 +28,4 @@ class Synagogue extends PlaceOfWorship {
      */
     public $openingHours;
 
-
 }

@@ -17,5 +17,4 @@ class MiddleSchool extends EducationalOrganization {
      */
     public $alumni;
 
-
 }

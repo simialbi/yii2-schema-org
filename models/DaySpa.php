@@ -53,5 +53,4 @@ class DaySpa extends HealthAndBeautyBusiness {
      */
     public $priceRange;
 
-
 }

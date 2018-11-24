@@ -53,5 +53,4 @@ class AutoBodyShop extends AutomotiveBusiness {
      */
     public $priceRange;
 
-
 }

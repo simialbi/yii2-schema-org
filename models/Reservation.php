@@ -106,5 +106,4 @@ class Reservation extends Intangible {
      */
     public $underName;
 
-
 }

@@ -37,5 +37,4 @@ class FinancialProduct extends Service {
      */
     public $interestRate;
 
-
 }

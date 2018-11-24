@@ -290,5 +290,4 @@ class ApartmentComplex extends Residence {
      */
     public $telephone;
 
-
 }

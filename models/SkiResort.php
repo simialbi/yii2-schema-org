@@ -53,5 +53,4 @@ class SkiResort extends SportsActivityLocation {
      */
     public $priceRange;
 
-
 }

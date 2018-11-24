@@ -17,5 +17,4 @@ class BlogPosting extends SocialMediaPosting {
      */
     public $sharedContent;
 
-
 }

@@ -28,5 +28,4 @@ class BusStop extends CivicStructure {
      */
     public $openingHours;
 
-
 }

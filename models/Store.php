@@ -53,5 +53,4 @@ class Store extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

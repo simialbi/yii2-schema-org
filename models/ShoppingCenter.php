@@ -53,5 +53,4 @@ class ShoppingCenter extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

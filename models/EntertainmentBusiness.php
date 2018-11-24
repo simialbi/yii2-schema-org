@@ -53,5 +53,4 @@ class EntertainmentBusiness extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

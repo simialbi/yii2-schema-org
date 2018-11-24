@@ -107,5 +107,4 @@ class SuspendAction extends ControlAction {
      */
     public $target;
 
-
 }

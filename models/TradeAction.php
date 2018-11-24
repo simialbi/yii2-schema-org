@@ -42,5 +42,4 @@ class TradeAction extends Action {
      */
     public $priceSpecification;
 
-
 }

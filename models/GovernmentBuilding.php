@@ -28,5 +28,4 @@ class GovernmentBuilding extends CivicStructure {
      */
     public $openingHours;
 
-
 }

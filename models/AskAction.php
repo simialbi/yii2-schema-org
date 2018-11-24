@@ -16,5 +16,4 @@ class AskAction extends CommunicateAction {
      */
     public $question;
 
-
 }

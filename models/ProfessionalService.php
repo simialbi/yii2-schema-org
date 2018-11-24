@@ -53,5 +53,4 @@ class ProfessionalService extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

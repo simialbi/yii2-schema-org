@@ -43,5 +43,4 @@ class IceCreamShop extends FoodEstablishment {
      */
     public $starRating;
 
-
 }

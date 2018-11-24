@@ -43,5 +43,4 @@ class FastFoodRestaurant extends FoodEstablishment {
      */
     public $starRating;
 
-
 }

@@ -17,5 +17,4 @@ class ReservationPackage extends Reservation {
      */
     public $subReservation;
 
-
 }

@@ -17,5 +17,4 @@ class MapCategoryType extends Enumeration {
      */
     public $supersededBy;
 
-
 }

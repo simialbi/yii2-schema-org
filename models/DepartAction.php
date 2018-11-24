@@ -26,5 +26,4 @@ class DepartAction extends MoveAction {
      */
     public $toLocation;
 
-
 }

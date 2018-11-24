@@ -54,5 +54,4 @@ class Accommodation extends Place {
      */
     public $petsAllowed;
 
-
 }

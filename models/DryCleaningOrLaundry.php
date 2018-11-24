@@ -53,5 +53,4 @@ class DryCleaningOrLaundry extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

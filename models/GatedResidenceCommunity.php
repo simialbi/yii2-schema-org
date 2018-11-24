@@ -290,5 +290,4 @@ class GatedResidenceCommunity extends Residence {
      */
     public $telephone;
 
-
 }

@@ -54,5 +54,4 @@ class MeetingRoom extends Room {
      */
     public $petsAllowed;
 
-
 }

@@ -106,5 +106,4 @@ class PaintAction extends CreateAction {
      */
     public $target;
 
-
 }

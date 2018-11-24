@@ -71,5 +71,4 @@ class Episode extends CreativeWork {
      */
     public $trailer;
 
-
 }

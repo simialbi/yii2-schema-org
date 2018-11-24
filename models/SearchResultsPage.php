@@ -99,5 +99,4 @@ class SearchResultsPage extends WebPage {
      */
     public $specialty;
 
-
 }

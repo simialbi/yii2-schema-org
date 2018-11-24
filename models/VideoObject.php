@@ -70,5 +70,4 @@ class VideoObject extends MediaObject {
      */
     public $videoQuality;
 
-
 }

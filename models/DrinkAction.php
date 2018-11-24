@@ -26,5 +26,4 @@ class DrinkAction extends ConsumeAction {
      */
     public $expectsAcceptanceOf;
 
-
 }

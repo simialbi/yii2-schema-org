@@ -17,5 +17,4 @@ class ParcelService extends DeliveryMethod {
      */
     public $supersededBy;
 
-
 }

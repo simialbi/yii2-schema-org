@@ -17,5 +17,4 @@ class AuthorizeAction extends AllocateAction {
      */
     public $recipient;
 
-
 }

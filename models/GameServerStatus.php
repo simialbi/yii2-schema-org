@@ -17,5 +17,4 @@ class GameServerStatus extends Enumeration {
      */
     public $supersededBy;
 
-
 }

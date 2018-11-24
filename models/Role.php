@@ -38,5 +38,4 @@ class Role extends Intangible {
      */
     public $startDate;
 
-
 }

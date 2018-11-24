@@ -106,5 +106,4 @@ class ControlAction extends Action {
      */
     public $target;
 
-
 }

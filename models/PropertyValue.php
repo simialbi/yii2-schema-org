@@ -102,5 +102,4 @@ class PropertyValue extends StructuredValue {
      */
     public $valueReference;
 
-
 }

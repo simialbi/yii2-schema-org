@@ -53,5 +53,4 @@ class GasStation extends AutomotiveBusiness {
      */
     public $priceRange;
 
-
 }

@@ -53,5 +53,4 @@ class GolfCourse extends SportsActivityLocation {
      */
     public $priceRange;
 
-
 }

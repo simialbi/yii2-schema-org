@@ -17,5 +17,4 @@ class OfferItemCondition extends Enumeration {
      */
     public $supersededBy;
 
-
 }

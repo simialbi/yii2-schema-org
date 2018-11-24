@@ -46,5 +46,4 @@ class Course extends CreativeWork {
      */
     public $hasCourseInstance;
 
-
 }

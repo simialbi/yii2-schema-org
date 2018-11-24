@@ -33,5 +33,4 @@ class PublicationEvent extends Event {
      */
     public $publishedOn;
 
-
 }

@@ -37,5 +37,4 @@ class BusTrip extends Trip {
      */
     public $departureBusStop;
 
-
 }

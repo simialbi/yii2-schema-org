@@ -290,5 +290,4 @@ class Place extends Thing {
      */
     public $telephone;
 
-
 }

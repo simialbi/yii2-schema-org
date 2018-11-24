@@ -93,5 +93,4 @@ class NutritionInformation extends StructuredValue {
      */
     public $unsaturatedFatContent;
 
-
 }

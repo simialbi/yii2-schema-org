@@ -37,5 +37,4 @@ class ImageObject extends MediaObject {
      */
     public $thumbnail;
 
-
 }

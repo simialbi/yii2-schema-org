@@ -106,5 +106,4 @@ class AssessAction extends Action {
      */
     public $target;
 
-
 }

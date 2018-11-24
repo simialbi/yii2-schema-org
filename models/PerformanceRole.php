@@ -18,5 +18,4 @@ class PerformanceRole extends Role {
      */
     public $characterName;
 
-
 }

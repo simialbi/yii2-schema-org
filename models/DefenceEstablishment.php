@@ -28,5 +28,4 @@ class DefenceEstablishment extends GovernmentBuilding {
      */
     public $openingHours;
 
-
 }

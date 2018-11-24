@@ -19,5 +19,4 @@ class IndividualProduct extends Product {
      */
     public $serialNumber;
 
-
 }

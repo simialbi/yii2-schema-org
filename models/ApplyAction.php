@@ -107,5 +107,4 @@ class ApplyAction extends OrganizeAction {
      */
     public $target;
 
-
 }

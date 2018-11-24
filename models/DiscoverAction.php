@@ -106,5 +106,4 @@ class DiscoverAction extends FindAction {
      */
     public $target;
 
-
 }

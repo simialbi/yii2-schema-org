@@ -18,5 +18,4 @@ class ReturnAction extends TransferAction {
      */
     public $recipient;
 
-
 }

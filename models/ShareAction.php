@@ -33,5 +33,4 @@ class ShareAction extends CommunicateAction {
      */
     public $recipient;
 
-
 }

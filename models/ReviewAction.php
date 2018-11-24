@@ -18,5 +18,4 @@ class ReviewAction extends AssessAction {
      */
     public $resultReview;
 
-
 }

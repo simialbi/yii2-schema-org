@@ -53,5 +53,4 @@ class MensClothingStore extends Store {
      */
     public $priceRange;
 
-
 }

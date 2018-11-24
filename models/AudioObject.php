@@ -17,5 +17,4 @@ class AudioObject extends MediaObject {
      */
     public $transcript;
 
-
 }

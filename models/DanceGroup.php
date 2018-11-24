@@ -414,5 +414,4 @@ class DanceGroup extends PerformingGroup {
      */
     public $vatID;
 
-
 }

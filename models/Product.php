@@ -265,5 +265,4 @@ class Product extends Thing {
      */
     public $width;
 
-
 }

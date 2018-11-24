@@ -75,5 +75,4 @@ class QuantitativeValue extends StructuredValue {
      */
     public $valueReference;
 
-
 }

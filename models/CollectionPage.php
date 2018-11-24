@@ -99,5 +99,4 @@ class CollectionPage extends WebPage {
      */
     public $specialty;
 
-
 }

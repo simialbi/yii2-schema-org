@@ -31,5 +31,4 @@ class Brand extends Intangible {
      */
     public $review;
 
-
 }

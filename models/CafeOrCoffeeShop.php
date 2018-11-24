@@ -43,5 +43,4 @@ class CafeOrCoffeeShop extends FoodEstablishment {
      */
     public $starRating;
 
-
 }

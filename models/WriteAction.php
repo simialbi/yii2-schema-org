@@ -18,5 +18,4 @@ class WriteAction extends CreateAction {
      */
     public $inLanguage;
 
-
 }

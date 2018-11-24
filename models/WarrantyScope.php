@@ -18,5 +18,4 @@ class WarrantyScope extends Enumeration {
      */
     public $supersededBy;
 
-
 }

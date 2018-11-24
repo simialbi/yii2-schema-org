@@ -16,5 +16,4 @@ class EndorseAction extends ReactAction {
      */
     public $endorsee;
 
-
 }

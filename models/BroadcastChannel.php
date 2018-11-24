@@ -56,5 +56,4 @@ class BroadcastChannel extends Intangible {
      */
     public $providesBroadcastService;
 
-
 }

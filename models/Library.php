@@ -53,5 +53,4 @@ class Library extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

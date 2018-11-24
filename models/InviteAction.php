@@ -17,5 +17,4 @@ class InviteAction extends CommunicateAction {
      */
     public $event;
 
-
 }

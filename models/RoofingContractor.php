@@ -53,5 +53,4 @@ class RoofingContractor extends HomeAndConstructionBusiness {
      */
     public $priceRange;
 
-
 }

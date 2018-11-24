@@ -107,5 +107,4 @@ class Thing extends Model {
      */
     public $url;
 
-
 }

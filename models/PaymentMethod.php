@@ -20,5 +20,4 @@ class PaymentMethod extends Enumeration {
      */
     public $supersededBy;
 
-
 }

@@ -18,5 +18,4 @@ class DayOfWeek extends Enumeration {
      */
     public $supersededBy;
 
-
 }

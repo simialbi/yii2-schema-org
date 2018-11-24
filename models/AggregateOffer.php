@@ -40,5 +40,4 @@ class AggregateOffer extends Offer {
      */
     public $offers;
 
-
 }

@@ -53,5 +53,4 @@ class Pharmacy extends MedicalOrganization {
      */
     public $priceRange;
 
-
 }

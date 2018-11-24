@@ -25,5 +25,4 @@ class SendAction extends TransferAction {
      */
     public $recipient;
 
-
 }

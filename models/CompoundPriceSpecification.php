@@ -20,5 +20,4 @@ class CompoundPriceSpecification extends PriceSpecification {
      */
     public $priceComponent;
 
-
 }

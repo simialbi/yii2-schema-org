@@ -15,7 +15,7 @@ namespace simialbi\yii2\schemaorg\models;
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/Campground
  */
-class Campground extends CivicStructure {
+class Campground extends LodgingBusiness {
     /**
      * An amenity feature (e.g. a characteristic or service) of the Accommodation. This
      * generic property does not make a statement about whether the feature is included
@@ -72,6 +72,5 @@ class Campground extends CivicStructure {
      * @var Rating
      */
     public $starRating;
-
 
 }

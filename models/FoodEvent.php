@@ -263,5 +263,4 @@ class FoodEvent extends Event {
      */
     public $workPerformed;
 
-
 }

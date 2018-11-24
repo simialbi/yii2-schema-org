@@ -17,5 +17,4 @@ class ActionStatusType extends Enumeration {
      */
     public $supersededBy;
 
-
 }

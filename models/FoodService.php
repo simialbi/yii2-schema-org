@@ -162,5 +162,4 @@ class FoodService extends Service {
      */
     public $termsOfService;
 
-
 }

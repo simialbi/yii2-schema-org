@@ -99,5 +99,4 @@ class AboutPage extends WebPage {
      */
     public $specialty;
 
-
 }

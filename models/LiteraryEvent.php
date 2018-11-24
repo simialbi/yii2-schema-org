@@ -263,5 +263,4 @@ class LiteraryEvent extends Event {
      */
     public $workPerformed;
 
-
 }

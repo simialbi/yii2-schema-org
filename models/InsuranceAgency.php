@@ -17,5 +17,4 @@ class InsuranceAgency extends FinancialService {
      */
     public $feesAndCommissionsSpecification;
 
-
 }

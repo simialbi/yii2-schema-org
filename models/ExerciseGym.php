@@ -53,5 +53,4 @@ class ExerciseGym extends SportsActivityLocation {
      */
     public $priceRange;
 
-
 }

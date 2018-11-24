@@ -17,5 +17,4 @@ class ItemAvailability extends Enumeration {
      */
     public $supersededBy;
 
-
 }

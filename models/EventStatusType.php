@@ -18,5 +18,4 @@ class EventStatusType extends Enumeration {
      */
     public $supersededBy;
 
-
 }

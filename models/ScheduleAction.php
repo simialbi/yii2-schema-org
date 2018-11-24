@@ -16,5 +16,4 @@ class ScheduleAction extends PlanAction {
      */
     public $scheduledTime;
 
-
 }

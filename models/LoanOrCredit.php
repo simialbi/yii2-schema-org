@@ -84,5 +84,4 @@ class LoanOrCredit extends FinancialProduct {
      */
     public $requiredCollateral;
 
-
 }

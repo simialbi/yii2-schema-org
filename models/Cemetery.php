@@ -28,5 +28,4 @@ class Cemetery extends CivicStructure {
      */
     public $openingHours;
 
-
 }

@@ -99,5 +99,4 @@ class ItemPage extends WebPage {
      */
     public $specialty;
 
-
 }

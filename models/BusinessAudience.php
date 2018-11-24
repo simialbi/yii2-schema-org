@@ -31,5 +31,4 @@ class BusinessAudience extends Audience {
      */
     public $yearsInOperation;
 
-
 }

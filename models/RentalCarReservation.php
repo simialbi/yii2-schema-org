@@ -37,5 +37,4 @@ class RentalCarReservation extends Reservation {
      */
     public $pickupTime;
 
-
 }

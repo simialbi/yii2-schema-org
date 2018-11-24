@@ -18,5 +18,4 @@ class PresentationDigitalDocument extends DigitalDocument {
      */
     public $hasDigitalDocumentPermission;
 
-
 }

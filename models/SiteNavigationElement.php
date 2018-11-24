@@ -27,5 +27,4 @@ class SiteNavigationElement extends WebPageElement {
      */
     public $xpath;
 
-
 }

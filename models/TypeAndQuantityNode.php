@@ -51,5 +51,4 @@ class TypeAndQuantityNode extends StructuredValue {
      */
     public $unitText;
 
-
 }

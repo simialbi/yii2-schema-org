@@ -24,5 +24,4 @@ class SportsTeam extends SportsOrganization {
      */
     public $coach;
 
-
 }

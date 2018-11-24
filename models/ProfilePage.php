@@ -99,5 +99,4 @@ class ProfilePage extends WebPage {
      */
     public $specialty;
 
-
 }

@@ -106,5 +106,4 @@ class BookmarkAction extends OrganizeAction {
      */
     public $target;
 
-
 }

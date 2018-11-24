@@ -57,5 +57,4 @@ class RadioChannel extends BroadcastChannel {
      */
     public $providesBroadcastService;
 
-
 }

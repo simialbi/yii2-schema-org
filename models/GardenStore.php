@@ -53,5 +53,4 @@ class GardenStore extends Store {
      */
     public $priceRange;
 
-
 }

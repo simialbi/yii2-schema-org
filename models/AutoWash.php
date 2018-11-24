@@ -53,5 +53,4 @@ class AutoWash extends AutomotiveBusiness {
      */
     public $priceRange;
 
-
 }

@@ -78,5 +78,4 @@ class RadioSeries extends CreativeWorkSeries {
      */
     public $trailer;
 
-
 }

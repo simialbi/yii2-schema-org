@@ -9,7 +9,7 @@ namespace simialbi\yii2\schemaorg\models;
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/HowToDirection
  */
-class HowToDirection extends ListItem {
+class HowToDirection extends CreativeWork {
     /**
      * A media object representing the circumstances after performing this direction.
      *
@@ -70,6 +70,5 @@ class HowToDirection extends ListItem {
      * @var Duration
      */
     public $totalTime;
-
 
 }

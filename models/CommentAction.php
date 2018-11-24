@@ -17,5 +17,4 @@ class CommentAction extends CommunicateAction {
      */
     public $resultComment;
 
-
 }

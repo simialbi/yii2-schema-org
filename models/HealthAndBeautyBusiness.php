@@ -53,5 +53,4 @@ class HealthAndBeautyBusiness extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

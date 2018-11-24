@@ -53,5 +53,4 @@ class JewelryStore extends Store {
      */
     public $priceRange;
 
-
 }

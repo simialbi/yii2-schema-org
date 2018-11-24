@@ -727,5 +727,4 @@ class Photograph extends CreativeWork {
      */
     public $workTranslation;
 
-
 }

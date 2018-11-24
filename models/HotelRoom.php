@@ -31,5 +31,4 @@ class HotelRoom extends Room {
      */
     public $occupancy;
 
-
 }

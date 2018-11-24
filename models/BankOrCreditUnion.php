@@ -17,5 +17,4 @@ class BankOrCreditUnion extends FinancialService {
      */
     public $feesAndCommissionsSpecification;
 
-
 }

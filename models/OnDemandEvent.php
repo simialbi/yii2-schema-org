@@ -32,5 +32,4 @@ class OnDemandEvent extends PublicationEvent {
      */
     public $publishedOn;
 
-
 }

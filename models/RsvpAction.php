@@ -32,5 +32,4 @@ class RsvpAction extends InformAction {
      */
     public $rsvpResponse;
 
-
 }

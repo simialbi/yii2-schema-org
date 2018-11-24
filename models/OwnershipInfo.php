@@ -38,5 +38,4 @@ class OwnershipInfo extends StructuredValue {
      */
     public $typeOfGood;
 
-
 }

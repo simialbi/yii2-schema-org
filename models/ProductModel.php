@@ -35,5 +35,4 @@ class ProductModel extends Product {
      */
     public $successorOf;
 
-
 }

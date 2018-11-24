@@ -51,5 +51,4 @@ class TrainTrip extends Trip {
      */
     public $trainNumber;
 
-
 }

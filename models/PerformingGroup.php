@@ -414,5 +414,4 @@ class PerformingGroup extends Organization {
      */
     public $vatID;
 
-
 }

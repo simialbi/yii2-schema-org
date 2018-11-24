@@ -17,5 +17,4 @@ class ReservationStatusType extends Enumeration {
      */
     public $supersededBy;
 
-
 }

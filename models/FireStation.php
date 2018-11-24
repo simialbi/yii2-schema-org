@@ -8,7 +8,7 @@ namespace simialbi\yii2\schemaorg\models;
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/FireStation
  */
-class FireStation extends CivicStructure {
+class FireStation extends EmergencyService {
     /**
      * The currency accepted.
      * 
@@ -52,6 +52,5 @@ class FireStation extends CivicStructure {
      * @var string
      */
     public $priceRange;
-
 
 }

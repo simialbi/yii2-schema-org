@@ -16,5 +16,4 @@ class OrderAction extends TradeAction {
      */
     public $deliveryMethod;
 
-
 }

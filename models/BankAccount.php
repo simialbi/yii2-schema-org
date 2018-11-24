@@ -34,5 +34,4 @@ class BankAccount extends FinancialProduct {
      */
     public $bankAccountType;
 
-
 }

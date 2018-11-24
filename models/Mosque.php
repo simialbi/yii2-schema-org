@@ -28,5 +28,4 @@ class Mosque extends PlaceOfWorship {
      */
     public $openingHours;
 
-
 }

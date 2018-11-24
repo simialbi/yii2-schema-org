@@ -32,5 +32,4 @@ class BookSeries extends CreativeWorkSeries {
      */
     public $startDate;
 
-
 }

@@ -39,5 +39,4 @@ class DataCatalog extends CreativeWork {
      */
     public $measurementTechnique;
 
-
 }

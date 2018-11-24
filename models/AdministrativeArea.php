@@ -291,5 +291,4 @@ class AdministrativeArea extends Place {
      */
     public $telephone;
 
-
 }

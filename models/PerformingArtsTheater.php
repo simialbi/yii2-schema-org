@@ -28,5 +28,4 @@ class PerformingArtsTheater extends CivicStructure {
      */
     public $openingHours;
 
-
 }

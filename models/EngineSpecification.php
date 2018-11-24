@@ -71,5 +71,4 @@ class EngineSpecification extends StructuredValue {
      */
     public $torque;
 
-
 }

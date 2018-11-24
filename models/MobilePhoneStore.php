@@ -53,5 +53,4 @@ class MobilePhoneStore extends Store {
      */
     public $priceRange;
 
-
 }

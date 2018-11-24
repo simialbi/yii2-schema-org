@@ -28,5 +28,4 @@ class TaxiStand extends CivicStructure {
      */
     public $openingHours;
 
-
 }

@@ -18,5 +18,4 @@ class NoteDigitalDocument extends DigitalDocument {
      */
     public $hasDigitalDocumentPermission;
 
-
 }

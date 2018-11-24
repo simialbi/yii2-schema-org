@@ -70,5 +70,4 @@ class RadioEpisode extends Episode {
      */
     public $trailer;
 
-
 }

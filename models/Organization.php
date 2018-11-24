@@ -414,5 +414,4 @@ class Organization extends Thing {
      */
     public $vatID;
 
-
 }

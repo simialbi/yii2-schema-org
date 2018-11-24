@@ -17,5 +17,4 @@ class OrganizationRole extends Role {
      */
     public $numberedPosition;
 
-
 }

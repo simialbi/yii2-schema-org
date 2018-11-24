@@ -26,5 +26,4 @@ class PlayAction extends Action {
      */
     public $event;
 
-
 }

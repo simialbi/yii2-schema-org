@@ -17,5 +17,4 @@ class AccountingService extends FinancialService {
      */
     public $feesAndCommissionsSpecification;
 
-
 }

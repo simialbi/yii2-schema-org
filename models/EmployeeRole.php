@@ -24,5 +24,4 @@ class EmployeeRole extends OrganizationRole {
      */
     public $salaryCurrency;
 
-
 }

@@ -263,5 +263,4 @@ class ComedyEvent extends Event {
      */
     public $workPerformed;
 
-
 }

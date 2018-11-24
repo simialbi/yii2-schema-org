@@ -53,5 +53,4 @@ class PetStore extends Store {
      */
     public $priceRange;
 
-
 }

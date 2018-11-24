@@ -66,5 +66,4 @@ class BedAndBreakfast extends LodgingBusiness {
      */
     public $starRating;
 
-
 }

@@ -34,5 +34,4 @@ class CommunicateAction extends InteractAction {
      */
     public $recipient;
 
-
 }

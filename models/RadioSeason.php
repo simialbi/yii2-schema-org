@@ -85,5 +85,4 @@ class RadioSeason extends CreativeWorkSeason {
      */
     public $trailer;
 
-
 }

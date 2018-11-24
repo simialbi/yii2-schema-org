@@ -9,7 +9,7 @@ namespace simialbi\yii2\schemaorg\models;
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/VideoGame
  */
-class VideoGame extends SoftwareApplication {
+class VideoGame extends Game {
     /**
      * An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can
      * be associated with individual items or with a series, episode, clip. Supersedes
@@ -77,6 +77,5 @@ class VideoGame extends SoftwareApplication {
      * @var VideoObject
      */
     public $trailer;
-
 
 }

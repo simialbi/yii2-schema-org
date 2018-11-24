@@ -26,5 +26,4 @@ class ArriveAction extends MoveAction {
      */
     public $toLocation;
 
-
 }

@@ -263,5 +263,4 @@ class ChildrensEvent extends Event {
      */
     public $workPerformed;
 
-
 }

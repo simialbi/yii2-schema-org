@@ -24,5 +24,4 @@ class DigitalDocumentPermission extends Intangible {
      */
     public $permissionType;
 
-
 }

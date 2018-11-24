@@ -55,5 +55,4 @@ class MusicRelease extends MusicPlaylist {
      */
     public $releaseOf;
 
-
 }

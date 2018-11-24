@@ -107,5 +107,4 @@ class ResumeAction extends ControlAction {
      */
     public $target;
 
-
 }

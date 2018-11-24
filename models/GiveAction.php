@@ -18,5 +18,4 @@ class GiveAction extends TransferAction {
      */
     public $recipient;
 
-
 }

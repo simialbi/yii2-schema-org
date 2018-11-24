@@ -95,5 +95,4 @@ class Article extends CreativeWork {
      */
     public $wordCount;
 
-
 }

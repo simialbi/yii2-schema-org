@@ -30,5 +30,4 @@ class GameServer extends Intangible {
      */
     public $serverStatus;
 
-
 }

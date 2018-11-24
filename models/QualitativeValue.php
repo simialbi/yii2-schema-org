@@ -80,5 +80,4 @@ class QualitativeValue extends Enumeration {
      */
     public $valueReference;
 
-
 }

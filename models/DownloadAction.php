@@ -25,5 +25,4 @@ class DownloadAction extends TransferAction {
      */
     public $toLocation;
 
-
 }

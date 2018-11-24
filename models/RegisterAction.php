@@ -106,5 +106,4 @@ class RegisterAction extends InteractAction {
      */
     public $target;
 
-
 }

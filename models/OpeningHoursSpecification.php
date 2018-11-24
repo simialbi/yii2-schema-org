@@ -46,5 +46,4 @@ class OpeningHoursSpecification extends StructuredValue {
      */
     public $validThrough;
 
-
 }

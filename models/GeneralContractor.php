@@ -53,5 +53,4 @@ class GeneralContractor extends HomeAndConstructionBusiness {
      */
     public $priceRange;
 
-
 }

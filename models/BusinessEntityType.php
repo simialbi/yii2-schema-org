@@ -19,5 +19,4 @@ class BusinessEntityType extends Enumeration {
      */
     public $supersededBy;
 
-
 }

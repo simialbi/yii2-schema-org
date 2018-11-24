@@ -10,7 +10,7 @@ namespace simialbi\yii2\schemaorg\models;
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/LocalBusiness
  */
-class LocalBusiness extends Place {
+class LocalBusiness extends Organization {
     /**
      * The currency accepted.
      * 
@@ -54,6 +54,5 @@ class LocalBusiness extends Place {
      * @var string
      */
     public $priceRange;
-
 
 }

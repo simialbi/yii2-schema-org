@@ -263,5 +263,4 @@ class ExhibitionEvent extends Event {
      */
     public $workPerformed;
 
-
 }

@@ -17,5 +17,4 @@ class MusicAlbumProductionType extends Enumeration {
      */
     public $supersededBy;
 
-
 }

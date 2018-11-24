@@ -17,5 +17,4 @@ class LeaveAction extends InteractAction {
      */
     public $event;
 
-
 }

@@ -17,5 +17,4 @@ class InsertAction extends AddAction {
      */
     public $toLocation;
 
-
 }

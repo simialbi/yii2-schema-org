@@ -55,5 +55,4 @@ class EntryPoint extends Intangible {
      */
     public $urlTemplate;
 
-
 }

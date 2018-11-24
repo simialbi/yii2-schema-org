@@ -163,5 +163,4 @@ class CableOrSatelliteService extends Service {
      */
     public $termsOfService;
 
-
 }

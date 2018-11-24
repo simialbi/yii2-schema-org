@@ -28,5 +28,4 @@ class Beach extends CivicStructure {
      */
     public $openingHours;
 
-
 }

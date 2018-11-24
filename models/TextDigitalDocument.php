@@ -18,5 +18,4 @@ class TextDigitalDocument extends DigitalDocument {
      */
     public $hasDigitalDocumentPermission;
 
-
 }

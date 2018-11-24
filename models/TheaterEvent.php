@@ -263,5 +263,4 @@ class TheaterEvent extends Event {
      */
     public $workPerformed;
 
-
 }

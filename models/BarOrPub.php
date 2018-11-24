@@ -43,5 +43,4 @@ class BarOrPub extends FoodEstablishment {
      */
     public $starRating;
 
-
 }

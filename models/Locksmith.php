@@ -53,5 +53,4 @@ class Locksmith extends HomeAndConstructionBusiness {
      */
     public $priceRange;
 
-
 }

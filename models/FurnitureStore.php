@@ -53,5 +53,4 @@ class FurnitureStore extends Store {
      */
     public $priceRange;
 
-
 }

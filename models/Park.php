@@ -28,5 +28,4 @@ class Park extends CivicStructure {
      */
     public $openingHours;
 
-
 }

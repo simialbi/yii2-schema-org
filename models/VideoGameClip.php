@@ -62,5 +62,4 @@ class VideoGameClip extends Clip {
      */
     public $partOfSeries;
 
-
 }

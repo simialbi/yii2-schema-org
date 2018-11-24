@@ -53,5 +53,4 @@ class InternetCafe extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

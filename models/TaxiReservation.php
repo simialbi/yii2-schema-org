@@ -30,5 +30,4 @@ class TaxiReservation extends Reservation {
      */
     public $pickupTime;
 
-
 }

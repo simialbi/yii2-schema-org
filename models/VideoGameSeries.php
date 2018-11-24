@@ -138,5 +138,4 @@ class VideoGameSeries extends CreativeWorkSeries {
      */
     public $trailer;
 
-
 }

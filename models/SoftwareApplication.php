@@ -173,5 +173,4 @@ class SoftwareApplication extends CreativeWork {
      */
     public $supportingData;
 
-
 }

@@ -727,5 +727,4 @@ class Sculpture extends CreativeWork {
      */
     public $workTranslation;
 
-
 }

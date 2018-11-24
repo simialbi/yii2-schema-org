@@ -40,5 +40,4 @@ class PublicationIssue extends CreativeWork {
      */
     public $pagination;
 
-
 }

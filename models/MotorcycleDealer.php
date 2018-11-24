@@ -53,5 +53,4 @@ class MotorcycleDealer extends AutomotiveBusiness {
      */
     public $priceRange;
 
-
 }

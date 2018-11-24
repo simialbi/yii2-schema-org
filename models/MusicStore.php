@@ -53,5 +53,4 @@ class MusicStore extends Store {
      */
     public $priceRange;
 
-
 }

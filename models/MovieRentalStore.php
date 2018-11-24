@@ -53,5 +53,4 @@ class MovieRentalStore extends Store {
      */
     public $priceRange;
 
-
 }

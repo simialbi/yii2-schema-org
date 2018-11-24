@@ -18,5 +18,4 @@ class MobileApplication extends SoftwareApplication {
      */
     public $carrierRequirements;
 
-
 }

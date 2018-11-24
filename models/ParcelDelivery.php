@@ -89,5 +89,4 @@ class ParcelDelivery extends Intangible {
      */
     public $trackingUrl;
 
-
 }

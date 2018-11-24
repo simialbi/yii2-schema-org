@@ -53,5 +53,4 @@ class BeautySalon extends HealthAndBeautyBusiness {
      */
     public $priceRange;
 
-
 }

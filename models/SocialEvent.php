@@ -263,5 +263,4 @@ class SocialEvent extends Event {
      */
     public $workPerformed;
 
-
 }

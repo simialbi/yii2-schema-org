@@ -53,5 +53,4 @@ class HousePainter extends HomeAndConstructionBusiness {
      */
     public $priceRange;
 
-
 }

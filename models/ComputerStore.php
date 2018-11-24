@@ -53,5 +53,4 @@ class ComputerStore extends Store {
      */
     public $priceRange;
 
-
 }

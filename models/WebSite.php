@@ -19,5 +19,4 @@ class WebSite extends CreativeWork {
      */
     public $issn;
 
-
 }

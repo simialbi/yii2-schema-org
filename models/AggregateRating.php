@@ -30,5 +30,4 @@ class AggregateRating extends Rating {
      */
     public $reviewCount;
 
-
 }

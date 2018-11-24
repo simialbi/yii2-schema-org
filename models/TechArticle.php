@@ -24,5 +24,4 @@ class TechArticle extends Article {
      */
     public $proficiencyLevel;
 
-
 }

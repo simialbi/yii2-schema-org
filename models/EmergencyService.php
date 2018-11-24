@@ -53,5 +53,4 @@ class EmergencyService extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

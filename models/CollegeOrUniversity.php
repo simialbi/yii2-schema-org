@@ -16,5 +16,4 @@ class CollegeOrUniversity extends EducationalOrganization {
      */
     public $alumni;
 
-
 }

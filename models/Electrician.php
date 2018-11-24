@@ -53,5 +53,4 @@ class Electrician extends HomeAndConstructionBusiness {
      */
     public $priceRange;
 
-
 }

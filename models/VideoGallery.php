@@ -99,5 +99,4 @@ class VideoGallery extends CollectionPage {
      */
     public $specialty;
 
-
 }

@@ -85,5 +85,4 @@ class CreativeWorkSeason extends CreativeWork {
      */
     public $trailer;
 
-
 }

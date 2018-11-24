@@ -17,5 +17,4 @@ class LockerDelivery extends DeliveryMethod {
      */
     public $supersededBy;
 
-
 }

@@ -47,5 +47,4 @@ class AlignmentObject extends Intangible {
      */
     public $targetUrl;
 
-
 }

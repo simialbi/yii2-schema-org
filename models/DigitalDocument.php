@@ -18,5 +18,4 @@ class DigitalDocument extends CreativeWork {
      */
     public $hasDigitalDocumentPermission;
 
-
 }

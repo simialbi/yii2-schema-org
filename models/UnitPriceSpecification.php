@@ -54,5 +54,4 @@ class UnitPriceSpecification extends PriceSpecification {
      */
     public $unitText;
 
-
 }

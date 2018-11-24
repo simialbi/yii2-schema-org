@@ -290,5 +290,4 @@ class City extends AdministrativeArea {
      */
     public $telephone;
 
-
 }

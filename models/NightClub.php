@@ -53,5 +53,4 @@ class NightClub extends EntertainmentBusiness {
      */
     public $priceRange;
 
-
 }

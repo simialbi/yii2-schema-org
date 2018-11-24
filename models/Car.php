@@ -35,5 +35,4 @@ class Car extends Vehicle {
      */
     public $roofLoad;
 
-
 }

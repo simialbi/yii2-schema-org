@@ -28,5 +28,4 @@ class Courthouse extends GovernmentBuilding {
      */
     public $openingHours;
 
-
 }

@@ -17,5 +17,4 @@ class ClaimReview extends Review {
      */
     public $claimReviewed;
 
-
 }

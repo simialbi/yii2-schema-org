@@ -18,5 +18,4 @@ class RsvpResponseType extends Enumeration {
      */
     public $supersededBy;
 
-
 }

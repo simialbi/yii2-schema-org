@@ -19,5 +19,4 @@ class GovernmentService extends Service {
      */
     public $serviceOperator;
 
-
 }

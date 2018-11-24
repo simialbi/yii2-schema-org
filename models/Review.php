@@ -39,5 +39,4 @@ class Review extends CreativeWork {
      */
     public $reviewRating;
 
-
 }

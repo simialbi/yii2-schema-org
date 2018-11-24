@@ -8,7 +8,7 @@ namespace simialbi\yii2\schemaorg\models;
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/Dentist
  */
-class Dentist extends MedicalOrganization {
+class Dentist extends LocalBusiness {
     /**
      * Name or unique ID of network. (Networks are often reused across different
      * insurance plans).
@@ -30,6 +30,5 @@ class Dentist extends MedicalOrganization {
      * @var MedicalSpecialty
      */
     public $medicalSpecialty;
-
 
 }

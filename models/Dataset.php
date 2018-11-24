@@ -66,5 +66,4 @@ class Dataset extends CreativeWork {
      */
     public $variableMeasured;
 
-
 }

@@ -17,5 +17,4 @@ class VoteAction extends ChooseAction {
      */
     public $candidate;
 
-
 }

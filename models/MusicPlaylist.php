@@ -24,5 +24,4 @@ class MusicPlaylist extends CreativeWork {
      */
     public $track;
 
-
 }

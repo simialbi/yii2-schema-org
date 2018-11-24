@@ -54,5 +54,4 @@ class PawnShop extends Store {
      */
     public $priceRange;
 
-
 }

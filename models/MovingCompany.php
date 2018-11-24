@@ -53,5 +53,4 @@ class MovingCompany extends HomeAndConstructionBusiness {
      */
     public $priceRange;
 
-
 }

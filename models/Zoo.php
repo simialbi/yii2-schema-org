@@ -28,5 +28,4 @@ class Zoo extends CivicStructure {
      */
     public $openingHours;
 
-
 }

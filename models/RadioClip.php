@@ -62,5 +62,4 @@ class RadioClip extends Clip {
      */
     public $partOfSeries;
 
-
 }

@@ -18,5 +18,4 @@ class SpreadsheetDigitalDocument extends DigitalDocument {
      */
     public $hasDigitalDocumentPermission;
 
-
 }

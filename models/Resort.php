@@ -69,5 +69,4 @@ class Resort extends LodgingBusiness {
      */
     public $starRating;
 
-
 }

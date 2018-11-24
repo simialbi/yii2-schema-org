@@ -103,5 +103,4 @@ class PriceSpecification extends StructuredValue {
      */
     public $valueAddedTaxIncluded;
 
-
 }

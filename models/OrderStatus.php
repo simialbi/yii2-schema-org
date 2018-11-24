@@ -17,5 +17,4 @@ class OrderStatus extends Enumeration {
      */
     public $supersededBy;
 
-
 }

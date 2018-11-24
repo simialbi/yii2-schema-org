@@ -40,5 +40,4 @@ class DataFeedItem extends Intangible {
      */
     public $item;
 
-
 }

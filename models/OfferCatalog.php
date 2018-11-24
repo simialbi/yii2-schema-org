@@ -43,5 +43,4 @@ class OfferCatalog extends ItemList {
      */
     public $numberOfItems;
 
-
 }

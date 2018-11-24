@@ -29,5 +29,4 @@ class CourseInstance extends Event {
      */
     public $instructor;
 
-
 }

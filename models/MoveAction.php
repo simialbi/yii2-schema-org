@@ -25,5 +25,4 @@ class MoveAction extends Action {
      */
     public $toLocation;
 
-
 }

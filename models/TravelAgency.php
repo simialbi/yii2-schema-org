@@ -53,5 +53,4 @@ class TravelAgency extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

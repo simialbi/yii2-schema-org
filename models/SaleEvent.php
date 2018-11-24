@@ -263,5 +263,4 @@ class SaleEvent extends Event {
      */
     public $workPerformed;
 
-
 }

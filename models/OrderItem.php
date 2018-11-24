@@ -46,5 +46,4 @@ class OrderItem extends Intangible {
      */
     public $orderedItem;
 
-
 }

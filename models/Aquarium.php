@@ -28,5 +28,4 @@ class Aquarium extends CivicStructure {
      */
     public $openingHours;
 
-
 }

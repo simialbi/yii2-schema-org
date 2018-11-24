@@ -105,5 +105,4 @@ class EventReservation extends Reservation {
      */
     public $underName;
 
-
 }

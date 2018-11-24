@@ -107,5 +107,4 @@ class ReactAction extends AssessAction {
      */
     public $target;
 
-
 }

@@ -99,5 +99,4 @@ class CheckoutPage extends WebPage {
      */
     public $specialty;
 
-
 }

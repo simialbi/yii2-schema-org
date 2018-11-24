@@ -53,5 +53,4 @@ class SelfStorage extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

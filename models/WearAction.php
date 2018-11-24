@@ -26,5 +26,4 @@ class WearAction extends UseAction {
      */
     public $expectsAcceptanceOf;
 
-
 }

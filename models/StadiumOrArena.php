@@ -8,7 +8,7 @@ namespace simialbi\yii2\schemaorg\models;
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/StadiumOrArena
  */
-class StadiumOrArena extends CivicStructure {
+class StadiumOrArena extends SportsActivityLocation {
     /**
      * The currency accepted.
      * 
@@ -52,6 +52,5 @@ class StadiumOrArena extends CivicStructure {
      * @var string
      */
     public $priceRange;
-
 
 }

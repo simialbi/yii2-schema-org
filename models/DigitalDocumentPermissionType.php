@@ -17,5 +17,4 @@ class DigitalDocumentPermissionType extends Enumeration {
      */
     public $supersededBy;
 
-
 }

@@ -35,5 +35,4 @@ class CurrencyConversionService extends FinancialProduct {
      */
     public $interestRate;
 
-
 }

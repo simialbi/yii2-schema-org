@@ -134,5 +134,4 @@ class MediaObject extends CreativeWork {
      */
     public $width;
 
-
 }

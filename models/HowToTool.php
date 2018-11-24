@@ -17,5 +17,4 @@ class HowToTool extends HowToItem {
      */
     public $requiredQuantity;
 
-
 }

@@ -17,5 +17,4 @@ class ChooseAction extends AssessAction {
      */
     public $actionOption;
 
-
 }

@@ -32,5 +32,4 @@ class DataDownload extends MediaObject {
      */
     public $measurementTechnique;
 
-
 }

@@ -26,5 +26,4 @@ class InstallAction extends ConsumeAction {
      */
     public $expectsAcceptanceOf;
 
-
 }

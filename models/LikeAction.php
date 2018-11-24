@@ -107,5 +107,4 @@ class LikeAction extends ReactAction {
      */
     public $target;
 
-
 }

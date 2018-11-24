@@ -23,5 +23,4 @@ class ReplaceAction extends UpdateAction {
      */
     public $replacer;
 
-
 }

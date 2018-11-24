@@ -17,5 +17,4 @@ class AssignAction extends AllocateAction {
      */
     public $purpose;
 
-
 }

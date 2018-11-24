@@ -106,5 +106,4 @@ class InteractAction extends Action {
      */
     public $target;
 
-
 }

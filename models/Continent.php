@@ -290,5 +290,4 @@ class Continent extends Landform {
      */
     public $telephone;
 
-
 }

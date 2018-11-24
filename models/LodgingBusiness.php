@@ -66,5 +66,4 @@ class LodgingBusiness extends LocalBusiness {
      */
     public $starRating;
 
-
 }

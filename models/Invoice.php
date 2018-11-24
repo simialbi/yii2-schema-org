@@ -122,5 +122,4 @@ class Invoice extends Intangible {
      */
     public $totalPaymentDue;
 
-
 }

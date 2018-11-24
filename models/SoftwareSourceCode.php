@@ -49,5 +49,4 @@ class SoftwareSourceCode extends CreativeWork {
      */
     public $targetProduct;
 
-
 }

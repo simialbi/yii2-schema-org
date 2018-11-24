@@ -17,5 +17,4 @@ class UpdateAction extends Action {
      */
     public $targetCollection;
 
-
 }

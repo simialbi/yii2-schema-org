@@ -80,5 +80,4 @@ class MusicComposition extends CreativeWork {
      */
     public $recordedAs;
 
-
 }

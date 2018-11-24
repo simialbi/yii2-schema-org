@@ -53,5 +53,4 @@ class WholesaleStore extends Store {
      */
     public $priceRange;
 
-
 }

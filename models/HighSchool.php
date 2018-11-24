@@ -16,5 +16,4 @@ class HighSchool extends EducationalOrganization {
      */
     public $alumni;
 
-
 }

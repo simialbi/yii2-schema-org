@@ -52,5 +52,4 @@ class MusicRecording extends CreativeWork {
      */
     public $recordingOf;
 
-
 }

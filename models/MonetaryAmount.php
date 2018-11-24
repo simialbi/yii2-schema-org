@@ -65,5 +65,4 @@ class MonetaryAmount extends StructuredValue {
      */
     public $value;
 
-
 }

@@ -106,5 +106,4 @@ class IgnoreAction extends AssessAction {
      */
     public $target;
 
-
 }

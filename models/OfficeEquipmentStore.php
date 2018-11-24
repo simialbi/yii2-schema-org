@@ -53,5 +53,4 @@ class OfficeEquipmentStore extends Store {
      */
     public $priceRange;
 
-
 }

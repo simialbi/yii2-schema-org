@@ -102,5 +102,4 @@ class VisualArtwork extends CreativeWork {
      */
     public $width;
 
-
 }

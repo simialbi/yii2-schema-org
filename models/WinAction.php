@@ -16,5 +16,4 @@ class WinAction extends AchieveAction {
      */
     public $loser;
 
-
 }

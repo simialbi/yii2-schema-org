@@ -36,5 +36,4 @@ class CheckInAction extends CommunicateAction {
      */
     public $recipient;
 
-
 }

@@ -49,5 +49,4 @@ class MovieSeries extends CreativeWorkSeries {
      */
     public $trailer;
 
-
 }

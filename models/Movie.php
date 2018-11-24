@@ -73,5 +73,4 @@ class Movie extends CreativeWork {
      */
     public $trailer;
 
-
 }

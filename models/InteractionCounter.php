@@ -34,5 +34,4 @@ class InteractionCounter extends StructuredValue {
      */
     public $userInteractionCount;
 
-
 }

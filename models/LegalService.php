@@ -54,5 +54,4 @@ class LegalService extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

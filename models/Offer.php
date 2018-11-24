@@ -355,5 +355,4 @@ class Offer extends Intangible {
      */
     public $warranty;
 
-
 }

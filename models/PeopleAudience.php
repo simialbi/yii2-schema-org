@@ -60,5 +60,4 @@ class PeopleAudience extends Audience {
      */
     public $suggestedMinAge;
 
-
 }

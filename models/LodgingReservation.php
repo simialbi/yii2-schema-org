@@ -52,5 +52,4 @@ class LodgingReservation extends Reservation {
      */
     public $numChildren;
 
-
 }

@@ -62,5 +62,4 @@ class Clip extends CreativeWork {
      */
     public $partOfSeries;
 
-
 }

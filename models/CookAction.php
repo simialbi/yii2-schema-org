@@ -32,5 +32,4 @@ class CookAction extends CreateAction {
      */
     public $recipe;
 
-
 }

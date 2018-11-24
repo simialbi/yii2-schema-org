@@ -53,5 +53,4 @@ class RealEstateAgent extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

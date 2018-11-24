@@ -53,5 +53,4 @@ class TennisComplex extends SportsActivityLocation {
      */
     public $priceRange;
 
-
 }

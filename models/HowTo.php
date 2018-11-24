@@ -74,5 +74,4 @@ class HowTo extends CreativeWork {
      */
     public $yield;
 
-
 }

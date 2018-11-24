@@ -17,5 +17,4 @@ class SportsOrganization extends Organization {
      */
     public $sport;
 
-
 }

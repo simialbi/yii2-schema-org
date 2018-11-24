@@ -32,5 +32,4 @@ class MusicGroup extends PerformingGroup {
      */
     public $track;
 
-
 }

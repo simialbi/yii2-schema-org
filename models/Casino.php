@@ -53,5 +53,4 @@ class Casino extends EntertainmentBusiness {
      */
     public $priceRange;
 
-
 }

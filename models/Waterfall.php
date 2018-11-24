@@ -290,5 +290,4 @@ class Waterfall extends BodyOfWater {
      */
     public $telephone;
 
-
 }

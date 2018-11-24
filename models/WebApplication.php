@@ -17,5 +17,4 @@ class WebApplication extends SoftwareApplication {
      */
     public $browserRequirements;
 
-
 }

@@ -17,5 +17,4 @@ class Report extends Article {
      */
     public $reportNumber;
 
-
 }

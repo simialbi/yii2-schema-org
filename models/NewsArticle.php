@@ -60,5 +60,4 @@ class NewsArticle extends Article {
      */
     public $printSection;
 
-
 }

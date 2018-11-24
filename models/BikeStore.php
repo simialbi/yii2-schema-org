@@ -53,5 +53,4 @@ class BikeStore extends Store {
      */
     public $priceRange;
 
-
 }

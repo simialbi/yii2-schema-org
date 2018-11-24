@@ -30,5 +30,4 @@ class Physician extends MedicalOrganization {
      */
     public $medicalSpecialty;
 
-
 }

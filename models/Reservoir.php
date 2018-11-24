@@ -291,5 +291,4 @@ class Reservoir extends BodyOfWater {
      */
     public $telephone;
 
-
 }

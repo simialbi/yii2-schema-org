@@ -53,5 +53,4 @@ class PostOffice extends GovernmentOffice {
      */
     public $priceRange;
 
-
 }

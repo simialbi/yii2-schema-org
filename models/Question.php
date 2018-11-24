@@ -50,5 +50,4 @@ class Question extends CreativeWork {
      */
     public $upvoteCount;
 
-
 }

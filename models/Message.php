@@ -75,5 +75,4 @@ class Message extends CreativeWork {
      */
     public $toRecipient;
 
-
 }

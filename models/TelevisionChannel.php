@@ -57,5 +57,4 @@ class TelevisionChannel extends BroadcastChannel {
      */
     public $providesBroadcastService;
 
-
 }

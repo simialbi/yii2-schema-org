@@ -263,5 +263,4 @@ class DanceEvent extends Event {
      */
     public $workPerformed;
 
-
 }

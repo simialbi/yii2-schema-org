@@ -53,5 +53,4 @@ class AutoDealer extends AutomotiveBusiness {
      */
     public $priceRange;
 
-
 }

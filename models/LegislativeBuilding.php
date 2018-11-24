@@ -28,5 +28,4 @@ class LegislativeBuilding extends GovernmentBuilding {
      */
     public $openingHours;
 
-
 }

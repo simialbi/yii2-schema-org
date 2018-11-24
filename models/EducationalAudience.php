@@ -16,5 +16,4 @@ class EducationalAudience extends Audience {
      */
     public $educationalRole;
 
-
 }

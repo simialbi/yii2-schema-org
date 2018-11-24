@@ -28,5 +28,4 @@ class SubwayStation extends CivicStructure {
      */
     public $openingHours;
 
-
 }

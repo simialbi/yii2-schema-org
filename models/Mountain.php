@@ -290,5 +290,4 @@ class Mountain extends Landform {
      */
     public $telephone;
 
-
 }

@@ -27,5 +27,4 @@ class Table extends WebPageElement {
      */
     public $xpath;
 
-
 }

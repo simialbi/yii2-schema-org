@@ -38,5 +38,4 @@ class ListItem extends Intangible {
      */
     public $previousItem;
 
-
 }

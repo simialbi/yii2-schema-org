@@ -10,5 +10,4 @@ namespace simialbi\yii2\schemaorg\models;
  * @see http://schema.org/Series
  */
 class Series extends Intangible {
-
 }

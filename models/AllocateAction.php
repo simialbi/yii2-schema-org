@@ -16,5 +16,4 @@ class AllocateAction extends OrganizeAction {
      */
     public $purpose;
 
-
 }

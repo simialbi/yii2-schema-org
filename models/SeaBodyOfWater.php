@@ -290,5 +290,4 @@ class SeaBodyOfWater extends BodyOfWater {
      */
     public $telephone;
 
-
 }

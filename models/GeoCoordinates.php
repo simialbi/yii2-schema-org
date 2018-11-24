@@ -52,5 +52,4 @@ class GeoCoordinates extends StructuredValue {
      */
     public $postalCode;
 
-
 }

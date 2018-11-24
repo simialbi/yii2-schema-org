@@ -58,5 +58,4 @@ class GovernmentPermit extends Permit {
      */
     public $validUntil;
 
-
 }

@@ -263,5 +263,4 @@ class MusicEvent extends Event {
      */
     public $workPerformed;
 
-
 }

@@ -53,5 +53,4 @@ class AutoRental extends AutomotiveBusiness {
      */
     public $priceRange;
 
-
 }

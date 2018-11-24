@@ -53,5 +53,4 @@ class GovernmentOffice extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

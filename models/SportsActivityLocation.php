@@ -53,5 +53,4 @@ class SportsActivityLocation extends LocalBusiness {
      */
     public $priceRange;
 
-
 }

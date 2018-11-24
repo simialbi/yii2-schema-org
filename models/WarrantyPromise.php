@@ -26,5 +26,4 @@ class WarrantyPromise extends StructuredValue {
      */
     public $warrantyScope;
 
-
 }

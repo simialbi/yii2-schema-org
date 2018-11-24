@@ -166,5 +166,4 @@ class JobPosting extends Intangible {
      */
     public $workHours;
 
-
 }

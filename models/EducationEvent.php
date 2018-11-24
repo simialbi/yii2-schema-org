@@ -263,5 +263,4 @@ class EducationEvent extends Event {
      */
     public $workPerformed;
 
-
 }

@@ -13,6 +13,5 @@ namespace simialbi\yii2\schemaorg\models;
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/CreativeWorkSeries
  */
-class CreativeWorkSeries extends Series {
-
+class CreativeWorkSeries extends CreativeWork {
 }

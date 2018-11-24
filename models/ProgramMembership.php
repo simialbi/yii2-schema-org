@@ -40,5 +40,4 @@ class ProgramMembership extends Intangible {
      */
     public $programName;
 
-
 }

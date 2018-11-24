@@ -17,5 +17,4 @@ class AutomatedTeller extends FinancialService {
      */
     public $feesAndCommissionsSpecification;
 
-
 }

@@ -71,5 +71,4 @@ class Ticket extends Intangible {
      */
     public $underName;
 
-
 }

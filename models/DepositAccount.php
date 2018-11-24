@@ -9,7 +9,7 @@ namespace simialbi\yii2\schemaorg\models;
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/DepositAccount
  */
-class DepositAccount extends InvestmentOrDeposit {
+class DepositAccount extends BankAccount {
     /**
      * A minimum amount that has to be paid in every month.
      *
@@ -33,6 +33,5 @@ class DepositAccount extends InvestmentOrDeposit {
      * @var string
      */
     public $bankAccountType;
-
 
 }

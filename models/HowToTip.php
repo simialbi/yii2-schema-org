@@ -11,7 +11,7 @@ namespace simialbi\yii2\schemaorg\models;
  * @package simialbi\yii2\schemaorg\models
  * @see http://schema.org/HowToTip
  */
-class HowToTip extends ListItem {
+class HowToTip extends CreativeWork {
     /**
      * The subject matter of the content. Inverse property: subjectOf.
      *
@@ -729,6 +729,5 @@ class HowToTip extends ListItem {
      * @var CreativeWork
      */
     public $workTranslation;
-
 
 }

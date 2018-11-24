@@ -30,5 +30,4 @@ class SportsEvent extends Event {
      */
     public $homeTeam;
 
-
 }
