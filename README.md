@@ -107,6 +107,9 @@ The console command will take care of computing schemas dependencies and will ge
 > We use traits because of some cases of multiple-inheritance in Schema.org, as it's the case for
 > [LocalBusiness](https://schema.org/AutomotiveBusiness) which extends either `Place` or `Organization`.  
 
+The command will also output a list of additional classes you could generate in order to have a better IDE 
+experience regarding auto-completion. You are not required at all to generate those.
+
 ## Example Usage
 To e.g. add a person to json+ld, you can do the following:
 
