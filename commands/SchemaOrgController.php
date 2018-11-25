@@ -124,8 +124,6 @@ class SchemaOrgController extends Controller
 
         $json = json_decode(file_get_contents($file));
 
-       // var_dump($json);die;
-
         $stacked = [];
         foreach ($json->{'@graph'} as $graph) {
             $stacked = ArrayHelper::merge($stacked, $graph->{'@graph'});
@@ -168,15 +166,10 @@ class SchemaOrgController extends Controller
 
         $sep = '\\';
 
-        var_dump(array_keys($this->classes));
-     //   die;
-
         foreach ($this->classes as $class) {
             if ($this->verbose) {
                 echo "[T] Generating {$this->namespace}$sep{$class['name']}Trait\n";
             }
-
-
 
             $properties = [];
 
@@ -213,7 +206,7 @@ class SchemaOrgController extends Controller
         if ($this->verbose && !$generatedAll && !empty($this->suggestedClasses)) {
             sort($this->suggestedClasses);
             echo "You may want to generate the following classes too for a better IDE experience:\n";
-            echo implode(', ', $this->suggestedClasses);
+            echo implode(', ', $this->suggestedClasses) . "\n";
         }
 
         return ExitCode::OK;
