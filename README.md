@@ -94,7 +94,7 @@ $ php yii schema/schema-org [version] --schemas=Car,AutoDealer --namespace='comm
 | Parameter      | Description                                                                                   |
 |----------------|-----------------------------------------------------------------------------------------------|
 | `version`      | The [schemas.org version](https://schema.org/docs/releases.html) to use. Default to `latest`. | 
-| `--schemas`    | A comma separated list of schemas you intend to use. **Required**                             |
+| `--schemas`    | A comma separated list of schemas you intend to use. Can be `ALL`. **Required**                             |
 | `--namespace`  | The namespace to use for the generated classes and traits. **Required**                       |
 | `--folder`     | The folder where to put the generated files. **Required**                                     |
 | `--remove-old` | Whether to remove old files before generating. Default to `false`                             |

@@ -124,10 +124,20 @@ class SchemaOrgController extends Controller
             return $this->stripNs($entry->{'@id'});
         });
 
-        if (!empty($this->schemas)) {
-            foreach ($this->schemas as $schema) {
-                $this->gatherRequiredSchemas($byName, $schema);
+        $generatedAll = false;
+        if (count($this->schemas) === 1 && $this->schemas[0] === 'ALL') {
+            $generatedAll = true;
+            $schemas = [];
+            foreach ($byName as $schema => $definition) {
+                if ($definition->{"@type"} === 'rdfs:Class') {
+                    $schemas[] = $schema;
+                }
             }
+            $this->schemas = $schemas;
+        }
+
+        foreach ($this->schemas as $schema) {
+            $this->gatherRequiredSchemas($byName, $schema);
         }
 
         foreach ($this->requiredSchemas as $schema) {
@@ -171,7 +181,7 @@ class SchemaOrgController extends Controller
             );
         }
 
-        if (!empty($this->suggestedClasses)) {
+        if (!$generatedAll && !empty($this->suggestedClasses)) {
             sort($this->suggestedClasses);
             echo "You may want to generate the following classes too for a better IDE experience:\n";
             echo implode(', ', $this->suggestedClasses);
@@ -212,8 +222,10 @@ class SchemaOrgController extends Controller
             $types[] = $this->translateOrImportType($declaredType);
         }
 
-        $this->properties[$class][$attributeInfo->{'rdfs:label'}] = [
-            'name' => $attributeInfo->{'rdfs:label'},
+        $propertyName = $this->stripNs($attributeInfo->{'@id'});
+
+        $this->properties[$class][$propertyName] = [
+            'name' => $propertyName,
             'description' => strip_tags($attributeInfo->{'rdfs:comment'}),
             'types' => $types,
             'see' => $attributeInfo->{'@id'},
