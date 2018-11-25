@@ -10,17 +10,14 @@ echo '<?php' . "\n";
 
 namespace <?= $namespace ?>;
 
+use simialbi\yii2\schemaorg\models\Model;
+
 /**
  * <?= wordwrap($class['description'], 75, "\n * ") . "\n" ?>
  *
  * @see http://schema.org/<?= $class['name'] . "\n" ?>
  */
-class <?= $class['name'] ?> extends \simialbi\yii2\schemaorg\models\Model
+class <?= $class['name'] ?> extends Model
 {
-    /**
-     * @see http://schema.org/<?= $class['name'] . "\n" ?>
-     */
     use <?= $class['name'] . "Trait;\n" ?>
-
-
 }
