@@ -65,6 +65,11 @@ class SchemaOrgController extends Controller
     private $properties = [];
 
     /**
+     * @var array Suggested additional classes for IDE auto completion
+     */
+    private $suggestedClasses = [];
+
+    /**
      * Generates the user-requested schemas along with all required traits
      *
      * @param string $version The Schema.org version to use when generating files
@@ -166,6 +171,12 @@ class SchemaOrgController extends Controller
             );
         }
 
+        if (!empty($this->suggestedClasses)) {
+            sort($this->suggestedClasses);
+            echo "You may want to generate the following classes too for a better IDE experience:\n";
+            echo implode(', ', $this->suggestedClasses);
+        }
+
         return ExitCode::OK;
     }
 
@@ -233,7 +244,9 @@ class SchemaOrgController extends Controller
                 return 'boolean';
 
             default:
-                echo "[TTT] - Need to register $type ? \n";
+                if (!in_array($type, $this->suggestedClasses)) {
+                    $this->suggestedClasses[] = $type;
+                }
                 return $type;
         }
     }
