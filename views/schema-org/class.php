@@ -13,11 +13,13 @@ namespace <?= $namespace ?>;
 use simialbi\yii2\schemaorg\models\Model;
 
 /**
- * <?= wordwrap($class['description'], 75, "\n * ") . "\n" ?>
+<?php foreach (explode("\n", $class['description']) as $chunk) : ?>
+ * <?= wordwrap($chunk, 75, "\n * ") . "\n" ?>
+<?php endforeach ?>
  *
  * @see http://schema.org/<?= $class['name'] . "\n" ?>
  */
 class <?= $class['name'] ?> extends Model
 {
-    use <?= $class['name'] . "Trait;\n" ?>
+    use traits\<?= $class['name'] . "Trait;\n" ?>
 }

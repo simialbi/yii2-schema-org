@@ -8,10 +8,16 @@
 echo '<?php' . "\n";
 ?>
 
-namespace <?= $namespace ?>;
+namespace <?= $namespace ?>\traits;
 
 /**
- * <?= wordwrap($class['description'], 75, "\n * ") . "\n" ?>
+<?php foreach (explode("\n", $class['description']) as $chunk) : ?>
+ * <?= wordwrap($chunk, 75, "\n * ") . "\n" ?>
+<?php endforeach ?>
+ *
+<?php foreach ($properties as $property) : ?>
+ * @property $<?= $property['name'] . "\n" ?>
+<?php endforeach ?>
  *
  * @see http://schema.org/<?= $class['name'] . "\n" ?>
  */
@@ -31,6 +37,7 @@ trait <?= $class['name'] . "Trait\n" ?>
      * <?= wordwrap($chunk, 75, "\n     * ") . "\n" ?>
 <?php endforeach ?>
      *
+     * @var <?= implode('|', $property['types']) . "\n" ?>
      * @see <?= $property['see'] . "\n" ?>
      */
     public $<?= $property['name'] ?>;

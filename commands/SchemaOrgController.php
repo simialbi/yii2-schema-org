@@ -45,6 +45,11 @@ class SchemaOrgController extends Controller
     public $folder;
 
     /**
+     * @var boolean Wether to remove old files before re-generating
+     */
+    public $removeOld = false;
+
+    /**
      * @var array All the schemas that needs to be generated (including dependencies)
      */
     private $requiredSchemas = [];
@@ -82,8 +87,18 @@ class SchemaOrgController extends Controller
             return ExitCode::CONFIG;
         }
 
-        if (!is_dir($this->folder)) {
-            mkdir($this->folder, 0777, true);
+        if (!is_dir($this->folder . '/traits')) {
+            mkdir($this->folder . '/traits', 0777, true);
+        }
+
+        if ($this->removeOld) {
+            foreach (glob($this->folder . '*.php') as $e) {
+                unlink($e);
+            }
+
+            foreach (glob($this->folder . '/traits/*.php') as $e) {
+                unlink($e);
+            }
         }
 
         $file = Yii::getAlias("@runtime/schemas-$version.json");
@@ -123,9 +138,13 @@ class SchemaOrgController extends Controller
             }
         }
 
+
+        $sep = '\\';
+
         foreach ($this->classes as $class) {
+            echo "[T] Generating {$this->namespace}$sep{$class['name']}Trait\n";
             file_put_contents(
-                $this->folder . '/' . $class['name'] . 'Trait.php',
+                $this->folder . '/traits/' . $class['name'] . 'Trait.php',
                 $this->renderPartial('trait', [
                     'namespace' => $this->namespace,
                     'class' => $class,
@@ -135,8 +154,8 @@ class SchemaOrgController extends Controller
             );
         }
 
-
         foreach ($this->schemas as $schema) {
+            echo "[C] Generating {$this->namespace}$sep{$class['name']}\n";
             $class = $this->classes[$schema];
             file_put_contents(
                 $this->folder . '/' . $class['name'] . '.php',
@@ -175,18 +194,67 @@ class SchemaOrgController extends Controller
         if (!isset($this->properties[$class])) {
             $this->properties[$class] = [];
         }
+
+        $types = [];
+        foreach ($this->wrapArray($attributeInfo->{'http://schema.org/rangeIncludes'}) as $type) {
+            $declaredType = $this->stripNs($type->{'@id'});
+            $types[] = $this->translateOrImportType($declaredType);
+        }
+
         $this->properties[$class][$attributeInfo->{'rdfs:label'}] = [
             'name' => $attributeInfo->{'rdfs:label'},
             'description' => strip_tags($attributeInfo->{'rdfs:comment'}),
+            'types' => $types,
             'see' => $attributeInfo->{'@id'},
         ];
     }
 
+    private function translateOrImportType($type)
+    {
+        switch ($type) {
+            case 'URL':
+            case 'Text':
+            case 'Date':
+            case 'DateTime':
+            case 'Time':
+                return 'string';
+
+            case 'Number':
+                return 'number';
+
+            case 'Integer':
+            case 'Number':
+                return 'int';
+
+
+            case 'Boolean':
+            case 'True':
+            case 'False':
+                return 'boolean';
+
+            default:
+                echo "[TTT] - Need to register $type ? \n";
+                return $type;
+        }
+    }
+
+    /**
+     * Transforms $variable into an array if needed
+     *
+     * @param mixed $variable
+     * @return array
+     */
     private function wrapArray($variable)
     {
         return is_array($variable) ? $variable : [$variable];
     }
 
+    /**
+     * Traverses all parents to register the classes that needs to be generated
+     *
+     * @param $array
+     * @param $name
+     */
     private function gatherRequiredSchemas($array, $name)
     {
         if (!$name || in_array($name, $this->requiredSchemas, true)) {
@@ -200,6 +268,12 @@ class SchemaOrgController extends Controller
         }
     }
 
+    /**
+     * Register a class to be generated
+     *
+     * @param $className
+     * @param $data
+     */
     private function addClass($className, $data)
     {
         $parents = [];
@@ -209,7 +283,7 @@ class SchemaOrgController extends Controller
 
         $this->classes[$className] = [
             'name' => $className,
-            'description' => $data->{'rdfs:comment'},
+            'description' => strip_tags($data->{'rdfs:comment'}),
             'parents' => $parents,
             'properties' => [],
             '_data' => $data,
@@ -236,6 +310,7 @@ class SchemaOrgController extends Controller
             'schemas',
             'namespace',
             'folder',
+            'removeOld',
         ]);
     }
 
