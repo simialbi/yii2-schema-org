@@ -4,6 +4,7 @@
 /** @var $class array */
 /** @var $properties array */
 /** @var $namespace string */
+/** @var $traits array */
 
 echo '<?php' . "\n";
 ?>

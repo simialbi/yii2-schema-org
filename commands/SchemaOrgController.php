@@ -69,6 +69,9 @@ class SchemaOrgController extends Controller
      */
     private $properties = [];
 
+    /** @var array Reserved PHP keywords */
+    private $reservedKeywords = ['Class', 'Float'];
+
 
     /**
      * @var array Suggested additional classes for IDE auto completion
@@ -165,10 +168,15 @@ class SchemaOrgController extends Controller
 
         $sep = '\\';
 
+        var_dump(array_keys($this->classes));
+     //   die;
+
         foreach ($this->classes as $class) {
             if ($this->verbose) {
                 echo "[T] Generating {$this->namespace}$sep{$class['name']}Trait\n";
             }
+
+
 
             $properties = [];
 
@@ -248,7 +256,7 @@ class SchemaOrgController extends Controller
         $propertyName = $this->stripNs($attributeInfo->{'@id'});
 
         $this->properties[$class][$propertyName] = [
-            'name' => $propertyName,
+            'name' => $this->phpProtect($propertyName),
             'description' => isset($data->{'rdfs:comment'}) ? strip_tags($data->{'rdfs:comment'}) : '',
             'types' => $types,
             'see' => $attributeInfo->{'@id'},
@@ -329,12 +337,12 @@ class SchemaOrgController extends Controller
         $parents = [];
         if (isset($data->{'rdfs:subClassOf'})) {
             foreach ($this->wrapArray($data->{'rdfs:subClassOf'}) as $parent) if ($parent) {
-                $parents[] = $this->stripNs($parent->{'@id'});
+                $parents[] = $this->phpProtect($this->stripNs($parent->{'@id'}));
             }
         }
 
         $this->classes[$className] = [
-            'name' => $className,
+            'name' => $this->phpProtect($className),
             'description' => isset($data->{'rdfs:comment'}) ? strip_tags($data->{'rdfs:comment'}) : '',
             'parents' => $parents,
             'properties' => [],
@@ -364,6 +372,20 @@ class SchemaOrgController extends Controller
             'folder',
             'removeOld',
         ]);
+    }
+
+    /**
+     *
+     */
+    private function phpProtect($string)
+    {
+        $string = str_replace('rdfs:', '', $string);
+        if (in_array($string, $this->reservedKeywords)) {
+            echo "**** $string ****";
+            return 'sc' . $string;
+        }
+
+        return $string;
     }
 
 }

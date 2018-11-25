@@ -11,4 +11,8 @@ $_SERVER['SCRIPT_FILENAME'] = __FILE__;
 require_once(__DIR__ . '/../vendor/autoload.php');
 require_once(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
 
+$classLoader = new \Composer\Autoload\ClassLoader();
+$classLoader->addPsr4("tests\\schemas\\", __DIR__ . '/runtime/generated/', true);
+$classLoader->register();
+
 require_once(__DIR__ . '/compatibility.php');
