@@ -9,8 +9,6 @@ class ModuleTest extends TestCase
 {
     public function testDefaultVersion()
     {
-        $this->mockApplication();
-
         Yii::$app->extensions['simialbi/yii2-schema-org'] = [
             'name' => 'simialbi/yii2-schema-org',
             'version' => '2.0.0',

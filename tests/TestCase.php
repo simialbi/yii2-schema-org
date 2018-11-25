@@ -5,12 +5,23 @@ namespace simialbi\yii2\schemaorg\tests;
 use yii\di\Container;
 use yii\helpers\ArrayHelper;
 use Yii;
+use yii\helpers\FileHelper;
 
 /**
  * This is the base class for all yii framework unit tests.
  */
 abstract class TestCase extends \PHPUnit\Framework\TestCase
 {
+    protected function setUp()
+    {
+        parent::setUp();
+        FileHelper::createDirectory(__DIR__ . '/runtime');
+
+        Yii::setAlias("@runtime", __DIR__ . '/runtime');
+
+        $this->mockApplication();
+    }
+
     /**
      * Clean up after test.
      * By default the application created with [[mockApplication]] will be destroyed.
@@ -18,6 +29,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     protected function tearDown()
     {
         parent::tearDown();
+        FileHelper::removeDirectory(Yii::getAlias('@runtime'));
         $this->destroyApplication();
     }
 
