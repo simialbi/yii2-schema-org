@@ -24,25 +24,45 @@ use yii\helpers\Console;
  */
 class SchemaOrgController extends Controller
 {
+    /**
+     * The schemas definition file url pattern
+     */
     const DEFINITION_FILE = 'http://schema.org/version/%s/all-layers.jsonld';
 
+    /**
+     * @var array The schemas requested by the user
+     */
     public $schemas = [];
 
-    public $classes = [];
-
+    /**
+     * @var string The namespace for generated classes and traits
+     */
     public $namespace;
 
+    /**
+     * @var string The target folder for generated classes and traits
+     */
     public $folder;
 
-
+    /**
+     * @var array All the schemas that needs to be generated (including dependencies)
+     */
     private $requiredSchemas = [];
 
+    /**
+     * @var array All classes definitions
+     */
+    private $classes = [];
+
+    /**
+     * @var array All properties definitions
+     */
     private $properties = [];
 
     /**
-     * Generates the requested schemas
+     * Generates the user-requested schemas along with all required traits
      *
-     * @param string $version
+     * @param string $version The Schema.org version to use when generating files
      * @return int The exit code
      */
     public function actionIndex($version = 'latest')
@@ -96,13 +116,9 @@ class SchemaOrgController extends Controller
 
         foreach ($stacked as $data) {
             if ($data->{'@type'} === 'rdf:Property') {
-                $classes = $data->{'http://schema.org/domainIncludes'};
-                if (is_array($classes)) {
-                    foreach ($classes as $class) {
-                        $this->registerProperty($this->stripNs($class->{'@id'}), $data);
-                    }
-                } else {
-                    $this->registerProperty($this->stripNs($classes->{'@id'}), $data);
+                $classes = $this->wrapArray($data->{'http://schema.org/domainIncludes'});
+                foreach ($classes as $class) {
+                    $this->registerProperty($this->stripNs($class->{'@id'}), $data);
                 }
             }
         }
@@ -166,6 +182,11 @@ class SchemaOrgController extends Controller
         ];
     }
 
+    private function wrapArray($variable)
+    {
+        return is_array($variable) ? $variable : [$variable];
+    }
+
     private function gatherRequiredSchemas($array, $name)
     {
         if (!$name || in_array($name, $this->requiredSchemas, true)) {
@@ -174,24 +195,16 @@ class SchemaOrgController extends Controller
 
         $this->requiredSchemas[] = $name;
 
-        if (is_array($array[$name]->{'rdfs:subClassOf'})) {
-            foreach ($array[$name]->{'rdfs:subClassOf'} as $parent) {
-                $this->gatherRequiredSchemas($array, $this->stripNs($parent->{'@id'}));
-            }
-        } else {
-            $this->gatherRequiredSchemas($array, $this->stripNs($array[$name]->{'rdfs:subClassOf'}->{'@id'}));
+        foreach ($this->wrapArray($array[$name]->{'rdfs:subClassOf'}) as $parent) {
+            $this->gatherRequiredSchemas($array, $this->stripNs($parent->{'@id'}));
         }
     }
 
     private function addClass($className, $data)
     {
         $parents = [];
-        if (is_array($data->{'rdfs:subClassOf'})) {
-            foreach ($data->{'rdfs:subClassOf'} as $parent) {
-                $parents[] = $this->stripNs($parent->{'@id'});
-            }
-        } elseif (isset($data->{'rdfs:subClassOf'})) {
-            $parents[] = $this->stripNs($data->{'rdfs:subClassOf'}->{'@id'});
+        foreach ($this->wrapArray($data->{'rdfs:subClassOf'}) as $parent) if ($parent) {
+            $parents[] = $this->stripNs($parent->{'@id'});
         }
 
         $this->classes[$className] = [
@@ -203,11 +216,20 @@ class SchemaOrgController extends Controller
         ];
     }
 
+    /**
+     * Strips the namespace from a name
+     *
+     * @param $string
+     * @return mixed
+     */
     private function stripNs($string)
     {
         return str_replace('http://schema.org/', '', $string);
     }
 
+    /**
+     * @inheritdoc
+     */
     public function options($actionID)
     {
         return ArrayHelper::merge(parent::options($actionID), [
