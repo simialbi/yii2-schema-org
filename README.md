@@ -98,6 +98,7 @@ $ php yii schema/schema-org [version] --schemas=Car,AutoDealer --namespace='comm
 | `--namespace`  | The namespace to use for the generated classes and traits. **Required**                       |
 | `--folder`     | The folder where to put the generated files. **Required**                                     |
 | `--remove-old` | Whether to remove old files before generating. Default to `false`                             |
+| `--verbose`    | Whether to be verbose or not. Default to `true`                                               |
 
 The console command will take care of computing schemas dependencies and will generate two types of entitites:
   * **Classes:** the classes you explicitely requested in `--schema` and that you will be using in your pages.

@@ -50,6 +50,11 @@ class SchemaOrgController extends Controller
     public $removeOld = false;
 
     /**
+     * @var boolean Echos output lines or not
+     */
+    public $verbose = true;
+
+    /**
      * @var array All the schemas that needs to be generated (including dependencies)
      */
     private $requiredSchemas = [];
@@ -63,6 +68,7 @@ class SchemaOrgController extends Controller
      * @var array All properties definitions
      */
     private $properties = [];
+
 
     /**
      * @var array Suggested additional classes for IDE auto completion
@@ -107,12 +113,15 @@ class SchemaOrgController extends Controller
         }
 
         $file = Yii::getAlias("@runtime/schemas-$version.json");
+        echo $file;
         if (!file_exists($file)) {
             $url = sprintf(self::DEFINITION_FILE, $version);
             copy($url, $file);
         }
 
         $json = json_decode(file_get_contents($file));
+
+       // var_dump($json);die;
 
         $stacked = [];
         foreach ($json->{'@graph'} as $graph) {
@@ -129,7 +138,7 @@ class SchemaOrgController extends Controller
             $generatedAll = true;
             $schemas = [];
             foreach ($byName as $schema => $definition) {
-                if ($definition->{"@type"} === 'rdfs:Class') {
+                if (isset($definition->{'@type'}) && $definition->{"@type"} === 'rdfs:Class') {
                     $schemas[] = $schema;
                 }
             }
@@ -140,12 +149,12 @@ class SchemaOrgController extends Controller
             $this->gatherRequiredSchemas($byName, $schema);
         }
 
-        foreach ($this->requiredSchemas as $schema) {
+        foreach ($this->requiredSchemas as $schema) if (isset($byName[$schema])) {
             $this->addClass($schema, $byName[$schema]);
         }
 
         foreach ($stacked as $data) {
-            if ($data->{'@type'} === 'rdf:Property') {
+            if (isset($data->{'http://schema.org/domainIncludes'}, $data->{'@type'}) && $data->{'@type'} === 'rdf:Property') {
                 $classes = $this->wrapArray($data->{'http://schema.org/domainIncludes'});
                 foreach ($classes as $class) {
                     $this->registerProperty($this->stripNs($class->{'@id'}), $data);
@@ -157,20 +166,32 @@ class SchemaOrgController extends Controller
         $sep = '\\';
 
         foreach ($this->classes as $class) {
-            echo "[T] Generating {$this->namespace}$sep{$class['name']}Trait\n";
+            if ($this->verbose) {
+                echo "[T] Generating {$this->namespace}$sep{$class['name']}Trait\n";
+            }
+
+            $properties = [];
+
+            if (isset($this->properties[$class['name']])) {
+                $properties = $this->properties[$class['name']];
+            }
+
             file_put_contents(
                 $this->folder . '/traits/' . $class['name'] . 'Trait.php',
                 $this->renderPartial('trait', [
                     'namespace' => $this->namespace,
                     'class' => $class,
                     'traits' => $class['parents'],
-                    'properties' => $this->properties[$class['name']] === null ? [] : $this->properties[$class['name']],
+                    'properties' => $properties,
                 ])
             );
         }
 
         foreach ($this->schemas as $schema) {
-            echo "[C] Generating {$this->namespace}$sep{$class['name']}\n";
+            if ($this->verbose) {
+                echo "[C] Generating {$this->namespace}$sep{$class['name']}\n";
+            }
+
             $class = $this->classes[$schema];
             file_put_contents(
                 $this->folder . '/' . $class['name'] . '.php',
@@ -181,7 +202,7 @@ class SchemaOrgController extends Controller
             );
         }
 
-        if (!$generatedAll && !empty($this->suggestedClasses)) {
+        if ($this->verbose && !$generatedAll && !empty($this->suggestedClasses)) {
             sort($this->suggestedClasses);
             echo "You may want to generate the following classes too for a better IDE experience:\n";
             echo implode(', ', $this->suggestedClasses);
@@ -217,16 +238,18 @@ class SchemaOrgController extends Controller
         }
 
         $types = [];
-        foreach ($this->wrapArray($attributeInfo->{'http://schema.org/rangeIncludes'}) as $type) {
-            $declaredType = $this->stripNs($type->{'@id'});
-            $types[] = $this->translateOrImportType($declaredType);
+        if (isset($attributeInfo->{'http://schema.org/rangeIncludes'})) {
+            foreach ($this->wrapArray($attributeInfo->{'http://schema.org/rangeIncludes'}) as $type) {
+                $declaredType = $this->stripNs($type->{'@id'});
+                $types[] = $this->translateOrImportType($declaredType);
+            }
         }
 
         $propertyName = $this->stripNs($attributeInfo->{'@id'});
 
         $this->properties[$class][$propertyName] = [
             'name' => $propertyName,
-            'description' => strip_tags($attributeInfo->{'rdfs:comment'}),
+            'description' => isset($data->{'rdfs:comment'}) ? strip_tags($data->{'rdfs:comment'}) : '',
             'types' => $types,
             'see' => $attributeInfo->{'@id'},
         ];
@@ -288,8 +311,10 @@ class SchemaOrgController extends Controller
 
         $this->requiredSchemas[] = $name;
 
-        foreach ($this->wrapArray($array[$name]->{'rdfs:subClassOf'}) as $parent) {
-            $this->gatherRequiredSchemas($array, $this->stripNs($parent->{'@id'}));
+        if (isset($array[$name]->{'rdfs:subClassOf'})) {
+            foreach ($this->wrapArray($array[$name]->{'rdfs:subClassOf'}) as $parent) {
+                $this->gatherRequiredSchemas($array, $this->stripNs($parent->{'@id'}));
+            }
         }
     }
 
@@ -302,13 +327,15 @@ class SchemaOrgController extends Controller
     private function addClass($className, $data)
     {
         $parents = [];
-        foreach ($this->wrapArray($data->{'rdfs:subClassOf'}) as $parent) if ($parent) {
-            $parents[] = $this->stripNs($parent->{'@id'});
+        if (isset($data->{'rdfs:subClassOf'})) {
+            foreach ($this->wrapArray($data->{'rdfs:subClassOf'}) as $parent) if ($parent) {
+                $parents[] = $this->stripNs($parent->{'@id'});
+            }
         }
 
         $this->classes[$className] = [
             'name' => $className,
-            'description' => strip_tags($data->{'rdfs:comment'}),
+            'description' => isset($data->{'rdfs:comment'}) ? strip_tags($data->{'rdfs:comment'}) : '',
             'parents' => $parents,
             'properties' => [],
             '_data' => $data,
