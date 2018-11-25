@@ -20,7 +20,7 @@ namespace <?= $namespace ?>\traits;
  * @property $<?= $property['name'] . "\n" ?>
 <?php endforeach ?>
  *
- * @see http://schema.org/<?= $class['name'] . "\n" ?>
+ * @see http://schema.org/<?= $class['schema'] . "\n" ?>
  */
 trait <?= $class['name'] . "Trait\n" ?>
 {

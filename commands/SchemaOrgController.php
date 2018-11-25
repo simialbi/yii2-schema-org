@@ -343,6 +343,7 @@ class SchemaOrgController extends Controller
 
         $this->classes[$className] = [
             'name' => $this->phpProtect($className),
+            'schema' => $className,
             'description' => isset($data->{'rdfs:comment'}) ? strip_tags($data->{'rdfs:comment'}) : '',
             'parents' => $parents,
             'properties' => [],
