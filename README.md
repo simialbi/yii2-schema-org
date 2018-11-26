@@ -92,7 +92,7 @@ AppAsset::register($this);
 
 #### Minimal (standard) configuration
 
-Without passing any parameters all schemas will be generated in the folder `@vendor/simialbi/yii2-schema-org/src/models`.
+Without passing any parameters **all** schemas will be generated in the folder `@vendor/simialbi/yii2-schema-org/src/models`.
 The namespace of the models will be `simialbi\yii2\schemaorg\models`.
 ```
 $ php yii schema/models/generate
@@ -101,9 +101,9 @@ $ php yii schema/models/generate
 #### Customized
 
 If you want to customize the namespace and path you can do it via `--namespace` and `--folder` parameters. E.g. to generate
-in `common/schemas` with `common\schemas` namespace: 
+schemas `Car` and `AutoDealer` in `common/schemas` with `common\schemas` namespace: 
  ```
-$ php yii schema/models/generate [version] --schemas=Car,AutoDealer --namespace='common\schemas' --folder='@common/schemas/'
+$ php yii schema/models/generate 'latest' --schemas=Car,AutoDealer --namespace='common\schemas' --folder='@common/schemas/'
 ```
 
 | Parameter      | Description                                                                                                           |

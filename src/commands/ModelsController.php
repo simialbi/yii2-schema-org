@@ -82,14 +82,29 @@ class ModelsController extends Controller
             return ExitCode::CONFIG;
         }
 
+        if ($this->schemas) {
+            $this->stdout('Generating schema.org models "');
+            $this->stdout(implode(',', $this->schemas), Console::FG_YELLOW, Console::BOLD);
+            $this->stdout('" from version: ');
+        } else {
+            $this->stdout('Generating ');
+            $this->stdout('all', Console::FG_YELLOW, Console::BOLD);
+            $this->stdout(' schema.org models from version: ');
+        }
+        $this->stdout($version, Console::FG_GREEN, Console::ITALIC);
+        $this->stdout("\n");
+
         $this->namespace = Yii::getAlias($this->namespace);
         $this->folder = Yii::getAlias($this->folder);
 
+        $this->stdout("Creating directories \n");
         FileHelper::createDirectory($this->folder, 0777, true);
         FileHelper::createDirectory(Yii::getAlias('@runtime/cache'), 0777);
 
         if ($this->removeOld) {
             $files = FileHelper::findFiles($this->folder, ['except' => ['Model.php']]);
+            $this->stdout('Clearing old files: found ' . count($files), Console::FG_YELLOW);
+            $this->stdout("\n");
             foreach ($files as $file) {
                 FileHelper::unlink($file);
             }
@@ -184,6 +199,9 @@ class ModelsController extends Controller
             if (empty($label) || false !== in_array($label, $this->blackList)) {
                 continue;
             }
+            $this->stdout('*** creating class ');
+            $this->stdout($this->namespace . '\\' . $label, Console::FG_YELLOW, Console::BOLD);
+            $this->stdout("\n");
 
             $contents = $this->renderPartial('class', [
                 'namespace' => $this->namespace,
@@ -191,7 +209,13 @@ class ModelsController extends Controller
                 'label' => $label,
                 'properties' => ArrayHelper::index(ArrayHelper::getValue($class, 'properties', []), 'name')
             ]);
-            file_put_contents($this->folder . '/' . $label . '.php', $contents);
+            if (false !== file_put_contents($this->folder . '/' . $label . '.php', $contents)) {
+                $this->stdout("*** class {$this->namespace}\\$label created", Console::FG_GREEN);
+                $this->stdout("\n\n");
+            } else {
+                $this->stderr("*** failed to create {$this->namespace}\\$label", Console::FG_RED);
+                $this->stderr("\n\n");
+            }
         }
 
         return ExitCode::OK;

@@ -20,7 +20,7 @@ class GenerationTest extends TestCase
     {
         parent::setUp();
 
-        $module = new Module('schemas');
+        $module = new Module('schema');
 
         $this->_generator = new ModelsController('schema-org', $module);
 
@@ -52,7 +52,7 @@ class GenerationTest extends TestCase
     {
         $this->_generator->schemas = ['Offer', 'DataDownload'];
 
-        $this->_generator->actionGenerate(3.4);
+        $this->_generator->actionGenerate();
 
         $classes = glob($this->_generator->folder . '/*.php');
 
