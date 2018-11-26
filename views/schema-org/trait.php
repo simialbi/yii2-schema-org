@@ -27,8 +27,8 @@ trait <?= $class['name'] . "Trait\n" ?>
 
 <?php foreach ($traits as $trait) : ?>
     /**
-    * @see http://schema.org/<?= $trait . "\n" ?>
-    */
+     * @see http://schema.org/<?= $trait . "\n" ?>
+     */
     use <?= $trait . "Trait;\n" ?>
 <?php endforeach ?>
 

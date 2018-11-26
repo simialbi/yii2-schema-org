@@ -116,10 +116,17 @@ class SchemaOrgController extends Controller
         }
 
         $file = Yii::getAlias("@runtime/schemas-$version.json");
-        echo $file;
         if (!file_exists($file)) {
             $url = sprintf(self::DEFINITION_FILE, $version);
-            copy($url, $file);
+            try {
+                copy($url, $file);
+            } catch (\Exception $e) {
+                Console::error(sprintf('Could not fetch from %s, are you sure this version exists?', $url));
+
+                return ExitCode::CONFIG;
+            }
+
+
         }
 
         $json = json_decode(file_get_contents($file));
@@ -250,7 +257,7 @@ class SchemaOrgController extends Controller
 
         $this->properties[$class][$propertyName] = [
             'name' => $this->phpProtect($propertyName),
-            'description' => isset($data->{'rdfs:comment'}) ? strip_tags($data->{'rdfs:comment'}) : '',
+            'description' => isset($attributeInfo->{'rdfs:comment'}) ? strip_tags($attributeInfo->{'rdfs:comment'}) : '',
             'types' => $types,
             'see' => $attributeInfo->{'@id'},
         ];
@@ -375,7 +382,6 @@ class SchemaOrgController extends Controller
     {
         $string = str_replace('rdfs:', '', $string);
         if (in_array($string, $this->reservedKeywords)) {
-            echo "**** $string ****";
             return 'sc' . $string;
         }
 
