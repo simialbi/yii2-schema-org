@@ -7,53 +7,57 @@ use simialbi\yii2\schemaorg\Module;
 use Yii;
 
 /**
- * Class GenerationTest
- *
- * @property $generator SchemaOrgController
- * @package simialbi\yii2\schemaorg\tests
+ * @group schemaorg
  */
 class GenerationTest extends TestCase
 {
-    private $generator;
+    /**
+     * @var SchemaOrgController
+     */
+    private $_generator;
+
+    protected function setUp()
+    {
+        parent::setUp();
+
+        $module = new Module('schemas');
+
+        $this->_generator = new SchemaOrgController('schema-org', $module);
+
+        $this->_generator->namespace = 'tests\schemas';
+        $this->_generator->folder = '@runtime/generated';
+        $this->_generator->removeOld = true;
+    }
 
     public function testGeneration()
     {
-        $module = new Module('schemas');
+        $this->_generator->actionIndex();
 
-        $this->generator = new SchemaOrgController('schema-org', $module);
+        $this->assertFileExists(Yii::getAlias('@runtime/cache/schemas-latest.json'));
+        $this->assertDirectoryExists(Yii::getAlias($this->_generator->folder));
 
-        $this->generator->schemas = ['ALL'];
-        $this->generator->namespace = 'tests\schemas';
-        $this->generator->folder = 'tests/runtime/generated';
-        $this->generator->removeOld = true;
-        $this->generator->verbose = false;
+        $classes = glob($this->_generator->folder . '/*.php');
 
-        $this->generator->actionIndex(3.4);
-
-        $this->assertFileExists(Yii::getAlias('@runtime/schemas-3.4.json'));
-        $this->assertTrue(is_dir($this->generator->folder));
-        $this->assertTrue(is_dir($this->generator->folder . '/traits'));
-
-        $classes = glob($this->generator->folder . '/*.php');
-
-        $this->assertEquals(776, count($classes));
+        $this->assertEquals(771, count($classes));
 
         foreach ($classes as $class) {
             require $class;
 
-            $fqn = $this->generator->namespace . '\\' . str_replace('.php', '', basename($class));
+            $fqn = $this->_generator->namespace . '\\' . basename($class, '.php');
             $this->assertTrue(class_exists($fqn));
         }
-
-        $traits = glob($this->generator->folder . '/traits/*.php');
-
-        $this->assertEquals(778, count($traits));
-
-        foreach ($traits as $trait) {
-            $fqn = $this->generator->namespace . '\\traits\\' . str_replace('.php', '', basename($trait));
-            $this->assertTrue(trait_exists($fqn));
-        }
-
     }
 
+    public function testFilter()
+    {
+        $this->_generator->schemas = ['Offer', 'DataDownload'];
+
+        $this->_generator->actionIndex(3.4);
+
+        $classes = glob($this->_generator->folder . '/*.php');
+
+        $this->assertEquals(2, count($classes));
+        $this->assertFileExists(Yii::getAlias($this->_generator->folder . '/Offer.php'));
+        $this->assertFileExists(Yii::getAlias($this->_generator->folder . '/DataDownload.php'));
+    }
 }

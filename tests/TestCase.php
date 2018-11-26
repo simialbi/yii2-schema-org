@@ -17,7 +17,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         parent::setUp();
         FileHelper::createDirectory(__DIR__ . '/runtime');
 
-        Yii::setAlias("@runtime", __DIR__ . '/runtime');
+        Yii::setAlias('@runtime', __DIR__ . '/runtime');
 
         $this->mockApplication();
     }
