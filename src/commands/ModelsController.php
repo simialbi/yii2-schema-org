@@ -191,6 +191,7 @@ class ModelsController extends Controller
 
         $this->traverseClasses($classes);
 
+        $this->stdout("\n");
         foreach ($classes as $class) {
             $label = ArrayHelper::remove($class, 'rdfs:label', '');
             if (is_array($label) && isset($label['@value'])) {
