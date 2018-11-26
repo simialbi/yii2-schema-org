@@ -18,7 +18,11 @@
 	"authors": [
 		{
 			"name": "Simon Karlen",
-			"email": "simi.albi@gmail.com"
+			"email": "simi.albi@outlook.com"
+		},
+		{
+			"name": "Mehdi Achour",
+			"email": "machour@gmail.com"
 		}
 	],
 	"minimum-stability": "stable",

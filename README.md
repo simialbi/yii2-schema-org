@@ -2,6 +2,9 @@
 
 Schema.org yii2 representation and helpers for json-ld generation.
 
+[![Latest Stable Version](https://poser.pugx.org/simialbi/yii2-schema-org/v/stable?format=flat-square)](https://packagist.org/packages/simialbi/yii2-schema-org)
+[![Total Downloads](https://poser.pugx.org/simialbi/yii2-schema-org/downloads?format=flat-square)](https://packagist.org/packages/simialbi/yii2-schema-org)
+
 ## Resources
  * JSON-LD [documentation](http://json-ld.org/learn.html)
  * Google [Structured Data Testing Tool](https://search.google.com/structured-data/testing-tool)
@@ -87,35 +90,38 @@ AppAsset::register($this);
 
 ### Model generation
 
+#### Minimal (standard) configuration
+
+Without passing any parameters all schemas will be generated in the folder `@vendor/simialbi/yii2-schema-org/src/models`.
+The namespace of the models will be `simialbi\yii2\schemaorg\models`.
 ```
-$ php yii schema/schema-org [version] --schemas=Car,AutoDealer --namespace='common\schemas' --folder common/schemas/
+$ php yii schema/models/generate
 ```
 
-| Parameter      | Description                                                                                   |
-|----------------|-----------------------------------------------------------------------------------------------|
-| `version`      | The [schemas.org version](https://schema.org/docs/releases.html) to use. Default to `latest`. | 
-| `--schemas`    | A comma separated list of schemas you intend to use. Can be `ALL`. **Required**                             |
-| `--namespace`  | The namespace to use for the generated classes and traits. **Required**                       |
-| `--folder`     | The folder where to put the generated files. **Required**                                     |
-| `--remove-old` | Whether to remove old files before generating. Default to `false`                             |
+#### Customized
 
-The console command will take care of computing schemas dependencies and will generate two types of entitites:
-  * **Classes:** the classes you explicitely requested in `--schema` and that you will be using in your pages.
-  * **Traits:** one trait per class dependency.
-   
-> **Technical Note:** 
-> We use traits because of some cases of multiple-inheritance in Schema.org, as it's the case for
-> [LocalBusiness](https://schema.org/AutomotiveBusiness) which extends either `Place` or `Organization`.  
+If you want to customize the namespace and path you can do it via `--namespace` and `--folder` parameters. E.g. to generate
+in `common/schemas` with `common\schemas` namespace: 
+ ```
+$ php yii schema/models/generate [version] --schemas=Car,AutoDealer --namespace='common\schemas' --folder='@common/schemas/'
+```
 
-The command will also output a list of additional classes you could generate in order to have a better IDE 
-experience regarding auto-completion. You are not required at all to generate those.
+| Parameter      | Description                                                                                                           |
+|----------------|-----------------------------------------------------------------------------------------------------------------------|
+| `version`      | The [schemas.org version](https://schema.org/docs/releases.html) to use. Defaults to `latest`.                        | 
+| `--schemas`    | A comma separated list of schemas you intend to use. Empty means all. Defaults to `[]`                                |
+| `--namespace`  | The namespace to use for the generated classes and traits. Defaults to `simialbi\yii2\schemaorg\models`  **Required** |
+| `--folder`     | The folder where to put the generated files. Defaults to `@simialbi/yii2/schemaorg/src/models` **Required**           |
+| `--remove-old` | Whether to remove old files before generating. Defaults to `false`                                                    |
+
+The console command will take care of computing schemas dependencies and will generate the classes based on your needs.
 
 ## Example Usage
 To e.g. add a person to json+ld, you can do the following:
 
 ```php
 use simialbi\yii2\schemaorg\helpers\JsonLDHelper;
-use common\schemas\Person;
+use simialbi\yii2\schemaorg\models\Person;
 
 $child = new Person();
 $child->name = 'George W. Bush';
@@ -127,8 +133,6 @@ $person->children = [$child];
 
 JsonLDHelper::add($person);
 ``` 
-
-
 
 ## License
 

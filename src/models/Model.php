@@ -12,7 +12,7 @@ use yii\helpers\StringHelper;
 /**
  * Class Model
  * @package simialbi\yii2\schemaorg\models
- * @author Simon Karlen <simi.albi@gmail.com>
+ * @author Simon Karlen <simi.albi@outlook.com>
  */
 class Model extends \yii\base\Model
 {

@@ -2,7 +2,7 @@
 
 namespace yiiunit\extensions\schemaorg;
 
-use simialbi\yii2\schemaorg\commands\SchemaOrgController;
+use simialbi\yii2\schemaorg\commands\ModelsController;
 use simialbi\yii2\schemaorg\Module;
 use Yii;
 
@@ -12,7 +12,7 @@ use Yii;
 class GenerationTest extends TestCase
 {
     /**
-     * @var SchemaOrgController
+     * @var ModelsController
      */
     private $_generator;
 
@@ -22,7 +22,7 @@ class GenerationTest extends TestCase
 
         $module = new Module('schemas');
 
-        $this->_generator = new SchemaOrgController('schema-org', $module);
+        $this->_generator = new ModelsController('schema-org', $module);
 
         $this->_generator->namespace = 'tests\schemas';
         $this->_generator->folder = '@runtime/generated';
@@ -31,7 +31,7 @@ class GenerationTest extends TestCase
 
     public function testGeneration()
     {
-        $this->_generator->actionIndex();
+        $this->_generator->actionGenerate();
 
         $this->assertFileExists(Yii::getAlias('@runtime/cache/schemas-latest.json'));
         $this->assertDirectoryExists(Yii::getAlias($this->_generator->folder));
@@ -52,7 +52,7 @@ class GenerationTest extends TestCase
     {
         $this->_generator->schemas = ['Offer', 'DataDownload'];
 
-        $this->_generator->actionIndex(3.4);
+        $this->_generator->actionGenerate(3.4);
 
         $classes = glob($this->_generator->folder . '/*.php');
 

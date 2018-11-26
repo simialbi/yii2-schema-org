@@ -19,17 +19,22 @@ use yii\helpers\Json;
  * Class SchemaOrgController
  *
  * @package simialbi\yii2\schemaorg\commands
- * @author Simon Karlen <simi.albi@gmail.com>
+ * @author Simon Karlen <simi.albi@outlook.com>
  * @author Mehdi Achour <machour@gmail.com>
  *
  * @property \simialbi\yii2\schemaorg\Module $module
  */
-class SchemaOrgController extends Controller
+class ModelsController extends Controller
 {
     /**
      * The schemas definition file url pattern
      */
     const DEFINITION_FILE = 'http://schema.org/version/%s/all-layers.jsonld';
+
+    /**
+     * {@inheritdoc}
+     */
+    public $defaultAction = 'generate';
 
     /**
      * @var array The schemas requested by the user
@@ -63,7 +68,7 @@ class SchemaOrgController extends Controller
      * @return int The exit code
      * @throws \yii\base\Exception
      */
-    public function actionIndex($version = 'latest')
+    public function actionGenerate($version = 'latest')
     {
         if (empty($this->namespace)) {
             $this->stderr('You must specify a namespace for the generated files using --namespace', Console::FG_RED);
@@ -199,7 +204,7 @@ class SchemaOrgController extends Controller
     {
         $options = parent::options($actionID);
 
-        if ($actionID === 'index') {
+        if ($actionID === 'generate') {
             $options[] = 'schemas';
             $options[] = 'namespace';
             $options[] = 'folder';
@@ -233,7 +238,7 @@ class SchemaOrgController extends Controller
             case 'Boolean':
             case 'True':
             case 'False':
-                return 'boolean';
+                return 'bool';
         }
 
         return $type;
