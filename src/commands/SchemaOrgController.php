@@ -84,7 +84,7 @@ class SchemaOrgController extends Controller
         FileHelper::createDirectory(Yii::getAlias('@runtime/cache'), 0777);
 
         if ($this->removeOld) {
-            $files = FileHelper::findFiles($this->folder, ['except' => 'Model.php']);
+            $files = FileHelper::findFiles($this->folder, ['except' => ['Model.php']]);
             foreach ($files as $file) {
                 FileHelper::unlink($file);
             }

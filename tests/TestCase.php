@@ -1,6 +1,6 @@
 <?php
 
-namespace simialbi\yii2\schemaorg\tests;
+namespace yiiunit\extensions\schemaorg;
 
 use yii\di\Container;
 use yii\helpers\ArrayHelper;

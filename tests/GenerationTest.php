@@ -1,6 +1,6 @@
 <?php
 
-namespace simialbi\yii2\schemaorg\tests;
+namespace yiiunit\extensions\schemaorg;
 
 use simialbi\yii2\schemaorg\commands\SchemaOrgController;
 use simialbi\yii2\schemaorg\Module;
