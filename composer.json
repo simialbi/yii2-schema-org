@@ -51,5 +51,11 @@
     "psr-4": {
       "yiiunit\\extensions\\schemaorg\\": "tests"
     }
-  }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
 }
