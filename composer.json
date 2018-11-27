@@ -1,55 +1,55 @@
 {
-	"name": "simialbi/yii2-schema-org",
-	"description": "Schema.org yii2 representation and helpers for json-ld generation in Yii framework",
-	"keywords": [
-		"yii2",
-		"schema-org",
-		"json-ld",
-		"jsonld",
-		"microdata",
-		"structured-data"
-	],
-	"type": "yii2-extension",
-	"license": "MIT",
-	"support": {
-		"issues": "https://github.com/simialbi/yii2-schema-org/issues",
-		"source": "https://github.com/simialbi/yii2-schema-org"
-	},
-	"authors": [
-		{
-			"name": "Simon Karlen",
-			"email": "simi.albi@outlook.com"
-		},
-		{
-			"name": "Mehdi Achour",
-			"email": "machour@gmail.com"
-		}
-	],
-	"minimum-stability": "stable",
-	"prefer-stable": true,
-	"require": {
-		"php": ">=5.4.0",
-		"yiisoft/yii2": "^2.0.5"
-	},
-	"require-dev": {
-		"yiisoft/yii2-coding-standards": "~2.0",
-		"phpunit/phpunit": "<7"
-	},
-	"config": {
-		"process-timeout": 1800,
-		"secure-http": false,
-		"fxp-asset": {
-			"enable": false
-		}
-	},
-	"autoload": {
-		"psr-4": {
-			"simialbi\\yii2\\schemaorg\\": "src"
-		}
-	},
-	"autoload-dev": {
-		"psr-4": {
-			"yiiunit\\extensions\\schemaorg\\": "tests"
-		}
-	}
+  "name": "simialbi/yii2-schema-org",
+  "description": "Schema.org yii2 representation and helpers for json-ld generation in Yii framework",
+  "keywords": [
+    "yii2",
+    "schema-org",
+    "json-ld",
+    "jsonld",
+    "microdata",
+    "structured-data"
+  ],
+  "type": "yii2-extension",
+  "license": "MIT",
+  "support": {
+    "issues": "https://github.com/simialbi/yii2-schema-org/issues",
+    "source": "https://github.com/simialbi/yii2-schema-org"
+  },
+  "authors": [
+    {
+      "name": "Simon Karlen",
+      "email": "simi.albi@outlook.com"
+    },
+    {
+      "name": "Mehdi Achour",
+      "email": "machour@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=5.4.0",
+    "yiisoft/yii2": "^2.0.5"
+  },
+  "require-dev": {
+    "yiisoft/yii2-coding-standards": "~2.0",
+    "phpunit/phpunit": "<7"
+  },
+  "config": {
+    "process-timeout": 1800,
+    "secure-http": false,
+    "fxp-asset": {
+      "enable": false
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "simialbi\\yii2\\schemaorg\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "yiiunit\\extensions\\schemaorg\\": "tests"
+    }
+  }
 }
