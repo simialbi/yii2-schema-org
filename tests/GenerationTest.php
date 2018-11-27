@@ -22,7 +22,7 @@ class GenerationTest extends TestCase
 
         $module = new Module('schema');
 
-        $this->_generator = new ModelsController('schema-org', $module);
+        $this->_generator = new ModelsController('models', $module);
 
         $this->_generator->namespace = 'tests\schemas';
         $this->_generator->folder = '@runtime/generated';
