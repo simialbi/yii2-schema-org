@@ -73,7 +73,7 @@ class Model extends \yii\base\Model
             [
                 '@id' => 'id',
                 '@type' => function () {
-                    return StringHelper::basename(static::className());
+                    return StringHelper::basename(static::class);
                 }
             ]
         );
