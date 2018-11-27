@@ -2,9 +2,9 @@
 
 namespace yiiunit\extensions\schemaorg;
 
+use Yii;
 use yii\di\Container;
 use yii\helpers\ArrayHelper;
-use Yii;
 use yii\helpers\FileHelper;
 
 /**
@@ -18,8 +18,6 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         FileHelper::createDirectory(__DIR__ . '/runtime');
 
         Yii::setAlias('@runtime', __DIR__ . '/runtime');
-
-        $this->mockApplication();
     }
 
     /**
@@ -45,6 +43,12 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
             'id' => 'testapp',
             'basePath' => __DIR__,
             'vendorPath' => dirname(__DIR__) . '/vendor',
+            'bootstrap' => ['schema'],
+            'modules' => [
+                'schema' => [
+                    'class' => 'simialbi\yii2\schemaorg\Module'
+                ]
+            ]
         ], $config));
     }
 
@@ -54,6 +58,12 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
             'id' => 'testapp',
             'basePath' => __DIR__,
             'vendorPath' => dirname(__DIR__) . '/vendor',
+            'bootstrap' => ['schema'],
+            'modules' => [
+                'schema' => [
+                    'class' => 'simialbi\yii2\schemaorg\Module'
+                ]
+            ],
             'components' => [
                 'request' => [
                     'cookieValidationKey' => 'wefJDF8sfdsfSDefwqdxj9oq',

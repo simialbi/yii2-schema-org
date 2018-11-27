@@ -2,8 +2,6 @@
 
 namespace yiiunit\extensions\schemaorg;
 
-use simialbi\yii2\schemaorg\commands\ModelsController;
-use simialbi\yii2\schemaorg\Module;
 use Yii;
 
 /**
@@ -11,53 +9,46 @@ use Yii;
  */
 class GenerationTest extends TestCase
 {
-    /**
-     * @var ModelsController
-     */
-    private $_generator;
-
-    protected function setUp()
-    {
-        parent::setUp();
-
-        $module = new Module('schema');
-
-        $this->_generator = new ModelsController('models', $module);
-
-        $this->_generator->namespace = 'tests\schemas';
-        $this->_generator->folder = '@runtime/generated';
-        $this->_generator->removeOld = true;
-    }
-
     public function testGeneration()
     {
-        $this->_generator->actionGenerate();
+        $this->mockApplication();
+
+        Yii::$app->runAction('schema/models/generate', [
+            'namespace' => 'tests\schemas',
+            'folder' => '@runtime/generated',
+            'removeOld' => true
+        ]);
 
         $this->assertFileExists(Yii::getAlias('@runtime/cache/schemas-latest.json'));
-        $this->assertDirectoryExists(Yii::getAlias($this->_generator->folder));
+        $this->assertDirectoryExists(Yii::getAlias('@runtime/generated'));
 
-        $classes = glob($this->_generator->folder . '/*.php');
+        $classes = glob(Yii::getAlias('@runtime/generated/*.php'));
 
         $this->assertEquals(771, count($classes));
 
         foreach ($classes as $class) {
             require $class;
 
-            $fqn = $this->_generator->namespace . '\\' . basename($class, '.php');
+            $fqn = 'tests\\schemas\\' . basename($class, '.php');
             $this->assertTrue(class_exists($fqn));
         }
     }
 
     public function testFilter()
     {
-        $this->_generator->schemas = ['Offer', 'DataDownload'];
+        $this->mockApplication();
 
-        $this->_generator->actionGenerate();
+        Yii::$app->runAction('schema/models/generate', [
+            'namespace' => 'tests\schemas',
+            'folder' => '@runtime/generated',
+            'removeOld' => true,
+            'schemas' => 'Offer,DataDownload'
+        ]);
 
-        $classes = glob($this->_generator->folder . '/*.php');
+        $classes = glob(Yii::getAlias('@runtime/generated/*.php'));
 
         $this->assertEquals(2, count($classes));
-        $this->assertFileExists(Yii::getAlias($this->_generator->folder . '/Offer.php'));
-        $this->assertFileExists(Yii::getAlias($this->_generator->folder . '/DataDownload.php'));
+        $this->assertFileExists(Yii::getAlias('@runtime/generated/Offer.php'));
+        $this->assertFileExists(Yii::getAlias('@runtime/generated/DataDownload.php'));
     }
 }

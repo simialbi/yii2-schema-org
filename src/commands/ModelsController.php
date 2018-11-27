@@ -49,7 +49,7 @@ class ModelsController extends Controller
     /**
      * @var string The target folder for generated classes and traits
      */
-    public $folder = '@simialbi/yii2/schemaorg/src/models';
+    public $folder = '@simialbi/yii2/schemaorg/models';
 
     /**
      * @var boolean Wether to remove old files before re-generating
@@ -180,6 +180,8 @@ class ModelsController extends Controller
             }
         }
 
+        $this->traverseClasses($classes);
+
         if (!empty($this->schemas)) {
             foreach ($classes as $key => $class) {
                 unset($classes[$key]);
@@ -188,8 +190,6 @@ class ModelsController extends Controller
             }
             $classes = ArrayHelper::filter($classes, $this->schemas);
         }
-
-        $this->traverseClasses($classes);
 
         $this->stdout("\n");
         foreach ($classes as $class) {
