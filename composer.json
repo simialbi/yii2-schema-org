@@ -43,18 +43,6 @@
       "enable": false
     }
   },
-  "scripts": {
-    "post-install-cmd": [
-      "simialbi\\yii2\\schemaorg\\composer\\Installer::postInstallUpdate"
-    ]
-  },
-  "extra": {
-    "simialbi\\yii2\\schemaorg\\composer\\Installer::postInstallUpdate": {
-      "generateModels": {
-        "schemas": ["Car", "AutoDealer"]
-      }
-    }
-  },
   "autoload": {
     "psr-4": {
       "simialbi\\yii2\\schemaorg\\": "src"
