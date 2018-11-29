@@ -51,9 +51,7 @@
   "extra": {
     "simialbi\\yii2\\schemaorg\\composer\\Installer::postInstallUpdate": {
       "generateModels": {
-        "schemas": ["Car", "AutoDealer"],
-        "namespace": "common\\schemas",
-        "folder": "common/schema"
+        "schemas": ["Car", "AutoDealer"]
       }
     }
   },
