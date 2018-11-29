@@ -111,7 +111,7 @@ class ModelsController extends Controller
         }
 
         $file = Yii::getAlias("@runtime/cache/schemas-$version.json");
-        if (!file_exists($file)) {
+        if (!file_exists($file) || $version === 'latest') {
             $url = sprintf(self::DEFINITION_FILE, $version);
             copy($url, $file);
         }
@@ -172,7 +172,7 @@ class ModelsController extends Controller
                                     '@id'
                                 )
                             ))),
-                            'description' => $comment,
+                            'description' => preg_replace('#<br ?/?>#i', '', $comment),
                             'see' => $see
                         ]
                     ]
@@ -206,7 +206,11 @@ class ModelsController extends Controller
 
             $contents = $this->renderPartial('class', [
                 'namespace' => $this->namespace,
-                'description' => ArrayHelper::getValue($class, 'rdfs:comment', ''),
+                'description' => preg_replace(
+                    '#<br ?/?>#i',
+                    '',
+                    ArrayHelper::getValue($class, 'rdfs:comment', '')
+                ),
                 'label' => $label,
                 'properties' => ArrayHelper::index(ArrayHelper::getValue($class, 'properties', []), 'name')
             ]);

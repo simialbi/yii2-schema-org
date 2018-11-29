@@ -117,6 +117,33 @@ $ php yii schema/models/generate 'latest' --schemas=Car,AutoDealer --namespace='
 
 The console command will take care of computing schemas dependencies and will generate the classes based on your needs.
 
+### Autmatic model update on composer update
+If you'd like to always update your schema when you run `composer update` you can configure your composer.json like this:
+```json
+{
+  // [...]
+  "require": {
+    "yiisoft/yii2": "^2.0.13",
+    "simialbi/yii2-schema-org": "*"
+  },
+  "scripts": {
+    "post-update-cmd": [
+      "simialbi\\yii2\\schemaorg\\composer\\Installer::postInstallUpdate"
+    ]
+  },
+  "extra": {
+    "simialbi\\yii2\\schemaorg\\composer\\Installer::postInstallUpdate": {
+      "generateModels": {
+        "schemas": ["Car", "AutoDealer"], // optional
+        "namespace": "common\\schemas", // optional
+        "folder": "common/schema" // optional
+      }
+    }
+  }
+  // [...]
+}
+```
+
 ## Example Usage
 To e.g. add a person to json+ld, you can do the following:
 
