@@ -5,6 +5,7 @@ Schema.org yii2 representation and helpers for json-ld generation.
 [![Latest Stable Version](https://poser.pugx.org/simialbi/yii2-schema-org/v/stable?format=flat-square)](https://packagist.org/packages/simialbi/yii2-schema-org)
 [![Total Downloads](https://poser.pugx.org/simialbi/yii2-schema-org/downloads?format=flat-square)](https://packagist.org/packages/simialbi/yii2-schema-org)
 [![Build Status](https://travis-ci.com/simialbi/yii2-schema-org.svg?format=flat-square&branch=master)](https://travis-ci.com/simialbi/yii2-schema-org)
+[![License](https://poser.pugx.org/simialbi/yii2-schema-org/license?format=flat-square)](https://packagist.org/packages/simialbi/yii2-schema-org)
 
 ## Resources
  * JSON-LD [documentation](http://json-ld.org/learn.html)
@@ -23,7 +24,7 @@ $ php composer.phar require --prefer-dist simialbi/yii2-schema-org
 or add 
 
 ```
-"simialbi/yii2-schema-org": "*"
+"simialbi/yii2-schema-org": "^2.0.0"
 ```
 
 to the ```require``` section of your `composer.json`
@@ -124,7 +125,7 @@ If you'd like to always update your schema when you run `composer update` you ca
   // [...]
   "require": {
     "yiisoft/yii2": "^2.0.13",
-    "simialbi/yii2-schema-org": "*"
+    "simialbi/yii2-schema-org": "^2.0.0"
   },
   "scripts": {
     "post-update-cmd": [
