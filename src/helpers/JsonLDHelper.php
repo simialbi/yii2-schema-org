@@ -21,6 +21,7 @@ use yii\helpers\Url;
  *
  * @author Alexander Stepanov <student_vmk@mail.ru>
  * @author Simon Karlen <simi.albi@outlook.com>
+ * @author Mehdi Achour <machour@gmail.com>
  */
 class JsonLDHelper
 {
@@ -60,6 +61,7 @@ class JsonLDHelper
                     ];
                 } else {
                     $listItem->item = [
+                        '@id' => Yii::$app->request->absoluteUrl,
                         'name' => $breadcrumb
                     ];
                 }

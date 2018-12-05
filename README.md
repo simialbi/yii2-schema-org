@@ -17,7 +17,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 
 Either run
 
-```
+```bash
 $ php composer.phar require --prefer-dist simialbi/yii2-schema-org
 ```
 
@@ -96,7 +96,7 @@ AppAsset::register($this);
 
 Without passing any parameters **all** schemas will be generated in the folder `@vendor/simialbi/yii2-schema-org/src/models`.
 The namespace of the models will be `simialbi\yii2\schemaorg\models`.
-```
+```bash
 $ php yii schema/models/generate
 ```
 
@@ -104,17 +104,17 @@ $ php yii schema/models/generate
 
 If you want to customize the namespace and path you can do it via `--namespace` and `--folder` parameters. E.g. to generate
 schemas `Car` and `AutoDealer` in `common/schemas` with `common\schemas` namespace: 
- ```
+ ```bash
 $ php yii schema/models/generate 'latest' --schemas=Car,AutoDealer --namespace='common\schemas' --folder='@common/schemas/'
 ```
 
-| Parameter      | Description                                                                                                           |
-|----------------|-----------------------------------------------------------------------------------------------------------------------|
-| `version`      | The [schemas.org version](https://schema.org/docs/releases.html) to use. Defaults to `latest`.                        | 
-| `--schemas`    | A comma separated list of schemas you intend to use. Empty means all. Defaults to `[]`                                |
-| `--namespace`  | The namespace to use for the generated classes and traits. Defaults to `simialbi\yii2\schemaorg\models`  **Required** |
-| `--folder`     | The folder where to put the generated files. Defaults to `@simialbi/yii2/schemaorg/src/models` **Required**           |
-| `--remove-old` | Whether to remove old files before generating. Defaults to `false`                                                    |
+| Parameter      | Description                                                                                              |
+|----------------|----------------------------------------------------------------------------------------------------------|
+| `version`      | The [schemas.org version](https://schema.org/docs/releases.html) to use. Defaults to `latest`            | 
+| `--schemas`    | A comma separated list of schemas you intend to use. Empty means all. Defaults to `[]`                   |
+| `--namespace`  | The namespace to use for the generated classes and traits. Defaults to `simialbi\yii2\schemaorg\models`  |
+| `--folder`     | The folder where to put the generated files. Defaults to `@simialbi/yii2/schemaorg/src/models`           |
+| `--remove-old` | Whether to remove old files before generating. Defaults to `false`                                       |
 
 The console command will take care of computing schemas dependencies and will generate the classes based on your needs.
 
