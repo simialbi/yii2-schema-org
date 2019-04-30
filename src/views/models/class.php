@@ -2,6 +2,7 @@
 
 /** @var $this \yii\web\View */
 /** @var $description string */
+/** @var $className string */
 /** @var $label string */
 /** @var $properties array */
 /** @var $namespace string */
@@ -20,7 +21,7 @@ use simialbi\yii2\schemaorg\models\Model;
  *
  * @see http://schema.org/<?= $label . "\n" ?>
  */
-class <?= $label ?> extends Model
+class <?= $className ?> extends Model
 {
 <?php foreach ($properties as $property) : ?>
     /**

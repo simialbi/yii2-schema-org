@@ -117,6 +117,7 @@ class ModelsController extends Controller
         }
 
         $json = Json::decode(file_get_contents($file));
+        /* Old version
         $schemas = ArrayHelper::remove($json, '@graph', []);
 
         $data = [];
@@ -134,6 +135,21 @@ class ModelsController extends Controller
             }
             $data = ArrayHelper::merge($data, ArrayHelper::index($graphs, null, ['@type']));
         }
+        /*/ // @since 3.5
+        $graphs = ArrayHelper::remove($json, '@graph', []);
+
+        $data = [];
+        foreach ($graphs as $k => $graph) {
+            if (!isset($graph['@type'])) {
+                unset($graphs[$k]);
+                continue;
+            }
+            if (is_array($graph['@type'])) {
+                $graphs[$k]['@type'] = implode(',', $graph['@type']);
+            }
+        }
+        $data = ArrayHelper::merge($data, ArrayHelper::index($graphs, null, ['@type']));
+        //*/
 
         $properties = ArrayHelper::remove($data, 'rdf:Property');
         $classes = ArrayHelper::index(ArrayHelper::remove($data, 'rdfs:Class'), '@id');
@@ -200,8 +216,11 @@ class ModelsController extends Controller
             if (empty($label) || false !== in_array($label, $this->blackList)) {
                 continue;
             }
+            // e.g. https://schema.org/3DModel generates as className "3DModel" what's not allowed in PHP
+            $className = (preg_match('#^[0-9]#', $label)) ? 'Model' . $label : $label;
+
             $this->stdout('*** creating class ');
-            $this->stdout($this->namespace . '\\' . $label, Console::FG_YELLOW, Console::BOLD);
+            $this->stdout($this->namespace . '\\' . $className, Console::FG_YELLOW, Console::BOLD);
             $this->stdout("\n");
 
             $contents = $this->renderPartial('class', [
@@ -211,14 +230,15 @@ class ModelsController extends Controller
                     '',
                     ArrayHelper::getValue($class, 'rdfs:comment', '')
                 ),
+                'className' => $className,
                 'label' => $label,
                 'properties' => ArrayHelper::index(ArrayHelper::getValue($class, 'properties', []), 'name')
             ]);
-            if (false !== file_put_contents($this->folder . '/' . $label . '.php', $contents)) {
-                $this->stdout("*** class {$this->namespace}\\$label created", Console::FG_GREEN);
+            if (false !== file_put_contents($this->folder . '/' . $className . '.php', $contents)) {
+                $this->stdout("*** class {$this->namespace}\\$className created", Console::FG_GREEN);
                 $this->stdout("\n\n");
             } else {
-                $this->stderr("*** failed to create {$this->namespace}\\$label", Console::FG_RED);
+                $this->stderr("*** failed to create {$this->namespace}\\$className", Console::FG_RED);
                 $this->stderr("\n\n");
             }
         }
