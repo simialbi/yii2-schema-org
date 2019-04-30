@@ -34,7 +34,7 @@
   "require-dev": {
     "composer/composer": "^1.0",
     "yiisoft/yii2-coding-standards": "~2.0",
-    "phpunit/phpunit": "*"
+    "phpunit/phpunit": "<7"
   },
   "config": {
     "process-timeout": 1800,
