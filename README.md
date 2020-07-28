@@ -4,7 +4,7 @@ Schema.org yii2 representation and helpers for json-ld generation.
 
 [![Latest Stable Version](https://poser.pugx.org/simialbi/yii2-schema-org/v/stable?format=flat-square)](https://packagist.org/packages/simialbi/yii2-schema-org)
 [![Total Downloads](https://poser.pugx.org/simialbi/yii2-schema-org/downloads?format=flat-square)](https://packagist.org/packages/simialbi/yii2-schema-org)
-[![Build Status](https://travis-ci.com/simialbi/yii2-schema-org.svg?format=flat-square&branch=master)](https://travis-ci.com/simialbi/yii2-schema-org)
+![Build Status](https://github.com/simialbi/yii2-schema-org/workflows/build/badge.svg)
 [![License](https://poser.pugx.org/simialbi/yii2-schema-org/license?format=flat-square)](https://packagist.org/packages/simialbi/yii2-schema-org)
 
 ## Resources
