@@ -29,7 +29,7 @@ class ModelsController extends Controller
     /**
      * The schemas definition file url pattern
      */
-    const DEFINITION_FILE = 'http://schema.org/version/%s/all-layers.jsonld';
+    const DEFINITION_FILE = 'https://schema.org/version/%s/schemaorg-current-http.jsonld';
 
     /**
      * {@inheritdoc}
