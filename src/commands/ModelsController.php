@@ -162,9 +162,12 @@ class ModelsController extends Controller
             if (empty($label)) {
                 continue;
             }
-            $classUsages = ArrayHelper::remove($property, 'http://schema.org/domainIncludes', []);
-            $rangeIncludes = ArrayHelper::remove($property, 'http://schema.org/rangeIncludes');
+            $classUsages = ArrayHelper::remove($property, 'schema:domainIncludes', []);
+            $rangeIncludes = ArrayHelper::remove($property, 'schema:rangeIncludes');
             $comment = ArrayHelper::remove($property, 'rdfs:comment', '');
+            if (is_array($comment) && isset($comment['@value'])) {
+                $comment = $comment['@value'];
+            }
             $see = ArrayHelper::remove($property, '@id');
             if ($rangeIncludes === null) {
                 continue;
