@@ -223,12 +223,16 @@ class ModelsController extends Controller
             $this->stdout($this->namespace . '\\' . $className, Console::FG_YELLOW, Console::BOLD);
             $this->stdout("\n");
 
+            $comment = ArrayHelper::getValue($class, 'rdfs:comment', '');
+            if (is_array($comment) && isset($comment['@value'])) {
+                $comment = $comment['@value'];
+            }
             $contents = $this->renderPartial('class', [
                 'namespace' => $this->namespace,
                 'description' => preg_replace(
                     '#<br ?/?>#i',
                     '',
-                    ArrayHelper::getValue($class, 'rdfs:comment', '')
+                    $comment
                 ),
                 'className' => $className,
                 'label' => $label,
