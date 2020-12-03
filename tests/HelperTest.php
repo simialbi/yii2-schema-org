@@ -85,7 +85,7 @@ JSONLD;
         $content = Yii::$app->view->render('@webroot/views/empty');
 
         $expected = <<<JSONLD
-<script type="application/ld+json">{"@context":"http://schema.org","itemListElement":[{"position":1,"item":{"@id":"http://www.example.com/index.php?r=","name":"Home"},"@type":"ListItem"},{"position":2,"item":{"@id":"http://www.example.com/index.php?r=welcome","name":"Welcome"},"@type":"ListItem"}],"@type":"BreadcrumbList"}</script>
+<script type="application/ld+json">{"@context":"http://schema.org","itemListElement":[{"item":{"@id":"http://www.example.com/index.php?r=","name":"Home"},"position":1,"@type":"ListItem"},{"item":{"@id":"http://www.example.com/index.php?r=welcome","name":"Welcome"},"position":2,"@type":"ListItem"}],"@type":"BreadcrumbList"}</script>
 JSONLD;
 
         $this->assertContains($expected, $content);
