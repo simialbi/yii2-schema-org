@@ -24,7 +24,7 @@ class GenerationTest extends TestCase
 
         $classes = glob(Yii::getAlias('@runtime/generated/*.php'));
 
-        $this->assertEquals(841, count($classes));
+        $this->assertEquals(854, count($classes));
 
         foreach ($classes as $class) {
             require $class;

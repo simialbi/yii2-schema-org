@@ -168,7 +168,7 @@ class ModelsController extends Controller
             if (is_array($comment) && isset($comment['@value'])) {
                 $comment = $comment['@value'];
             }
-            $see = ArrayHelper::remove($property, '@id');
+            $see = str_replace('schema:', 'https://schema.org/', ArrayHelper::remove($property, '@id'));
             if ($rangeIncludes === null) {
                 continue;
             }
@@ -204,7 +204,7 @@ class ModelsController extends Controller
         if (!empty($this->schemas)) {
             foreach ($classes as $key => $class) {
                 unset($classes[$key]);
-                $key = str_replace('http://schema.org/', '', $key);
+                $key = str_replace('schema:', '', $key);
                 $classes[$key] = $class;
             }
             $classes = ArrayHelper::filter($classes, $this->schemas);
@@ -278,7 +278,7 @@ class ModelsController extends Controller
      */
     private function mapType($type)
     {
-        $type = str_replace('http://schema.org/', '', $type);
+        $type = str_replace('schema:', '', $type);
 
         switch ($type) {
             case 'URL':
