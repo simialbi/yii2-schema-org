@@ -28,3 +28,4 @@ phpunit.phar
 /phpunit.xml
 
 tests/runtime
+.phpunit.result.cache

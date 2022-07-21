@@ -38,7 +38,7 @@ class Model extends \yii\base\Model
      *
      * @return array the array representation of the object
      */
-    public function toJsonLDArray($fields = [], $expand = [], $recursive = true)
+    public function toJsonLDArray(array $fields = [], array $expand = [], bool $recursive = true): array
     {
         return array_merge([
             '@context' => 'http://schema.org'
@@ -46,7 +46,7 @@ class Model extends \yii\base\Model
     }
 
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
     public function toArray(array $fields = [], array $expand = [], $recursive = true)
     {
@@ -64,9 +64,9 @@ class Model extends \yii\base\Model
     }
 
     /**
-     * @inheritdoc
+     * {@inheritDoc}
      */
-    public function fields()
+    public function fields(): array
     {
         $fields = array_merge(
             parent::fields(),

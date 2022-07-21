@@ -9,6 +9,7 @@
 
 namespace simialbi\yii2\schemaorg\helpers;
 
+use simialbi\yii2\schemaorg\models\Model;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\helpers\ArrayHelper;
@@ -26,7 +27,7 @@ use yii\helpers\Url;
 class JsonLDHelper
 {
     /**
-     * @var \simialbi\yii2\schemaorg\models\Model[] Keeps schema org models wich will be displayed on page
+     * @var Model[] Keeps schema org models wich will be displayed on page
      */
     private static $_models = [];
 
@@ -42,7 +43,7 @@ class JsonLDHelper
 
         $view = Yii::$app->view;
 
-        /* @var $breadcrumbList \simialbi\yii2\schemaorg\models\Model */
+        /* @var $breadcrumbList Model */
         $breadcrumbs = ArrayHelper::getValue($view->params, 'breadcrumbs', []);
         $breadcrumbList = Yii::createObject([
             'class' => 'simialbi\yii2\schemaorg\models\BreadcrumbList'
@@ -75,9 +76,9 @@ class JsonLDHelper
     /**
      * Add model to json+ld rendering queue
      *
-     * @param \simialbi\yii2\schemaorg\models\Model $model
+     * @param Model $model
      */
-    public static function add($model)
+    public static function add(Model $model)
     {
         self::$_models[] = $model;
     }

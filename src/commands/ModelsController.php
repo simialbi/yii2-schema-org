@@ -67,8 +67,9 @@ class ModelsController extends Controller
      * @param string $version The Schema.org version to use when generating files
      * @return int The exit code
      * @throws \yii\base\Exception
+     * @throws \Exception
      */
-    public function actionGenerate($version = 'latest')
+    public function actionGenerate(string $version = 'latest'): int
     {
         if (empty($this->namespace)) {
             $this->stderr('You must specify a namespace for the generated files using --namespace', Console::FG_RED);
@@ -220,7 +221,7 @@ class ModelsController extends Controller
                 continue;
             }
             // e.g. https://schema.org/3DModel generates as className "3DModel" what's not allowed in PHP
-            $className = (preg_match('#^[0-9]#', $label)) ? 'Model' . $label : $label;
+            $className = (preg_match('#^(\d|Class$)#', $label)) ? 'Model' . $label : $label;
 
             $this->stdout('*** creating class ');
             $this->stdout($this->namespace . '\\' . $className, Console::FG_YELLOW, Console::BOLD);
@@ -256,7 +257,7 @@ class ModelsController extends Controller
     /**
      * {@inheritdoc}
      */
-    public function options($actionID)
+    public function options($actionID): array
     {
         $options = parent::options($actionID);
 
@@ -276,7 +277,7 @@ class ModelsController extends Controller
      * @param string $type
      * @return string
      */
-    private function mapType($type)
+    private function mapType(string $type): string
     {
         $type = str_replace('schema:', '', $type);
 
@@ -291,6 +292,8 @@ class ModelsController extends Controller
                 return 'float';
             case 'Integer':
                 return 'int';
+            case 'Class':
+                return 'ModelClass';
             case 'Boolean':
             case 'True':
             case 'False':
@@ -304,9 +307,10 @@ class ModelsController extends Controller
      * Traverse all classes and inherit properties from parents
      *
      * @param array $classes
-     * @param array $allClasses
+     * @param array|null $allClasses
+     * @throws \Exception
      */
-    private function traverseClasses(array &$classes, $allClasses = null)
+    private function traverseClasses(array &$classes, ?array $allClasses = null)
     {
         if ($allClasses === null) {
             $allClasses = $classes;

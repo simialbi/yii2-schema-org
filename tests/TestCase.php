@@ -12,7 +12,7 @@ use yii\helpers\FileHelper;
  */
 abstract class TestCase extends \PHPUnit\Framework\TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         FileHelper::createDirectory(__DIR__ . '/runtime');
@@ -24,10 +24,10 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
      * Clean up after test.
      * By default the application created with [[mockApplication]] will be destroyed.
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         parent::tearDown();
-        FileHelper::removeDirectory(Yii::getAlias('@runtime'));
+//        FileHelper::removeDirectory(Yii::getAlias('@runtime'));
         $this->destroyApplication();
     }
 
@@ -37,7 +37,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
      * @param array $config The application configuration, if needed
      * @param string $appClass name of the application class to create
      */
-    protected function mockApplication($config = [], $appClass = '\yii\console\Application')
+    protected function mockApplication(array $config = [], string $appClass = '\yii\console\Application')
     {
         new $appClass(ArrayHelper::merge([
             'id' => 'testapp',
@@ -52,7 +52,12 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         ], $config));
     }
 
-    protected function mockWebApplication($config = [], $appClass = '\yii\web\Application')
+    /**
+     * @param array $config
+     * @param string $appClass
+     * @return void
+     */
+    protected function mockWebApplication(array $config = [], string $appClass = '\yii\web\Application')
     {
         new $appClass(ArrayHelper::merge([
             'id' => 'testapp',

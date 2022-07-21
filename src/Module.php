@@ -8,6 +8,7 @@
 namespace simialbi\yii2\schemaorg;
 
 use simialbi\yii2\schemaorg\helpers\JsonLDHelper;
+use Yii;
 use yii\base\BootstrapInterface;
 use yii\web\View;
 
@@ -50,12 +51,12 @@ class Module extends \yii\base\Module implements BootstrapInterface
             ]);
         } else {
             if ($this->autoCreate) {
-                \Yii::$app->view->on(View::EVENT_END_BODY, function () {
+                Yii::$app->view->on(View::EVENT_END_BODY, function () {
                     JsonLDHelper::addBreadCrumbList();
                 });
             }
             if ($this->autoRender) {
-                \Yii::$app->view->on(View::EVENT_END_BODY, function () {
+                Yii::$app->view->on(View::EVENT_END_BODY, function () {
                     JsonLDHelper::render();
                 });
             }

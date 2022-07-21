@@ -15,24 +15,24 @@ namespace <?= $namespace ?>;
 use simialbi\yii2\schemaorg\models\Model;
 
 /**
-<?php foreach (explode("\n", $description) as $chunk) : ?>
+<?php foreach (explode("\n", $description) as $chunk): ?>
  * <?= wordwrap($chunk, 75, "\n * ") . "\n" ?>
-<?php endforeach ?>
+<?php endforeach; ?>
  *
  * @see http://schema.org/<?= $label . "\n" ?>
  */
-class <?= $className ?> extends Model
+class <?= $className; ?> extends Model
 {
-<?php foreach ($properties as $property) : ?>
+<?php foreach ($properties as $property): ?>
     /**
-<?php foreach (explode("\n", $property['description']) as $chunk) : ?>
-     * <?= wordwrap($chunk, 75, "\n     * ") . "\n" ?>
-<?php endforeach ?>
+<?php foreach (explode("\n", $property['description']) as $chunk): ?>
+     * <?= wordwrap($chunk, 75, "\n     * ") . "\n"; ?>
+<?php endforeach; ?>
      *
-     * @var <?= implode('|', $property['types']) . "\n" ?>
-     * @see <?= $property['see'] . "\n" ?>
+     * @var <?= implode('|', $property['types']) . "\n"; ?>
+     * @see <?= $property['see'] . "\n"; ?>
      */
     public $<?= $property['name'] ?>;
 
-<?php endforeach ?>
+<?php endforeach; ?>
 }

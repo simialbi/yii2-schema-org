@@ -50,7 +50,7 @@ class HelperTest extends TestCase
 <script type="application/ld+json">{"@context":"http://schema.org","children":[{"name":"George W. Bush","disambiguatingDescription":"43rd President of the United States","@type":"Person"}],"name":"George Bush","disambiguatingDescription":"41st President of the United States","@type":"Person"}</script>
 JSONLD;
 
-        $this->assertContains($expected, $content);
+        $this->assertStringContainsString($expected, $content);
     }
 
     public function testAutoCreate()
@@ -85,15 +85,15 @@ JSONLD;
         $content = Yii::$app->view->render('@webroot/views/empty');
 
         $expected = <<<JSONLD
-<script type="application/ld+json">{"@context":"http://schema.org","itemListElement":[{"item":{"@id":"http://www.example.com/index.php?r=","name":"Home"},"position":1,"@type":"ListItem"},{"item":{"@id":"http://www.example.com/index.php?r=welcome","name":"Welcome"},"position":2,"@type":"ListItem"}],"@type":"BreadcrumbList"}</script>
+<script type="application/ld+json">{"@context":"http://schema.org","itemListElement":[{"position":1,"item":{"@id":"http://www.example.com/index.php?r=","name":"Home"},"@type":"ListItem"},{"position":2,"item":{"@id":"http://www.example.com/index.php?r=welcome","name":"Welcome"},"@type":"ListItem"}],"@type":"BreadcrumbList"}</script>
 JSONLD;
 
-        $this->assertContains($expected, $content);
+        $this->assertStringContainsString($expected, $content);
 
         FileHelper::unlink(Yii::getAlias('@simialbi/yii2/schemaorg/models/BreadcrumbList.php'));
         FileHelper::unlink(Yii::getAlias('@simialbi/yii2/schemaorg/models/ListItem.php'));
 
-        $this->assertFileNotExists(Yii::getAlias('@simialbi/yii2/schemaorg/models/BreadcrumbList.php'));
-        $this->assertFileNotExists(Yii::getAlias('@simialbi/yii2/schemaorg/models/ListItem.php'));
+        $this->assertFileDoesNotExist(Yii::getAlias('@simialbi/yii2/schemaorg/models/BreadcrumbList.php'));
+        $this->assertFileDoesNotExist(Yii::getAlias('@simialbi/yii2/schemaorg/models/ListItem.php'));
     }
 }

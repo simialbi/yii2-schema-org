@@ -19,7 +19,7 @@ class Installer
      * @param Event $event
      * @since 2.0.5
      */
-    public static function postInstallUpdate($event)
+    public static function postInstallUpdate(Event $event)
     {
         static::runCommands($event, __METHOD__);
     }
@@ -30,7 +30,7 @@ class Installer
      * @param Event $event
      * @param string $extraKey
      */
-    protected static function runCommands($event, $extraKey)
+    protected static function runCommands(Event $event, string $extraKey)
     {
         $params = $event->getComposer()->getPackage()->getExtra();
         if (isset($params[$extraKey]) && is_array($params[$extraKey])) {
@@ -51,6 +51,7 @@ class Installer
      * @throws \yii\base\InvalidConfigException
      * @throws \yii\console\Exception
      * @throws \yii\base\InvalidRouteException
+     * @throws \Exception
      */
     public static function generateModels(array $config)
     {
