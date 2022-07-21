@@ -58,10 +58,11 @@ Also add the module `schema` to the bootstrap section of your configuration file
 'bootstrap' => ['log', 'schema']
 ```
 
-| Parameter    | Description                                                     |
-|--------------|-----------------------------------------------------------------|
-| `autoCreate` | Automatically create breadcrumbs `json+ld` data.                | 
-| `autoRender` | Automatically render `json+ld` data at the end of body section. |
+| Parameter      | Description                                                                 |
+|----------------|-----------------------------------------------------------------------------|
+| `autoCreate`   | Automatically create breadcrumbs `json+ld` data.                            | 
+| `autoRender`   | Automatically render `json+ld` data at the end of body section.             |
+| `mergeModels`  | Merge models into one script tag instead of rendering one for each of them. |
 
 *If you don't use `autoRender`, be sure to manually call `JsonLDHelper::render()` in your layout file, like so:*
 
@@ -118,7 +119,7 @@ $ php yii schema/models/generate 'latest' --schemas=Car,AutoDealer --namespace='
 
 The console command will take care of computing schemas dependencies and will generate the classes based on your needs.
 
-### Autmatic model update on composer update
+### Automatic model update on composer update
 If you'd like to always update your schema when you run `composer update` you can configure your composer.json like this:
 ```json
 {
