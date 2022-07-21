@@ -27,7 +27,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     protected function tearDown(): void
     {
         parent::tearDown();
-//        FileHelper::removeDirectory(Yii::getAlias('@runtime'));
+        FileHelper::removeDirectory(Yii::getAlias('@runtime'));
         $this->destroyApplication();
     }
 
