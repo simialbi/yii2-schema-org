@@ -96,4 +96,54 @@ JSONLD;
         $this->assertFileDoesNotExist(Yii::getAlias('@simialbi/yii2/schemaorg/models/BreadcrumbList.php'));
         $this->assertFileDoesNotExist(Yii::getAlias('@simialbi/yii2/schemaorg/models/ListItem.php'));
     }
+
+    public function testMerged()
+    {
+        $this->mockApplication();
+
+        Yii::$app->runAction('schema/models/generate', [
+            'removeOld' => true,
+            'schemas' => 'Person'
+        ]);
+        $this->assertFileExists(Yii::getAlias('@simialbi/yii2/schemaorg/models/Person.php'));
+
+        $this->destroyApplication();
+        $this->mockApplication([
+            'modules' => [
+                'schema' => [
+                    'class' => 'simialbi\yii2\schemaorg\Module',
+                    'mergeModels' => true
+                ]
+            ]
+        ]);
+
+        $_SERVER['HTTP_HOST'] = 'www.example.com';
+        $_SERVER['REQUEST_URI'] = 'http://www.example.com/index.php?r=welcome';
+
+        $person = new \simialbi\yii2\schemaorg\models\Person([
+            'name' => 'George W. Bush',
+            'disambiguatingDescription' => '43rd President of the United States'
+        ]);
+        $person2 = new \simialbi\yii2\schemaorg\models\Person([
+            'name' => 'George Bush',
+            'disambiguatingDescription' => '41st President of the United States'
+        ]);
+
+        JsonLDHelper::add($person);
+        JsonLDHelper::add($person2);
+
+        ob_start();
+        JsonLDHelper::render(true);
+        $content = ob_get_clean();
+
+        $expected = <<<HTML
+<script type="application/ld+json">[{"@context":"http://schema.org","name":"George W. Bush","disambiguatingDescription":"43rd President of the United States","@type":"Person"},{"@context":"http://schema.org","name":"George Bush","disambiguatingDescription":"41st President of the United States","@type":"Person"}]</script>
+HTML;
+
+        $this->assertStringContainsString(trim($content), trim($expected));
+
+        FileHelper::unlink(Yii::getAlias('@simialbi/yii2/schemaorg/models/Person.php'));
+
+        $this->assertFileDoesNotExist(Yii::getAlias('@simialbi/yii2/schemaorg/models/Person.php'));
+    }
 }

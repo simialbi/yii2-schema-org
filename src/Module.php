@@ -36,6 +36,11 @@ class Module extends \yii\base\Module implements BootstrapInterface
     public $autoRender = false;
 
     /**
+     * @var boolean merge models into one script tag
+     */
+    public $mergeModels = false;
+
+    /**
      * @inheritdoc
      */
     public function bootstrap($app)
@@ -57,7 +62,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
             }
             if ($this->autoRender) {
                 Yii::$app->view->on(View::EVENT_END_BODY, function () {
-                    JsonLDHelper::render();
+                    JsonLDHelper::render($this->mergeModels);
                 });
             }
         }

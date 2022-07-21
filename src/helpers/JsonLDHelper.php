@@ -85,10 +85,25 @@ class JsonLDHelper
 
     /**
      * Renders ld+json data
+     *
+     * @param boolean $merge
      */
-    public static function render()
+    public static function render(bool $merge = false)
     {
         if (!empty(self::$_models)) {
+            if ($merge) {
+                $models = array_map(function ($item) {
+                    return $item->toJsonLDArray();
+                }, self::$_models);
+                try {
+                    echo Html::script(Json::encode($models), ['type' => 'application/ld+json']) . "\n";
+                } catch (InvalidArgumentException $e) {
+                    $logger = Yii::$app->log->logger;
+                    $logger->log($e->getMessage(), $logger::LEVEL_ERROR);
+                }
+                self::$_models = [];
+                return;
+            }
             foreach (self::$_models as $model) {
                 try {
                     echo Html::script(Json::encode($model->toJsonLDArray()), ['type' => 'application/ld+json']) . "\n";
@@ -97,6 +112,7 @@ class JsonLDHelper
                     $logger->log($e->getMessage(), $logger::LEVEL_ERROR);
                 }
             }
+            self::$_models = [];
         }
     }
 }
