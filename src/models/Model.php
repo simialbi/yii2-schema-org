@@ -41,7 +41,7 @@ class Model extends \yii\base\Model
     public function toJsonLDArray(array $fields = [], array $expand = [], bool $recursive = true): array
     {
         return array_merge([
-            '@context' => 'http://schema.org'
+            '@context' => 'https://schema.org'
         ], $this->toArray($fields, $expand, $recursive));
     }
 
@@ -53,6 +53,7 @@ class Model extends \yii\base\Model
         $array = array_filter(parent::toArray($fields, $expand, $recursive), function ($item) {
             return !is_null($item);
         });
+        ksort($array);
         $keys = array_keys($array);
         $values = array_values($array);
 

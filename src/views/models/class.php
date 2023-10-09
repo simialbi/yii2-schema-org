@@ -19,7 +19,7 @@ use simialbi\yii2\schemaorg\models\Model;
  * <?= wordwrap($chunk, 75, "\n * ") . "\n" ?>
 <?php endforeach; ?>
  *
- * @see http://schema.org/<?= $label . "\n" ?>
+ * @see https://schema.org/<?= $label . "\n" ?>
  */
 class <?= $className; ?> extends Model
 {

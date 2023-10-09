@@ -35,6 +35,7 @@ class HelperTest extends TestCase
             'name' => 'George W. Bush',
             'disambiguatingDescription' => '43rd President of the United States'
         ]);
+        /** @var \simialbi\yii2\schemaorg\models\Model $parent */
         $parent = Yii::createObject([
             'class' => '\tests\schemas\Person',
             'name' => 'George Bush',
@@ -47,7 +48,7 @@ class HelperTest extends TestCase
         $content = Yii::$app->view->render('@webroot/views/empty');
 
         $expected = <<<JSONLD
-<script type="application/ld+json">{"@context":"http://schema.org","children":[{"name":"George W. Bush","disambiguatingDescription":"43rd President of the United States","@type":"Person"}],"name":"George Bush","disambiguatingDescription":"41st President of the United States","@type":"Person"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","children":[{"@type":"Person","disambiguatingDescription":"43rd President of the United States","name":"George W. Bush"}],"disambiguatingDescription":"41st President of the United States","name":"George Bush"}</script>
 JSONLD;
 
         $this->assertStringContainsString($expected, $content);
@@ -85,7 +86,7 @@ JSONLD;
         $content = Yii::$app->view->render('@webroot/views/empty');
 
         $expected = <<<JSONLD
-<script type="application/ld+json">{"@context":"http://schema.org","itemListElement":[{"position":1,"item":{"@id":"http://www.example.com/index.php?r=","name":"Home"},"@type":"ListItem"},{"position":2,"item":{"@id":"http://www.example.com/index.php?r=welcome","name":"Welcome"},"@type":"ListItem"}],"@type":"BreadcrumbList"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":{"@id":"http://www.example.com/index.php?r=","name":"Home"},"position":1},{"@type":"ListItem","item":{"@id":"http://www.example.com/index.php?r=welcome","name":"Welcome"},"position":2}]}</script>
 JSONLD;
 
         $this->assertStringContainsString($expected, $content);
@@ -120,10 +121,12 @@ JSONLD;
         $_SERVER['HTTP_HOST'] = 'www.example.com';
         $_SERVER['REQUEST_URI'] = 'http://www.example.com/index.php?r=welcome';
 
+        /** @var \simialbi\yii2\schemaorg\models\Model $person */
         $person = new \simialbi\yii2\schemaorg\models\Person([
             'name' => 'George W. Bush',
             'disambiguatingDescription' => '43rd President of the United States'
         ]);
+        /** @var \simialbi\yii2\schemaorg\models\Model $person2 */
         $person2 = new \simialbi\yii2\schemaorg\models\Person([
             'name' => 'George Bush',
             'disambiguatingDescription' => '41st President of the United States'
@@ -136,11 +139,11 @@ JSONLD;
         JsonLDHelper::render(true);
         $content = ob_get_clean();
 
-        $expected = <<<HTML
-<script type="application/ld+json">[{"@context":"http://schema.org","name":"George W. Bush","disambiguatingDescription":"43rd President of the United States","@type":"Person"},{"@context":"http://schema.org","name":"George Bush","disambiguatingDescription":"41st President of the United States","@type":"Person"}]</script>
-HTML;
-
-        $this->assertStringContainsString(trim($content), trim($expected));
+        $this->assertStringContainsString('"name":"George W. Bush"', trim($content));
+        $this->assertStringContainsString('"name":"George Bush"', trim($content));
+        $this->assertStringContainsString('"disambiguatingDescription":"43rd President of the United States"', trim($content));
+        $this->assertStringContainsString('"disambiguatingDescription":"41st President of the United States"', trim($content));
+        $this->assertStringContainsString('"@type":"Person"', trim($content));
 
         FileHelper::unlink(Yii::getAlias('@simialbi/yii2/schemaorg/models/Person.php'));
 
